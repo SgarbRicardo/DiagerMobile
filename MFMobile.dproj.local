@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<ProjectSortOrder AutoSort="0" SortType="0">
+    <File Path="android-support-v4.dex.jar"/>
+    <File Path="cloud-messaging.dex.jar"/>
+    <File Path="fmx.dex.jar"/>
+    <File Path="google-analytics-v2.dex.jar"/>
+    <File Path="google-play-billing.dex.jar"/>
+    <File Path="google-play-licensing.dex.jar"/>
+    <File Path="google-play-services-ads-7.0.0.dex.jar"/>
+    <File Path="google-play-services-analytics-7.0.0.dex.jar"/>
+    <File Path="google-play-services-base-7.0.0.dex.jar"/>
+    <File Path="google-play-services-gcm-7.0.0.dex.jar"/>
+    <File Path="google-play-services-identity-7.0.0.dex.jar"/>
+    <File Path="google-play-services-maps-7.0.0.dex.jar"/>
+    <File Path="google-play-services-panorama-7.0.0.dex.jar"/>
+    <File Path="google-play-services-plus-7.0.0.dex.jar"/>
+    <File Path="google-play-services-wallet-7.0.0.dex.jar"/>
+    <File Path="Classes"/>
+    <File Path="Classes\cCategoria.pas"/>
+    <File Path="Classes\cEmprestimo.pas"/>
+    <File Path="Classes\cEquipamento.pas"/>
+    <File Path="Classes\cUsuario.pas"/>
+    <File Path="Units"/>
+    <File Path="Units\uFunctions.pas"/>
+    <File Path="Units\uMD5.pas"/>
+    <File Path="u99Permissions.pas"/>
+    <File Path="unitCategorias.pas"/>
+    <File Path="unitCategorias.fmx"/>
+    <File Path="unitCategoriasCad.pas"/>
+    <File Path="unitCategoriasCad.fmx"/>
+    <File Path="unitInventario.pas"/>
+    <File Path="unitInventario.fmx"/>
+    <File Path="unitInventarioCad.pas"/>
+    <File Path="unitInventarioCad.fmx"/>
+    <File Path="unitLogin.pas"/>
+    <File Path="unitLogin.fmx"/>
+    <File Path="untDM.pas"/>
+    <File Path="untDM.dfm"/>
+    <File Path="unitPrincipal.pas"/>
+    <File Path="unitPrincipal.fmx"/>
+    <File Path="unitSincronizar.pas"/>
+    <File Path="unitSincronizar.fmx"/>
+    <File Path="unitCarregaEquipamento.pas"/>
+    <File Path="unitCarregaEquipamento.fmx"/>
+    <File Path="unitCarregarUsuario.pas"/>
+    <File Path="unitCarregarUsuario.fmx"/>
+    <File Path="unitDadosUsuario.pas"/>
+    <File Path="unitDadosUsuario.fmx"/>
+    <File Path="unitChat.pas"/>
+    <File Path="unitChat.fmx"/>
+  </ProjectSortOrder>
+	<Transactions>
+    <Transaction>2020/09/22 16:30:51.000.208,=E:\MFCAppMobile\Unit1.pas</Transaction>
+    <Transaction>2020/09/22 16:31:47.000.630,E:\MFCAppMobile\Unit1.pas=E:\MFCAppMobile\unitSincronizer.pas</Transaction>
+    <Transaction>2020/09/22 16:31:47.000.630,E:\MFCAppMobile\Unit1.fmx=E:\MFCAppMobile\unitSincronizer.fmx</Transaction>
+    <Transaction>2020/09/22 16:51:08.000.958,E:\MFCAppMobile\unitSincronizer.pas=E:\MFCAppMobile\unitSincronizar.pas</Transaction>
+    <Transaction>2020/09/22 16:51:08.000.958,E:\MFCAppMobile\unitSincronizer.fmx=E:\MFCAppMobile\unitSincronizar.fmx</Transaction>
+    <Transaction>2020/09/24 08:44:19.000.466,=E:\MFCAppMobile\Unit1.pas</Transaction>
+    <Transaction>2020/09/24 08:45:33.000.810,E:\MFCAppMobile\Unit1.pas=E:\MFCAppMobile\Classes\cEmprestimo.pas</Transaction>
+    <Transaction>2020/10/06 22:30:23.000.270,=E:\MFCAppMobile\Unit1.pas</Transaction>
+    <Transaction>2020/10/06 22:32:11.000.652,E:\MFCAppMobile\unitCarregaEquipamento.fmx=E:\MFCAppMobile\Unit1.fmx</Transaction>
+    <Transaction>2020/10/06 22:32:11.000.652,E:\MFCAppMobile\unitCarregaEquipamento.pas=E:\MFCAppMobile\Unit1.pas</Transaction>
+    <Transaction>2020/10/06 23:29:03.000.799,=E:\MFCAppMobile\Unit1.pas</Transaction>
+    <Transaction>2020/10/06 23:29:57.000.751,E:\MFCAppMobile\Classes\cEquipamento.pas=E:\MFCAppMobile\Unit1.pas</Transaction>
+    <Transaction>2020/10/10 21:39:49.000.834,=E:\MFCAppMobile\Unit1.pas</Transaction>
+    <Transaction>2020/10/10 21:40:07.000.383,E:\MFCAppMobile\Unit1.fmx=E:\MFCAppMobile\Classes\cUsuario.fmx</Transaction>
+    <Transaction>2020/10/10 21:40:07.000.383,E:\MFCAppMobile\Unit1.pas=E:\MFCAppMobile\Classes\cUsuario.pas</Transaction>
+    <Transaction>2020/10/10 21:40:30.000.070,E:\MFCAppMobile\Classes\cUsuario.pas=</Transaction>
+    <Transaction>2020/10/10 21:40:35.000.636,=E:\MFCAppMobile\Unit1.pas</Transaction>
+    <Transaction>2020/10/10 21:40:50.000.192,E:\MFCAppMobile\Unit1.pas=E:\MFCAppMobile\Classes\cUsuario.pas</Transaction>
+    <Transaction>2020/10/12 16:40:27.000.796,=E:\MFCAppMobile\Unit1.pas</Transaction>
+    <Transaction>2020/10/12 16:41:12.000.583,E:\MFCAppMobile\unitCarregaUsuario.fmx=E:\MFCAppMobile\Unit1.fmx</Transaction>
+    <Transaction>2020/10/12 16:41:12.000.583,E:\MFCAppMobile\unitCarregaUsuario.pas=E:\MFCAppMobile\Unit1.pas</Transaction>
+    <Transaction>2020/10/14 08:51:53.000.199,=E:\MFCAppMobile\Unit1.pas</Transaction>
+    <Transaction>2020/10/14 08:52:24.000.510,E:\MFCAppMobile\Unit1.fmx=E:\MFCAppMobile\unitCarregarUsuario.fmx</Transaction>
+    <Transaction>2020/10/14 08:52:24.000.510,E:\MFCAppMobile\Unit1.pas=E:\MFCAppMobile\unitCarregarUsuario.pas</Transaction>
+    <Transaction>2020/10/14 09:16:20.000.289,E:\MFCAppMobile\unitCarregaUsuario.pas=</Transaction>
+    <Transaction>2020/11/03 21:57:26.000.113,=E:\MFCAppMobile\Unit1.pas</Transaction>
+    <Transaction>2020/11/03 21:58:55.000.279,E:\MFCAppMobile\unitDadosUsuario.fmx=E:\MFCAppMobile\Unit1.fmx</Transaction>
+    <Transaction>2020/11/03 21:58:55.000.279,E:\MFCAppMobile\unitDadosUsuario.pas=E:\MFCAppMobile\Unit1.pas</Transaction>
+    <Transaction>2020/11/09 10:45:17.000.927,=E:\MFCAppMobile\Unit1.pas</Transaction>
+    <Transaction>2020/11/09 10:45:54.000.937,E:\MFCAppMobile\unitNotificacao.fmx=E:\MFCAppMobile\Unit1.fmx</Transaction>
+    <Transaction>2020/11/09 10:45:54.000.937,E:\MFCAppMobile\unitNotificacao.pas=E:\MFCAppMobile\Unit1.pas</Transaction>
+    <Transaction>2020/11/09 22:20:24.000.664,E:\MFCAppMobile\unitNotificacao.fmx=E:\MFCAppMobile\unitChat.fmx</Transaction>
+    <Transaction>2020/11/09 22:20:24.000.664,E:\MFCAppMobile\unitNotificacao.pas=E:\MFCAppMobile\unitChat.pas</Transaction>
+  </Transactions>
+	<ActiveMobileDevice>
+		<NoProfile Android=""/>
+	</ActiveMobileDevice>
+</BorlandProject>

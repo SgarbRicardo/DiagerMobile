@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2020/06/09 11:48:14.000.049,=C:\Users\User1\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2020/06/09 11:49:48.000.104,C:\Users\User1\Documents\Embarcadero\Studio\Projects\Unit1.fmx=C:\Users\User1\OneDrive\Delphi_Projects\Server\UnitPrincipal.fmx</Transaction>
+    <Transaction>2020/06/09 11:49:48.000.104,C:\Users\User1\Documents\Embarcadero\Studio\Projects\Unit1.pas=C:\Users\User1\OneDrive\Delphi_Projects\Server\UnitPrincipal.pas</Transaction>
+    <Transaction>2020/06/09 11:49:52.000.252,C:\Users\User1\Documents\Embarcadero\Studio\Projects\Project1.dproj=C:\Users\User1\OneDrive\Delphi_Projects\Server\Server.dproj</Transaction>
+    <Transaction>2020/06/10 09:04:49.000.243,=C:\Users\User1\OneDrive\Delphi_Projects\Server\Unit1.pas</Transaction>
+    <Transaction>2020/06/10 09:05:21.000.142,C:\Users\User1\OneDrive\Delphi_Projects\Server\Unit1.pas=C:\Users\User1\OneDrive\Delphi_Projects\Server\UnitDM.pas</Transaction>
+    <Transaction>2020/06/10 09:05:21.000.142,C:\Users\User1\OneDrive\Delphi_Projects\Server\Unit1.dfm=C:\Users\User1\OneDrive\Delphi_Projects\Server\UnitDM.dfm</Transaction>
+    <Transaction>2020/06/10 10:58:19.000.428,=C:\Users\User1\OneDrive\Delphi_Projects\Server\Unit1.pas</Transaction>
+    <Transaction>2020/06/10 10:58:53.000.095,C:\Users\User1\OneDrive\Delphi_Projects\Server\Unit1.pas=C:\Users\User1\OneDrive\Delphi_Projects\Server\Classes\cUsuario.pas</Transaction>
+  </Transactions>
+	<ActiveMobileDevice>
+		<NoProfile iOSSimulator="iPhone5" Android=""/>
+	</ActiveMobileDevice>
+</BorlandProject>

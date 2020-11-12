@@ -1,0 +1,1156 @@
+﻿object frmInventario: TfrmInventario
+  Left = 0
+  Top = 0
+  Caption = 'Inventario'
+  ClientHeight = 600
+  ClientWidth = 373
+  Fill.Color = claSlategray
+  Fill.Kind = Solid
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  OnCreate = FormCreate
+  OnClose = FormClose
+  OnShow = FormShow
+  DesignerMasterStyle = 3
+  object lytMenuTop: TLayout
+    Align = Top
+    Size.Width = 373.000000000000000000
+    Size.Height = 65.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 0
+    object Label1: TLabel
+      Align = Contents
+      StyledSettings = [Family, Style]
+      Size.Width = 373.000000000000000000
+      Size.Height = 65.000000000000000000
+      Size.PlatformDefault = False
+      TextSettings.Font.Size = 18.000000000000000000
+      TextSettings.FontColor = claWhite
+      TextSettings.HorzAlign = Center
+      Text = 'Invent'#225'rio'
+      TabOrder = 3
+    end
+    object CircleUser: TCircle
+      Align = Right
+      Fill.Bitmap.Bitmap.PNG = {
+        89504E470D0A1A0A0000000D494844520000002C00000040080600000061B295
+        20000000017352474200AECE1CE90000000467414D410000B18F0BFC61050000
+        02A6494441546843ED98B98B14411487C7233012145C35F058CFD54443CD4404
+        FF050DBC02413052D45C3412FF070D44635D3114C54458050F10CD4CD6030FC4
+        40C1F5FA7DD3B543CFF0B6A7AAB76BBA4BFB838FAA99E97EF5A68FEAD7D56969
+        696969F927D82E2FCA07F283FCE5A4CF771724DBD4CE56795BFEF174526E91B5
+        704C7E97566245B2CF513952CE492B99108931128E482B8132122B2A9B6599CB
+        602EBF496246E396B4069E8FC48CC284B406ACC26DD28B85AEF5E1A06B6370C0
+        B5430949788F6B631025F67B699DCE2A24B6170B5CEBC38C5C9C752B87C7B857
+        EC904B2264DB688424F1D9B531F8E8DAA18424FCD2B531F08E1D92F03DD7C6E0
+        BE6B2B857AD6BAC3ABD0FBC1110AF5AC35E07CBC29A341F15D75F1B3494685E2
+        DB1ABC8C87E448A8A2803F2B470AC537A7D44AA648F6392C2B67B93C2599CE3E
+        4906BB2337C85928BE436A646EB0FC35BB511293DF7878DC958CB94C7A437D71
+        427E9583032247E8B45C2467615A3A2F994F29647E3ADF49FE30BFE5A72EEA86
+        3372AE33F4451E97436B1D36B82CAD20833E927B654801C5B6FBE46369C51CF4
+        922C8C7F525A3B16F95472C439D55670BEE3D2619B67D28A512467BB477E8071
+        F9422EE97E2A0797C32BC98A0FB15748165BC6645998F779CABEEE7ECA715D5A
+        FFB0095E937D70E7FF96D6C64D90027F9DEC556BCCA9851777CD9067DFF2D673
+        69FDB326F944768FEA2AF9960F0930C6A1DE95F593603709EFC8FA49B093841B
+        B132EEC90409E78B99A6334EC22BB37E12AC26E1A052AE669632ADF11421F114
+        F841C24CCAC9C091E508A7C20C09BFC9FA49304DC253593F09A648F846D64F82
+        6EAEBC4C729407ABA3A6F950F666339E765CCBD6864D705AAE977DAC95BC925B
+        3BD4296B156BA409F3F27E7955F23259E5C29FAF8CC902F715C9924093DF845A
+        5A5A5AFE333A9DBFA1EE94E467C42CE40000000049454E44AE426082}
+      Fill.Bitmap.WrapMode = TileStretch
+      Fill.Kind = Bitmap
+      Opacity = 0.800000011920929000
+      Margins.Top = 5.000000000000000000
+      Margins.Right = 10.000000000000000000
+      Margins.Bottom = 5.000000000000000000
+      Position.X = 325.000000000000000000
+      Position.Y = 5.000000000000000000
+      Size.Width = 38.000000000000000000
+      Size.Height = 55.000000000000000000
+      Size.PlatformDefault = False
+      Stroke.Kind = None
+    end
+    object Image1: TImage
+      MultiResBitmap.Height = 64
+      MultiResBitmap.Width = 30
+      MultiResBitmap = <
+        item
+          Width = 30
+          Height = 64
+          PNG = {
+            89504E470D0A1A0A0000000D494844520000001E0000004008060000000DB4C7
+            25000000017352474200AECE1CE90000000467414D410000B18F0BFC61050000
+            0248494441545847EDD8CD4B546114C7F1296BD19FE046A2A50B2B6897D8ABBD
+            20111948A8606144106184D1A2205A4510844421B8F17F70514420B470E1DF21
+            B8699566F952FAFD9917A6E1E83DCF79BCB4B93FF830338B3967E672E779CE3C
+            8D3A75AA4ADBCE631539860BE8C022D65169F465DE63B3C9375C466539886934
+            372DACA292E66A3A05AB69E127CE63DF72001F60356BF50327901D359D80D564
+            379F9015357D03ABF85E56108E9ABE8255B88C2E77382F6115F5984128CF6115
+            F4F88E4E24E729AC821ECBE846721EC32AE8A11BEA2C92F31056418F5FB888E4
+            DC8755D0434BE51524671456410FED48D7909C11FC8155B4CC06FA919C41449B
+            FEC60092A337E9CD56D132FAB04348CE0DE83259453D6E2339BA11D66015F4B8
+            87E45C856E7DABA0C70324A717FA915B053D1E2139A7A0E5CC2AE8F104A17C81
+            55D0E319C2895E62EDC7E168325491FF928F68FD365E1A08C2E9823668ABB087
+            068370CE20E7CED680108EFE6069D2B70A7B68500847FF6D72562F0D0CE1F421
+            67BDBE8B70AE43D38355B88CB6450D10E1DC44747B54730D12E1DC427420084F
+            21458691337769B008E70EACC21EBA51439366114D1756610FFD44356884A329
+            C32AECA15DF012C2198355D823FB0C641C56610FFD293F1E3D609B831618ADEF
+            A9398CA37F9FC6F302D6B72AB3927BA4F81587D0B3FDCA9FF5FD38CB9CC5119C
+            DE7EE5CBE79DC7ECE804E82DACCBDA2A7C06B25BD4FC1DAC6605DDD1A13390B2
+            A8F924ACA6FA0D9F4365D1C8FC1ACD5BEA02FE3978D127AC2AED388925CC43EB
+            759D3A75EAE4A6D1D802D67871A80974060F0000000049454E44AE426082}
+          FileName = 
+            'C:\Users\User1\Downloads\pack-icones\Font Awesome\PNG\64\213012 ' +
+            '- f053.png'
+        end>
+      Align = Left
+      Opacity = 0.800000011920929000
+      Margins.Left = 10.000000000000000000
+      Margins.Top = 8.000000000000000000
+      Margins.Bottom = 8.000000000000000000
+      Position.X = 10.000000000000000000
+      Position.Y = 8.000000000000000000
+      Size.Width = 53.000000000000000000
+      Size.Height = 49.000000000000000000
+      Size.PlatformDefault = False
+      OnClick = Image1Click
+    end
+    object imgNotification: TImage
+      MultiResBitmap.Height = 64
+      MultiResBitmap.Width = 52
+      MultiResBitmap = <
+        item
+          Width = 52
+          Height = 64
+          PNG = {
+            89504E470D0A1A0A0000000D494844520000003400000040080600000055CB54
+            3C000000017352474200AECE1CE90000000467414D410000B18F0BFC61050000
+            0411494441546843ED9A59A84D5118C7AF79F660CACC031E484492323C102152
+            9224A294BC0811128FC6E20D092F8ABC919250245186E4C53CCB1C19AF79F8FF
+            EF59EBF6F9DA67DFBDEE5E6B9F7D38BFFAF9CE3DF79E6FAD65AFBDF6DADF3E55
+            152A54C8352DE02EF8097E843B607358B67030BF95DB61D9C223A307F41E06A3
+            A189A1F869A224EA3D6F3432D117ADE064B810AE82BD6063A8190B07439E638F
+            E177982B7AC39D306A8AD5253FC3CF3247C9E1945D01BFC0A8CEBAC81CCB61E8
+            D3A0284DE00118D5B934322773674ED4924CEFC2CD702AEC07DB429EAB94AFF9
+            1E7FB705DE875139F6C0063033A643DD891770267499321CE42CF812EA7C3360
+            26B0133C0AB2F1DBB03BAC2F3DA0CE790F46AD90DE990865C35C7207C2B40C82
+            3FA0CCCD4B4070B875918DEE83BED80F656E2EE7C1B90465A353A02FA64199FB
+            320CCE6B281BED067DC17349E67E0383A3E7B9CF6B465328733BEFFB5CD77A2E
+            C9BA11DFD70B0E44C236F57B4571DD663433D1F2CD449F70064878D412E33AA0
+            36265AB8B1F44DB58996D62626C27540ED4CB4BC35D1273AA76E3316D7017536
+            D1C2ED8E6F744EDD662CAE03E20D9BE489893ED1397B9A9808D701F531D1C2DD
+            B26F74CEBE2626C27540FD4DB4DC32D127374CB40C3031080FA0BCF00D87BE19
+            01651BDC8507A12B940D7197CD22876F5A42BD1BE90413E132E5C69868B9023F
+            175E7A85D7A1AB8597B58C36B14E5C0634C144CB691343A073EBB653C3BBD457
+            504E837130141C806CEB19745DC06261615036F00EEA7D9D4F58D0FF00659B7A
+            CA479274D4B34DB41C815F0B2F83C01A1DDB90CC3131352C3DF15188FCDF9A04
+            43C37A826C93478C7D49CD122813B3169D4535866D701B24DB5E0C53C17B9147
+            50265D03B3621D946D735B94EA0E7911940979FFD31E664547C8EB92ECC30258
+            2F385F9F43998CE5DBACD906651F9E42A79B3ECB56281371A9EE00B386DB1EBD
+            846F844E70D3C962884CB212968AD550F6857BBD213011AC1BF0B64026B8069D
+            8A159EE145FC26947DBA0EF9C4301696A40E42F9411E296EE94BCD28F80BCABE
+            B10C1D5B465B0BE507E87A9817B828E9FE153D15B81CEA3F3E0B4BF234AD089C
+            F6E7A1EEE73CF817F3A13E9CBC4A77817983B574EEBE655F795ACC85352C83F2
+            979417D0A130AF0C83514FDC97F284E25D67597FFF4650CDDB879385D7FF0427
+            F80F9F4AF3398C3E7CE5269F5BD5D60D39A8C3306A5EBA7A015E54EF85947D3E
+            0475113435B6F4B401F27B3EBAE138BD3D96F15978E07D13E113F173859789B1
+            9F4D8DCF01D9D2D378F8101EAFF92919214B62F5863B743B854E416EFB8F89F7
+            E2E4752597EC85B6931C14BF32361272BF556CA1D80D730BEBD267A0ED2C4FF6
+            A37013D4DF6FA0FCDB10F571AF7050F24815934726F78391F09CE2D7C4F83884
+            4F2A78B4EE400E24B7E74C850AFF3755557F004939FAFF2E713CCD0000000049
+            454E44AE426082}
+          FileName = 
+            'C:\Users\User1\Downloads\pack-icones\Font Awesome\PNG\64\213086 ' +
+            '- f0a2.png'
+        end>
+      Align = Right
+      Opacity = 0.800000011920929000
+      Margins.Top = 8.000000000000000000
+      Margins.Right = 10.000000000000000000
+      Margins.Bottom = 8.000000000000000000
+      Position.X = 290.000000000000000000
+      Position.Y = 8.000000000000000000
+      Size.Width = 25.000000000000000000
+      Size.Height = 49.000000000000000000
+      Size.PlatformDefault = False
+    end
+  end
+  object lytMenuInferior: TLayout
+    Align = Bottom
+    Position.Y = 545.000000000000000000
+    Size.Width = 373.000000000000000000
+    Size.Height = 55.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 2
+    object rectMenuInferior: TRectangle
+      Align = Client
+      Fill.Color = claWhite
+      Size.Width = 373.000000000000000000
+      Size.Height = 55.000000000000000000
+      Size.PlatformDefault = False
+      Stroke.Color = claWhite
+    end
+    object imgAddBtn: TImage
+      MultiResBitmap.Height = 64
+      MultiResBitmap.Width = 48
+      MultiResBitmap = <
+        item
+          Width = 48
+          Height = 64
+          PNG = {
+            89504E470D0A1A0A0000000D49484452000000300000004008060000005C20F4
+            46000000017352474200AECE1CE90000000467414D410000B18F0BFC61050000
+            02DA494441546843ED99396FD45014460784004189580B42141A10029AF4E14F
+            50200A24FE00059B1451C07FA0402C1DD46C3DF45408011508684349C25684EF
+            78C688CC5CFB2D7EB663F18E7466A6F07D73DFCCF35BAE47994C2693F9AFD932
+            796FCA5179462ECA63724EEE91BB24ACC9AFF2B37C2F5FC917F283EC8D43F286
+            24A1F548DFCA65795076C611F940FE96565231FE92F725FF5C6BEC9437E50F69
+            259142DABE25F9AEA49C96EFA4F5A56DC8779D9249382FDBFCD5ABFC2ECFC946
+            5C9356E35D7A5946B119922FBD228360D8580DF5A9F770E286ED63CCBBE49E38
+            296B61FA6A3ADB3C967BE534FBE45369C5F8CAC2573BC532CF5B81215AC9971C
+            90564C88AC1326ACB029868E0B2B26447234576CB6075640A82EAC9850EFCA0D
+            B0314BB5B77161C584FA53321C475B791117E5B6F1C741B05D5E187F1CD3644B
+            3CAD0B2B26C637B280C3887541AC2EAC9858E719429CA486CA121DE018385416
+            E90067581F9E485653CED175BAB062FE75BF7C267D38CECB17698DAF69EB56D8
+            D4F8AED81FE9F1AA2CAB0775706D9790A08B6F24E573216CC60EAC970BD960A1
+            03149D86CA2A1DA062E603335057F816BA56E800E53E1FEEC96203D532243FB3
+            DBACA0C8FD8E2CA7A514BAB06262BDCD3F40A175A814B92F48AB77B1BAB06262
+            E51459C061D9BA204617564C8CAFE5DF03CDA3C9FB907838792FE0CEA7C46DF5
+            345417564CA81C29D9F46D80FABC7571A82EAC9850993967A0543194B2CA6169
+            42D1C80A0AB16EC566A85A3121527CAB24456991F2A1B56293FC7369C5F8CA41
+            7E87AC8527231452AD06FA944DE709E905A56CAB913E3D2B83E0C988D5501F5E
+            9251F064C46AB04BA3932F6138F5714F30E683874D153C1949B95F72C96CE37D
+            C3FAC214CB3AD1E6E327DA669E774E954D60C5E6C4C47EC44A2246DA627B50B9
+            C2B6018BD575C9DF6D25E5235BE2AB726663E64BAA5ACFBC5C92D45929F7F14B
+            52C9DB2D81E2D98AE40CCB4ACF49EAA5FC2433994C2693896434FA03DE9F5A4B
+            3D886F4B0000000049454E44AE426082}
+          FileName = 
+            'C:\Users\User1\Downloads\pack-icones\Font Awesome\PNG\64\213014 ' +
+            '- f055.png'
+        end>
+      Align = Center
+      Margins.Bottom = 4.000000000000000000
+      Size.Width = 55.000000000000000000
+      Size.Height = 55.000000000000000000
+      Size.PlatformDefault = False
+      OnClick = imgAddBtnClick
+    end
+  end
+  object lytPesquisa: TLayout
+    Align = Top
+    Position.Y = 65.000000000000000000
+    Size.Width = 373.000000000000000000
+    Size.Height = 50.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 4
+    object recPesquisa: TRectangle
+      Align = Client
+      Fill.Color = claLavender
+      Opacity = 0.300000011920929000
+      Margins.Left = 30.000000000000000000
+      Margins.Top = 7.000000000000000000
+      Margins.Right = 30.000000000000000000
+      Margins.Bottom = 7.000000000000000000
+      Size.Width = 313.000000000000000000
+      Size.Height = 36.000000000000000000
+      Size.PlatformDefault = False
+      Stroke.Kind = None
+      XRadius = 18.000000000000000000
+      YRadius = 18.000000000000000000
+      object imgSearch: TImage
+        MultiResBitmap.Height = 64
+        MultiResBitmap.Width = 52
+        MultiResBitmap = <
+          item
+            Width = 52
+            Height = 64
+            PNG = {
+              89504E470D0A1A0A0000000D494844520000003400000040080600000055CB54
+              3C000000017352474200AECE1CE90000000467414D410000B18F0BFC61050000
+              03D1494441546843ED9A49ABD44014469F03B8704451170E0B7521088A382E14
+              C48D88A288D32F5051D0BF2238FE01B70EE0ACA03881E84644C58D6EC48582F3
+              3CFB9D7E0934E1A6AA9254D2DD9003876AF1BD5B75BB929BAACA1B6A69696969
+              69E9212392B62CE3E55AB94A2E9273E5743956C217F94A3E930FE46D795D7E92
+              7DC348B95E9E963FE4BF827E97A7243188D53398CD6DF2B1B4065A46626D9755
+              AF94C2CC9737A535A818129B3E6A876F6EB7FC26AD81C4943EE8ABB6D91A258F
+              48ABF33A3D2AE93B2A043C21AD0E9B90BEA325C5941F9356474D7A5846618FB4
+              3AC8F3B73C27F7CAA572B2E4DBC5297299DC27CF4B7ED68A91E72E59092A0DCF
+              092B78D65FF2A09C214399290F497ED78A99954251BAFA71A9DD9256E0AC8FE4
+              42591656154FA4153BEB0D59AAF2F180B30266BD20C7C9AAB06CBA24AD3EB26E
+              9585600912F28D91CC18190B628524C515516899C4BACA0AD42D4163CC4C1666
+              2AE4CB648CC1B0D0B482A4721357B9677C2C96BE0A785206C137E45B3553CDEA
+              861582D5772AD537E80AD92CAD00A9CC4E91D25C9659D2374B1BA5136E343667
+              2E2ECB97C31F6BE585BC3AFC3197D5499B0B09F14C70C113BE29A8A22E7C63ED
+              24C4B6D9C5FDA46D827B499B876FAC1D3E4BEB7A4D656DD61453A53586D48FD2
+              094B0A7ED0C568F967F863EDD01745288FBFD2B9AD28F4F41D044888A3261793
+              92B6097C97B76FAC9D843837733127699BC0D7D7EBA4CD8584380474C106AD29
+              96276D1ECF93361712E244D3C586A46D025F5F0F93D6C926992D8FDDB21C61A7
+              5937B325D5D41A43EA16E985C5A96FDBCDB6B96E8E4BABEF54CAF944190467CD
+              5690548279971D1558227DB373560613B2C16313C66CC666827C2AAD3EBBE5D6
+              0886E2107208CF7639F616FC8AB4FAEA96840B1F3C861E9290548C9962664292
+              C11DB230ACEB42DF3070F9B16D2E0BF74CC86586BC202B758C051CEA85BE69A0
+              9CB36D66A7190AA5996AE62B00DDEE9495E0958615384F12BB28F7CB15922D00
+              AB669C2657CA03929D6F9144523F48629486E9F51D58346DE5A4A828BD7C9D62
+              1925295E6958C17B65E5A480571A4DBC920C354A52543FDE02581DC490D24C35
+              63B0D6FF678D9214C582B7009C715B9D949167110FCDF43943956C34296099C4
+              DA8FB3E6D09763DDFE942C34599B112B4BA5A44A3F8113386B5E2339D1CCFBD3
+              18B6CDEC34D99CDD91D7240371C1CE95535496473E38DA5A27EF76FED5C790D4
+              7B69CD4CD668975FDD709E5124A905B2EF29925493E7F095E0CF054292FA2A07
+              06927A27AD4452BD0791FD06FB28575267E4C041526F65369937729E1C48588A
+              F1E738DC335C66CCCCC026D3D2D23F0C0DFD07C36C8C2A527E45C00000000049
+              454E44AE426082}
+            FileName = 
+              'C:\Users\User1\Downloads\pack-icones\Font Awesome\PNG\64\212936 ' +
+              '- f002.png'
+          end>
+        Align = Right
+        Opacity = 0.600000023841857900
+        Margins.Top = 8.000000000000000000
+        Margins.Right = 5.000000000000000000
+        Margins.Bottom = 8.000000000000000000
+        Position.X = 265.000000000000000000
+        Position.Y = 8.000000000000000000
+        Size.Width = 43.000000000000000000
+        Size.Height = 20.000000000000000000
+        Size.PlatformDefault = False
+      end
+      object Edit1: TEdit
+        Touch.InteractiveGestures = [LongTap, DoubleTap]
+        Align = Client
+        StyleLookup = 'transparentedit'
+        TabOrder = 0
+        Margins.Left = 10.000000000000000000
+        Margins.Right = 10.000000000000000000
+        Size.Width = 245.000000000000000000
+        Size.Height = 32.000000000000000000
+        Size.PlatformDefault = False
+      end
+    end
+  end
+  object TabControl1: TTabControl
+    Align = Client
+    Size.Width = 373.000000000000000000
+    Size.Height = 430.000000000000000000
+    Size.PlatformDefault = False
+    TabHeight = 49.000000000000000000
+    TabIndex = 0
+    TabOrder = 1
+    TabPosition = None
+    Sizes = (
+      373s
+      430s
+      373s
+      430s)
+    object TabItem1: TTabItem
+      CustomIcon = <
+        item
+        end>
+      IsSelected = True
+      Size.Width = 8.000000000000000000
+      Size.Height = 8.000000000000000000
+      Size.PlatformDefault = False
+      StyleLookup = ''
+      TabOrder = 0
+      Text = 'TabItem1'
+      ExplicitSize.cx = 8.000000000000000000
+      ExplicitSize.cy = 8.000000000000000000
+      object rectInventarioList: TRectangle
+        Align = Client
+        Corners = [TopLeft, TopRight]
+        Fill.Color = claWhite
+        Size.Width = 373.000000000000000000
+        Size.Height = 430.000000000000000000
+        Size.PlatformDefault = False
+        Stroke.Kind = None
+        XRadius = 26.000000000000000000
+        YRadius = 26.000000000000000000
+        object lytUltimasModificacoes: TLayout
+          Align = Top
+          Size.Width = 373.000000000000000000
+          Size.Height = 50.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 0
+          object Label2: TLabel
+            Align = Left
+            StyledSettings = [Family, FontColor]
+            Size.Width = 120.000000000000000000
+            Size.Height = 50.000000000000000000
+            Size.PlatformDefault = False
+            TextSettings.Font.Size = 14.000000000000000000
+            TextSettings.Font.StyleExt = {00070000000000000004000000}
+            TextSettings.HorzAlign = Center
+            Text = 'Last Enteries'
+            TabOrder = 1
+          end
+          object lblVerTodos: TLabel
+            Align = Right
+            StyledSettings = [Family, FontColor]
+            HitTest = True
+            Opacity = 0.600000023841857900
+            Position.X = 253.000000000000000000
+            Size.Width = 120.000000000000000000
+            Size.Height = 50.000000000000000000
+            Size.PlatformDefault = False
+            TextSettings.Font.Size = 14.000000000000000000
+            TextSettings.HorzAlign = Center
+            Text = 'All Enteries'
+            TabOrder = 0
+            OnClick = lblVerTodosClick
+          end
+        end
+        object lvInventario: TListView
+          ItemAppearanceClassName = 'TDynamicAppearance'
+          ItemEditAppearanceClassName = 'TDynamicAppearance'
+          HeaderAppearanceClassName = 'TListHeaderObjects'
+          FooterAppearanceClassName = 'TListHeaderObjects'
+          OnUpdateObjects = lvInventarioUpdateObjects
+          ItemSpaces.Left = 0.000000000000000000
+          ItemSpaces.Right = 0.000000000000000000
+          Align = Client
+          Size.Width = 373.000000000000000000
+          Size.Height = 380.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 1
+          OnPaint = lvInventarioPaint
+          ItemAppearance.ItemHeight = 80
+          ItemAppearanceObjects.ItemObjects.ObjectsCollection = <
+            item
+              AppearanceObjectName = 'txtEquipment'
+              AppearanceClassName = 'TTextObjectAppearance'
+              Appearance.Font.Family = 'Arial'
+              Appearance.Font.StyleExt = {00070000000000000004000000}
+              Appearance.TextAlign = Leading
+              Appearance.TextColor = xFF6B6B6B
+              Appearance.Width = 65.000000000000000000
+              Appearance.Height = 25.000000000000000000
+              Appearance.PlaceOffset.X = 48.000000000000000000
+              Appearance.PlaceOffset.Y = 8.000000000000000000
+            end
+            item
+              AppearanceObjectName = 'imgPhoto'
+              AppearanceClassName = 'TImageObjectAppearance'
+              Appearance.Width = 38.000000000000000000
+              Appearance.Height = 38.000000000000000000
+              Appearance.PlaceOffset.X = 5.000000000000000000
+              Appearance.PlaceOffset.Y = 15.000000000000000000
+            end
+            item
+              AppearanceObjectName = 'txtBrand'
+              AppearanceClassName = 'TTextObjectAppearance'
+              Appearance.TextColor = xFF6B6B6B
+              Appearance.Width = 95.000000000000000000
+              Appearance.Height = 25.000000000000000000
+              Appearance.Align = Trailing
+              Appearance.PlaceOffset.X = -160.000000000000000000
+              Appearance.PlaceOffset.Y = 8.000000000000000000
+            end
+            item
+              AppearanceObjectName = 'txtQtd'
+              AppearanceClassName = 'TTextObjectAppearance'
+              Appearance.TextAlign = Leading
+              Appearance.TextColor = xFF6B6B6B
+              Appearance.Width = 35.000000000000000000
+              Appearance.Height = 25.000000000000000000
+              Appearance.PlaceOffset.X = 48.000000000000000000
+              Appearance.PlaceOffset.Y = 38.000000000000000000
+            end
+            item
+              AppearanceObjectName = 'txtLocation'
+              AppearanceClassName = 'TTextObjectAppearance'
+              Appearance.TextAlign = Trailing
+              Appearance.TextColor = xFF6B6B6B
+              Appearance.Width = 79.000000000000000000
+              Appearance.Height = 25.000000000000000000
+              Appearance.Align = Trailing
+              Appearance.PlaceOffset.X = -167.000000000000000000
+              Appearance.PlaceOffset.Y = 38.000000000000000000
+            end
+            item
+              AppearanceObjectName = 'txtTag'
+              AppearanceClassName = 'TTextObjectAppearance'
+              Appearance.TextAlign = Trailing
+              Appearance.TextColor = xFF6B6B6B
+              Appearance.Width = 55.000000000000000000
+              Appearance.Height = 25.000000000000000000
+              Appearance.Align = Trailing
+              Appearance.PlaceOffset.X = -41.000000000000000000
+              Appearance.PlaceOffset.Y = 6.000000000000000000
+            end
+            item
+              AppearanceObjectName = 'txtPrevLocation'
+              AppearanceClassName = 'TTextObjectAppearance'
+              Appearance.TextColor = xFF6B6B6B
+              Appearance.Width = 81.000000000000000000
+              Appearance.Height = 25.000000000000000000
+              Appearance.Align = Trailing
+              Appearance.PlaceOffset.X = -38.000000000000000000
+              Appearance.PlaceOffset.Y = 38.000000000000000000
+            end
+            item
+              AppearanceObjectName = 'txtData'
+              AppearanceClassName = 'TTextObjectAppearance'
+              Appearance.TextAlign = Trailing
+              Appearance.TextColor = xFF6B6B6B
+              Appearance.Width = 65.000000000000000000
+              Appearance.Height = 25.000000000000000000
+              Appearance.Align = Trailing
+              Appearance.PlaceOffset.X = -91.000000000000000000
+              Appearance.PlaceOffset.Y = 8.000000000000000000
+            end
+            item
+              AppearanceObjectName = 'imgSinc'
+              AppearanceClassName = 'TImageObjectAppearance'
+              Appearance.Width = 30.000000000000000000
+              Appearance.Height = 30.000000000000000000
+              Appearance.Align = Trailing
+              Appearance.PlaceOffset.X = -3.000000000000000000
+              Appearance.PlaceOffset.Y = 5.000000000000000000
+            end
+            item
+              AppearanceObjectName = 'imgCurrentLoc'
+              AppearanceClassName = 'TImageObjectAppearance'
+              Appearance.Width = 22.000000000000000000
+              Appearance.Height = 22.000000000000000000
+              Appearance.PlaceOffset.X = 104.000000000000000000
+              Appearance.PlaceOffset.Y = 40.000000000000000000
+            end
+            item
+              AppearanceObjectName = 'imgPrevLoc'
+              AppearanceClassName = 'TImageObjectAppearance'
+              Appearance.Width = 22.000000000000000000
+              Appearance.Height = 22.000000000000000000
+              Appearance.PlaceOffset.X = 224.000000000000000000
+              Appearance.PlaceOffset.Y = 40.000000000000000000
+            end>
+          ItemAppearanceObjects.ItemEditObjects.ObjectsCollection = <
+            item
+              AppearanceObjectName = 'Text1'
+              AppearanceClassName = 'TTextObjectAppearance'
+            end>
+          ItemAppearanceObjects.FooterObjects.Text.Width = 379.000000000000000000
+          ItemAppearanceObjects.FooterObjects.Text.Height = 32.000000000000000000
+          ItemAppearanceObjects.FooterObjects.Text.PlaceOffset.Y = -8.000000000000000000
+          CanSwipeDelete = False
+          OnItemClick = lvInventarioItemClick
+          ShowSelection = False
+        end
+      end
+      object rectTransição: TRectangle
+        Align = Contents
+        Fill.Color = claWhite
+        Margins.Top = 550.000000000000000000
+        Size.Width = 373.000000000000000000
+        Size.Height = 125.000000000000000000
+        Size.PlatformDefault = False
+        Visible = False
+        object Rectangle2: TRectangle
+          Align = Top
+          Fill.Color = claWhite
+          Size.Width = 373.000000000000000000
+          Size.Height = 65.000000000000000000
+          Size.PlatformDefault = False
+          Stroke.Kind = None
+          object Layout1: TLayout
+            Align = Top
+            Size.Width = 373.000000000000000000
+            Size.Height = 65.000000000000000000
+            Size.PlatformDefault = False
+            TabOrder = 0
+            object lblTituloCa: TLabel
+              Align = Contents
+              StyledSettings = [Family, Style]
+              Size.Width = 373.000000000000000000
+              Size.Height = 65.000000000000000000
+              Size.PlatformDefault = False
+              TextSettings.Font.Size = 18.000000000000000000
+              TextSettings.FontColor = xFF5E5555
+              TextSettings.HorzAlign = Center
+              Text = 'New Asset'
+              TabOrder = 3
+            end
+            object imgVoltar: TImage
+              MultiResBitmap.Height = 64
+              MultiResBitmap.Width = 30
+              MultiResBitmap = <
+                item
+                  Width = 30
+                  Height = 64
+                  PNG = {
+                    89504E470D0A1A0A0000000D494844520000001E0000004008060000000DB4C7
+                    25000000017352474200AECE1CE90000000467414D410000B18F0BFC61050000
+                    0248494441545847EDD8CD4B546114C7F1296BD19FE046A2A50B2B6897D8ABBD
+                    20111948A8606144106184D1A2205A4510844421B8F17F70514420B470E1DF21
+                    B8699566F952FAFD9917A6E1E83DCF79BCB4B93FF830338B3967E672E779CE3C
+                    8D3A75AA4ADBCE631539860BE8C022D65169F465DE63B3C9375C466539886934
+                    372DACA292E66A3A05AB69E127CE63DF72001F60356BF50327901D359D80D564
+                    379F9015357D03ABF85E56108E9ABE8255B88C2E77382F6115F5984128CF6115
+                    F4F88E4E24E729AC821ECBE846721EC32AE8A11BEA2C92F31056418F5FB888E4
+                    DC8755D0434BE51524671456410FED48D7909C11FC8155B4CC06FA919C41449B
+                    FEC60092A337E9CD56D132FAB04348CE0DE83259453D6E2339BA11D66015F4B8
+                    87E45C856E7DABA0C70324A717FA915B053D1E2139A7A0E5CC2AE8F104A17C81
+                    55D0E319C2895E62EDC7E168325491FF928F68FD365E1A08C2E9823668ABB087
+                    068370CE20E7CED680108EFE6069D2B70A7B68500847FF6D72562F0D0CE1F421
+                    67BDBE8B70AE43D38355B88CB6450D10E1DC44747B54730D12E1DC427420084F
+                    21458691337769B008E70EACC21EBA51439366114D1756610FFD44356884A329
+                    C32AECA15DF012C2198355D823FB0C641C56610FFD293F1E3D609B831618ADEF
+                    A9398CA37F9FC6F302D6B72AB3927BA4F81587D0B3FDCA9FF5FD38CB9CC5119C
+                    DE7EE5CBE79DC7ECE804E82DACCBDA2A7C06B25BD4FC1DAC6605DDD1A13390B2
+                    A8F924ACA6FA0D9F4365D1C8FC1ACD5BEA02FE3978D127AC2AED388925CC43EB
+                    759D3A75EAE4A6D1D802D67871A80974060F0000000049454E44AE426082}
+                  FileName = 
+                    'C:\Users\User1\Downloads\pack-icones\Font Awesome\PNG\64\213012 ' +
+                    '- f053.png'
+                end>
+              Align = Left
+              Opacity = 0.500000000000000000
+              Margins.Left = 10.000000000000000000
+              Margins.Top = 8.000000000000000000
+              Margins.Bottom = 8.000000000000000000
+              Position.X = 10.000000000000000000
+              Position.Y = 8.000000000000000000
+              Size.Width = 47.000000000000000000
+              Size.Height = 49.000000000000000000
+              Size.PlatformDefault = False
+            end
+            object imgAplicar: TImage
+              MultiResBitmap.Height = 64
+              MultiResBitmap.Width = 48
+              MultiResBitmap = <
+                item
+                  Width = 48
+                  Height = 64
+                  PNG = {
+                    89504E470D0A1A0A0000000D49484452000000300000004008060000005C20F4
+                    46000000017352474200AECE1CE90000000467414D410000B18F0BFC61050000
+                    024B494441546843EDD9DBAB0D611CC6F1E574E1CCC63FE042724C92DA97FE01
+                    4952124989A49090484A3B25498A48949428F76E1C231139DC2B77CE24DC387F
+                    7FE5AD697A66CD3B6B66D6CCAEDFB73EEDDAED59EB59EDF69AB7BD3A9EE7799E
+                    E7799ED758A3FE7F6D6BCBB0054BF0125F316CDA8FBF09EF301FC3A27D488E0F
+                    DE631E5ADD1EA8F181FD26E6A295ED821A9DF61673D0AA76428DCDF206B3D08A
+                    B6438DCC730B8DB70D6A5C8C9F68B4AD50C362BD42636D861A55C43A34D226A8
+                    4145EC40662360378C418CB56F54D846A84145D8DB6D6613701DE1875F6329AA
+                    6803FE2039A6A8DDC86C3CEE207DD117D881AA4CEB5176FC5E6466E3ED7D555D
+                    683E63317A692DCA8EB7F35166E37013EAC2A44F588422ADC16FA8C78B750099
+                    D9F81B50172A1FB11031AD46D9F107D1B573501776F3010BD0AD55F805757DAC
+                    43C8ED3BD4C579BA9DCD57A2ECF8C3B0B7F3DCBE413D400C3B9BA78FB52B6067
+                    14F5F3B1861035DE3A03F520B1EC583B1BD672941D7F04D1E32DBBD316F92356
+                    EC6667A7CA1F89EFF5E2280A8D0FC5BE8DD6E9187A1A1FB21BD96DA807AFDB71
+                    941A1FB273D05DA827A9CB0954323E642FE21ED49355ED242A1D1F9A88FB504F
+                    5A9553A8657C68121E403D7959A73112B537190FA146F4EA2CFA323E34058FA0
+                    C61465E7AEBE8E0FD98B780C352AD67934323E34154FA0C6E5B98046C78706F0
+                    146A64968B68D5E710D3F00C6A6CDA25B4F24394E9780E353AB88CD1686DF622
+                    5E408DBF82568F0FCD40FA455CC518F4A52A6EE5768AB5FFF9CC84DDF4AEC1FE
+                    85E2799EE7799EE7D55AA7F30F316BC1E59F00A9400000000049454E44AE4260
+                    82}
+                  FileName = 
+                    'C:\Users\User1\Downloads\pack-icones\Font Awesome\PNG\64\212946 ' +
+                    '- f00c.png'
+                end>
+              Align = Right
+              Opacity = 0.500000000000000000
+              Margins.Top = 8.000000000000000000
+              Margins.Right = 10.000000000000000000
+              Margins.Bottom = 8.000000000000000000
+              Position.X = 319.000000000000000000
+              Position.Y = 8.000000000000000000
+              Size.Width = 44.000000000000000000
+              Size.Height = 49.000000000000000000
+              Size.PlatformDefault = False
+            end
+          end
+        end
+        object FloatAnimationTransicao: TFloatAnimation
+          AnimationType = Out
+          Duration = 0.200000002980232200
+          Interpolation = Circular
+          OnFinish = FloatAnimationTransicaoFinish
+          PropertyName = 'Margins.Top'
+          StartValue = 0.000000000000000000
+          StopValue = 0.000000000000000000
+        end
+      end
+    end
+    object TabItem2: TTabItem
+      CustomIcon = <
+        item
+        end>
+      IsSelected = False
+      Size.Width = 8.000000000000000000
+      Size.Height = 8.000000000000000000
+      Size.PlatformDefault = False
+      StyleLookup = ''
+      TabOrder = 0
+      Text = 'TabItem2'
+      ExplicitSize.cx = 8.000000000000000000
+      ExplicitSize.cy = 8.000000000000000000
+      object lvInventarioAll: TListView
+        ItemAppearanceClassName = 'TDynamicAppearance'
+        ItemEditAppearanceClassName = 'TDynamicAppearance'
+        HeaderAppearanceClassName = 'TListHeaderObjects'
+        FooterAppearanceClassName = 'TListHeaderObjects'
+        OnUpdateObjects = lvInventarioUpdateObjects
+        ItemSpaces.Left = 0.000000000000000000
+        ItemSpaces.Right = 0.000000000000000000
+        Align = Client
+        Size.Width = 373.000000000000000000
+        Size.Height = 430.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 1
+        OnPaint = lvInventarioPaint
+        ItemAppearance.ItemHeight = 80
+        ItemAppearanceObjects.ItemObjects.ObjectsCollection = <
+          item
+            AppearanceObjectName = 'txtEquipment'
+            AppearanceClassName = 'TTextObjectAppearance'
+            Appearance.Font.Family = 'Arial'
+            Appearance.Font.StyleExt = {00070000000000000004000000}
+            Appearance.TextAlign = Leading
+            Appearance.TextColor = xFF6B6B6B
+            Appearance.Width = 35.000000000000000000
+            Appearance.Height = 25.000000000000000000
+            Appearance.PlaceOffset.X = 48.000000000000000000
+            Appearance.PlaceOffset.Y = 8.000000000000000000
+          end
+          item
+            AppearanceObjectName = 'imgPhoto'
+            AppearanceClassName = 'TImageObjectAppearance'
+            Appearance.Width = 38.000000000000000000
+            Appearance.Height = 38.000000000000000000
+            Appearance.PlaceOffset.X = 5.000000000000000000
+            Appearance.PlaceOffset.Y = 15.000000000000000000
+          end
+          item
+            AppearanceObjectName = 'txtBrand'
+            AppearanceClassName = 'TTextObjectAppearance'
+            Appearance.TextColor = xFF6B6B6B
+            Appearance.Width = 50.000000000000000000
+            Appearance.Height = 25.000000000000000000
+            Appearance.Align = Trailing
+            Appearance.PlaceOffset.X = -200.000000000000000000
+            Appearance.PlaceOffset.Y = 8.000000000000000000
+          end
+          item
+            AppearanceObjectName = 'txtQtd'
+            AppearanceClassName = 'TTextObjectAppearance'
+            Appearance.TextAlign = Leading
+            Appearance.TextColor = xFF6B6B6B
+            Appearance.Width = 35.000000000000000000
+            Appearance.Height = 25.000000000000000000
+            Appearance.PlaceOffset.X = 48.000000000000000000
+            Appearance.PlaceOffset.Y = 38.000000000000000000
+          end
+          item
+            AppearanceObjectName = 'txtLocation'
+            AppearanceClassName = 'TTextObjectAppearance'
+            Appearance.TextAlign = Trailing
+            Appearance.TextColor = xFF6B6B6B
+            Appearance.Width = 79.000000000000000000
+            Appearance.Height = 25.000000000000000000
+            Appearance.Align = Trailing
+            Appearance.PlaceOffset.X = -175.000000000000000000
+            Appearance.PlaceOffset.Y = 38.000000000000000000
+          end
+          item
+            AppearanceObjectName = 'txtTag'
+            AppearanceClassName = 'TTextObjectAppearance'
+            Appearance.TextAlign = Trailing
+            Appearance.TextColor = xFF6B6B6B
+            Appearance.Width = 55.000000000000000000
+            Appearance.Height = 25.000000000000000000
+            Appearance.Align = Trailing
+            Appearance.PlaceOffset.X = -130.000000000000000000
+            Appearance.PlaceOffset.Y = 8.000000000000000000
+          end
+          item
+            AppearanceObjectName = 'txtPrevLocation'
+            AppearanceClassName = 'TTextObjectAppearance'
+            Appearance.TextColor = xFF6B6B6B
+            Appearance.Width = 81.000000000000000000
+            Appearance.Height = 25.000000000000000000
+            Appearance.Align = Trailing
+            Appearance.PlaceOffset.X = -79.000000000000000000
+            Appearance.PlaceOffset.Y = 38.000000000000000000
+          end
+          item
+            AppearanceObjectName = 'txtData'
+            AppearanceClassName = 'TTextObjectAppearance'
+            Appearance.TextAlign = Trailing
+            Appearance.TextColor = xFF6B6B6B
+            Appearance.Width = 65.000000000000000000
+            Appearance.Height = 25.000000000000000000
+            Appearance.Align = Trailing
+            Appearance.PlaceOffset.X = -37.000000000000000000
+            Appearance.PlaceOffset.Y = 8.000000000000000000
+          end
+          item
+            AppearanceObjectName = 'imgSinc'
+            AppearanceClassName = 'TImageObjectAppearance'
+            Appearance.Width = 30.000000000000000000
+            Appearance.Height = 30.000000000000000000
+            Appearance.Align = Trailing
+            Appearance.PlaceOffset.X = -3.000000000000000000
+            Appearance.PlaceOffset.Y = 5.000000000000000000
+          end
+          item
+            AppearanceObjectName = 'imgCurrentLoc'
+            AppearanceClassName = 'TImageObjectAppearance'
+            Appearance.Width = 20.000000000000000000
+            Appearance.Height = 20.000000000000000000
+            Appearance.PlaceOffset.X = 88.000000000000000000
+            Appearance.PlaceOffset.Y = 40.000000000000000000
+          end
+          item
+            AppearanceObjectName = 'imgPrevLoc'
+            AppearanceClassName = 'TImageObjectAppearance'
+            Appearance.Width = 20.000000000000000000
+            Appearance.Height = 20.000000000000000000
+            Appearance.PlaceOffset.X = 304.000000000000000000
+            Appearance.PlaceOffset.Y = 40.000000000000000000
+          end>
+        ItemAppearanceObjects.ItemEditObjects.ObjectsCollection = <
+          item
+            AppearanceObjectName = 'Text1'
+            AppearanceClassName = 'TTextObjectAppearance'
+          end>
+        ItemAppearanceObjects.FooterObjects.Text.Width = 379.000000000000000000
+        ItemAppearanceObjects.FooterObjects.Text.Height = 32.000000000000000000
+        ItemAppearanceObjects.FooterObjects.Text.PlaceOffset.Y = -8.000000000000000000
+        CanSwipeDelete = False
+        OnItemClick = lvInventarioItemClick
+        OnItemClickEx = lvInventarioItemClickEx
+        ShowSelection = False
+      end
+    end
+  end
+  object imgEquipment: TImage
+    MultiResBitmap.Height = 64
+    MultiResBitmap.Width = 60
+    MultiResBitmap = <
+      item
+        Width = 60
+        Height = 64
+        PNG = {
+          89504E470D0A1A0A0000000D494844520000003C000000400806000000461C14
+          C8000000017352474200AECE1CE90000000467414D410000B18F0BFC61050000
+          04EF494441546843ED994DC8155518C7DFB4CCBE2C74234519954644A8D8BAB2
+          5A559A6D8A2241AD5028C48DBA31D245E4A2B245600B2944A24FC5BE23FA5A28
+          A8B8691115659895459FA0419F54FFDFEB1C393EF7397367E6CE8C77E0FEE0C7
+          BCEFDC739E7BCFCC9933E79C676CC488119D666276EC0AD7CBB3E50FE3FFF532
+          475E210F8EFFD7612E93AFC8FFE48FD9FF9659F2674919CACE949D64A3FC53D2
+          90E0C7923B1D98223F957199BF24753BC7D7326E48F039794AE60BD939EB57B2
+          733C26BDC6E03FF26F732EF651D9391884BCC614F172D949DE915E83F27C5BF6
+          30213B0E3BDF67C7327C971D6B67A7F4AE30BE2407E10C79A3B4713F93B7C833
+          3317CACFA52D375F12A336089637681C958CA265D8203F94DC552F268D9D2A2D
+          D3A4D76824D60772BD1C88B9D2FB82D8F36519BC18B1DCD9148BA457273617A6
+          9E8BE5D5E3FFF572BBF482C65E273DE6C9A5D28E235E8C58BA700A26235E9DD8
+          24547E43528859CBFDD276CFD5D206B42E9731C4582989C9E7DBE4A93260EB5B
+          1B693053B55DD216E6C7852FBC58BE296D19EBEB92B270AE7C59DA329C3B4D82
+          FDCC7AB34CB1407A75627BE02AED965E61FC48EE90FF46E7FA49D9EDF24074CE
+          4AA3B9D30FCAF7E461E995FB449E272D9CB3F3E9E0B7F25DB94E9E005FF896F4
+          2AB5E166193359B224B4E5683483D759921BC49DF51ACB6B891849EE95B652DB
+          F2232DCF48AF6C9E4FCB1EEC08B95FB2143B59FC2ABF38F6E7095C981DCB7041
+          76ECCBDDD2BB624DCB737E93B45C29BDF24564E1518827A417A0491F921E9BA4
+          571EE98D767320F67159884972AFF4825829B74C5E2279B5E0A5F21EB94F7A75
+          AC8CCAA9FDB56FA457E7591936005ECCCE590FC9C2843DA494BF4B664A797365
+          3EA3E194F562045F95291E9145B67818B9E332D4795816824DB2B8B295065C23
+          8B72ADCC6B34CF2F3D2445BC89F793F436E8D8C4FB455286777E5EBCF16EC8EE
+          C0AD72AD646511FF202B77B62CDC692F569065E65D9239F639D2E306C9822505
+          755373F7E3B03390B7C4B3F2CCE675E314D429FA4C2333AD2DB276BC2FCB9301
+          AA2A552636B5E37D499EB9CF461FFA8D0D9EB542372B1B9457168F4015A85B76
+          2657E5F149D2F6265EAD3FBE0A551A7C5176ACC220756BA14A83FB0EFB390C52
+          B7369E925FCAA20B7A5E2D555F4BACC6BC989E8C13AFC9C660CB75B6BC43F69B
+          56328928CB7DD28B15643EBD46B2C7CCAC296CF9C4B01970D5B13F5DC80F7BEB
+          E9BE3075F37E54906922D3C5A250F60FE9C5427AD70C99A295FC7091C503773A
+          AF7BF3197736AFB1C8DC37452BF961966AEFCB38404A9E6966505C75DEB3A74B
+          AE2E0D2DFACCEE915E178656F2C32CABBC004DCA42DFA3F1FCF06DD2ABDC86AC
+          962C8DE68719388E48AF721B322EF0A6B034961F6661905A8BB6017BC85E831B
+          CD0F3F29BD2BD6860C3EF14D68253FCC089D1AF5907D635E23456766C8E0F2BC
+          244DE37D8E744146F893921FE615E1ED0492D12721062C044894D93256DEE7D3
+          25703748C8D932E47DC29DB09F591BCB0F9367DA2A29C44BFC016927192BA40D
+          685D25638841EA35BC4EE82D71B7B3F5AD8DA44B033C4F4B646AE38C67C40B1A
+          CB55F760C3ED4E69074E2F466CA30DEE07F91B2F686CDE64DFC38B115B7B7EB8
+          0C74CFDFA4171879141888CAD06A7EB80A5E463FC86783D0787E7858692C3F3C
+          AC349A1F1E366ACD0F77E10EB3D64EC1A088295893778ED6F2C3C3422BF9E161
+          A3F6FC7057A8253F3C62C488AE3236F63F28F1C310BCB25EBE0000000049454E
+          44AE426082}
+        FileName = 
+          'C:\Users\User1\Downloads\pack-icones\Font Awesome\PNG\64\213059 ' +
+          '- f085.png'
+      end>
+    MarginWrapMode = Center
+    Position.X = 96.000000000000000000
+    Position.Y = 328.000000000000000000
+    Visible = False
+  end
+  object imgNaoSinc: TImage
+    MultiResBitmap.Height = 64
+    MultiResBitmap.Width = 60
+    MultiResBitmap = <
+      item
+        Width = 60
+        Height = 64
+        PNG = {
+          89504E470D0A1A0A0000000D494844520000003C000000400806000000461C14
+          C8000000017352474200AECE1CE90000000467414D410000B18F0BFC61050000
+          098B494441546843ED9BFB4F53D916C7ED69A1AD60DB0179545031192A42A3C9
+          60A2333F31F397E9FF75134D6E4CEEDCC41B99A9B4EA202828C5CE4029A5AFD3
+          C77CBE9BD333F55A86F208B7ED7525DFACBDF7393D7B7FF75AFB71F659BDF455
+          FA5C3C8E3E37595D5D0D178BC5B0D7EB0D931D6DC195263C1E8FAFD168F81C9D
+          B52C2B2B4DFEA05EAF1F4853B65DABD5B6E7E6E6B6F94D43A05CFA4C6239FAFF
+          464E6DE1172F5E0C5D46B0C21059592D840E910F29ED6058D728BB82C502E483
+          5852F092B7A481AC79802E70BDC4FD65AC5C26BD2B90DEF5F97CFBD56A354F3E
+          CFF57D9E972B954AFB8B8B8BF5478F1E351E3F7E5CA7BC233935E1D7AF5F8FD9
+          B63D4E63C7C84ED1986969E0BA2E24FC940F921EA4E172E101E023EF212FC21E
+          5CDF265F013665359E57A55C6876845C7C9B6B69749AFB3E92FE1089443E1C1C
+          1CD4666767AB94D728EF484E4D38994CCEA09AB843A577A481ACDAC459C486AC
+          8D356D3A6595E7AF921752E453583D150804ECADAD2DFBFEFDFBEAB48EE458C2
+          54603D7DFAD41A1B1BA3C3AD512ABE4AB1F4343D7D5D9A7BA6B8662C4C3A80BB
+          0582C160C03CE094820BD7F2F97C351C0EC3B9B60DC134CFDE061BD4F91E6C28
+          4FBDDB789A26367949251E8F4B1F29C7127EF2E4896F6666C687FBF8E8D9DB14
+          DDA6921895456948948A27C96BFCCA8D43CCD03EC8CA6D85530B96ABD3C90D88
+          6A7CE6E95CB9779E36EC90FF43A0DE246D48728F90A78D79086B9C1F29C7124E
+          2412660C0A54F08340FA072A1FA3B2312AD218BE30A1434BB872898ED604F74C
+          20FD8C76ED94CBE51D08AB438E94B68421633D7FFEDC1B0A852C5991A26B02E5
+          0B3C78411A8470A590DFEF97752F52CC2447FD364453A40D68E73A9DBF8607AC
+          67B3D9326D2FC562B1B27ED02A6DD761911D1F1F974B6A96D50C7C8F0A7E82EC
+          22FA5B595664E96DFFE12F2E4E18DB6AF3A0E609DAA255E12EF811A28BB8FD6C
+          A5521967DC8772B95CDB39A42D615996070E901421F350C8FE845E84FCB77263
+          5996A5E1C20953B71735A049319D4EBB8469D7773206ED1CC718E1A3DAF61961
+          7EE011B0E028888187146BA931EB2BD782F4F09926A3F314DAE7A13D1A961A7A
+          5721ABC9F47BF43CF96BDA1CB15FF06BE23DFC450B611175927496597A62E887
+          B8C93CD7B4E468C714C07564F9AE11AC6C31A3C3D16C80B48A7C4F7B45786A78
+          787848AE3D353525AF30F2DF2E2DD2B2B2D6D959C83E546F913716C69D829477
+          8D85A7A7A73D42341A150F19E936ED9385E595D7B0FE905CBB50287C69E1E5E5
+          E5CB6FDEBC194DA552D7C96A56D6FA3A0ED930C42F7CAC9E422CED01D05A4247
+          69BB768077217D93F9466F6E465CC2AC6DDAD46B1C68F73405C92818C73542EC
+          78CEB46BBA08915B3B1B9E418D67F42D70174E37C947748FC4254C4F5C962B43
+          F23AD052642C8C1B1F39E37593386EED5A1818C2F0B8018FB616D6EB9CDC392E
+          0D69F7A65E1308CA5B457A1A2E134CB423CCD621A1D5C2616EBAC10D71B237B8
+          E9A27750E726F256788C6034BDE04C5224F2E67DDD258C9F8765596E8E435C96
+          EE590B6B354169E2321676AC7D485867500216BD426FE8646208ED673FDA35CB
+          CF5904B272EF6F80DE05AE692A37876EF4847A605884352B3351B98B752F8B08
+          A346807901B2B0AC3961C4AACD3328B358A3FBC2C2185067697F5998CC98C035
+          59B81736182715BD556942D6589ED0A6DBBCC873A15F09FBF1DE08469D105C0B
+          83103DD0778421AB171E0DD9094184F5421024A3A3D4BE98A85A85312C4E3A9E
+          0A1A60557338AE427AA2EF08C3CD106EF2742D0CB4E9EE3BC2F032849B3C45D8
+          7CD4025AA28E3DC5EC4131272240C4BD7269F325CF31BDBBD5EC23319F75D832
+          7B05D7C20EE1BEB430442D1DFE09B2A80EB44BCC603AEFEDF8A3540F497D7070
+          B08A369F625CC2CA60FA8E3F3BF68A94CBFAFA5AD7D7481DDE5734864B0E6CAC
+          DC7716C6BA7578FD6561C6AF420DB264F4B1AAE3CF8EBD22B22A6A1F1C7E80A3
+          C08DAFE847C2F0D2F7A57DB8FD21606DAB195452601DFEDB6FABBD28F012277D
+          42752DFC49A02776D10714EA86AABECFA27B5EE0A54FABBB18559F27B62C06F5
+          27A19570B158AC46A3D17E215C84D72EC92D410BF22781424D5C327D25180C6A
+          56EB1B0B8B1B7A4BB072B95C4D60FCE62850ACC45BD62DC552C8DABD2A9A7C0B
+          ECB0F6E0B103AF0CFCD282B5B0B05013B8B80FD134788BAF8BF8DFC64A74B9D8
+          954AA580E7EE915608448637C1B4A075B82650B88F562CD45B7AE513C47BD6C2
+          18CF665E2A90DC838F211C8BC5D242EBDB9116E78FE015D8C4CABB8A9520AD58
+          A89E1ACFB8AE5CF91DC95FC03B2DBB6813AFE912E6062DCE1FC12B7A6583A21D
+          26AF32BDA519BBA7B69C78A7F61586B0B4F2A43F274CA1C6B0C2FA5E71D32645
+          3BF45419BFB7B1744F59188B6AECBE07BF60BC77D84CB3B489C67509673299FA
+          D0D090D9647341516F49083F1B1818488542A18CDC7A7373B3211CFEA2BB84B7
+          A21CC6DAA4DD2BB4FF37A0683D4DC25978E96DD0884B786969A9BEBEBE6E08D3
+          4369B0425A415F2990D146647272B26B2D8D61B4AC6E8215481BC2B66DA70381
+          80DCD925DCF684636565455FDB9A5882FC9234300124CEC7E7AE12C7B2222BFD
+          92A1F892E5F6A573D995B60DE707ADAF54EBFCF857B4C2FC929055086F57ECB7
+          E5C68CCF0FB86D526892456F92CF39B77D266D09435001DACD378C35D29ADE9F
+          E981C044AE76C37E9B39661F68094D6A08362D4B276CF8FD7E4D5C5FC8B18776
+          89446292F13109D1497AED01153C20FD804B6ED0A9EEFB5F88AC2AB22493904D
+          4036313F3F9F38BCDA5E8E25BCB6B61629954A111EAC4898392AB9437A8E875F
+          85B830CA164E117A41E9C35F9DBBD83CBF4A9DDA4169F7D43CB450E0F86F5C57
+          E0F806C6783F3B3BAB3DC491D2C9E4A370DDAC663C1EFE0AB2FFA6E27F90FE59
+          BD0B3E50D90E648BCEFDE72E22CBF30B9A89E970B3BE52E73FC1BFC07F645991
+          DDDBDB6B3B6E5BE544E7D08A5D54381FF5EB8F1DF7A8FC1EC41569ABB8AE291A
+          A588BD73174D4ECEB22342CBE86547A76588783CAE89B423391161056A2A7651
+          110290BE49D10C646F02F3ED1528724F1134726D7D9154409BEE0DE08AAACB80
+          7B4CBD58467FF2301B197E4371439B1EEDDFB50A98E363CA8A94E970422FF17A
+          1178477E1D982DA3BCEFD6AD5B5A6B3B9213115654AA023515BB480322EC60F4
+          878408E9111A3E8256E4CC0804CD1A4E5A5FDE23344C61153A4EB2484B7BF006
+          0D27D5DFE0FEBA0803CDBAFA9B4E9EDF9ABFF190D6995B86DF64B8F777D25911
+          A57CCFD9419520EC6E2C8E9313113E4A14F0856A629AC6285C487FFE3096A781
+          1334D48BD6FF95F45F25435E4299C81AF05B73D02690DFE29239A5002776DDA3
+          A4EB764C5FE5AB9C452E5DFA131866108FA057A0030000000049454E44AE4260
+          82}
+        FileName = 
+          'C:\Users\User1\Downloads\fontes-app\Fontes\Mobile\Images\icon-ci' +
+          'nza.png'
+      end>
+    Position.X = 264.000000000000000000
+    Position.Y = 328.000000000000000000
+    Visible = False
+    WrapMode = Center
+  end
+  object imgSinc: TImage
+    MultiResBitmap.Height = 64
+    MultiResBitmap.Width = 60
+    MultiResBitmap = <
+      item
+        Width = 60
+        Height = 64
+        PNG = {
+          89504E470D0A1A0A0000000D494844520000003C000000400806000000461C14
+          C8000000017352474200AECE1CE90000000467414D410000B18F0BFC61050000
+          0C0F494441546843ED5BCD6F1CD791AFAAD7D33DC3218743522425928A65C05F
+          922579136537F621BB724ED9D3DE17BA6C804D1631944B90B3AC738005820046
+          10E4E2B3FF8338C0C6090CD8C9AEE32F7DD889127D5012299A9CA1C811A767FA
+          55E557A3C9485ED0A625390AC9F847147A38FDA6E7D5ABAF5F75BFA12FB0CBC1
+          FDE3E7866FFFEFB747A95C1EB518474569429926D868C2D846C8186223C69CE0
+          FF4488124CA069C44D226B0A594B495A8CA3902E7662585CBB7063F1D0994376
+          FAC5D31846D6FF9AFB06BEF3EF0BF76DE1136F9FA896746C28E54E55251911E5
+          9A1AD558228E5C63C66B92618545D9ADCB5C66B38AA9559439043321E100B3B5
+          0C1685E56F094B1BD7C831A99C581BA6D410A306B3AC99D1BA25B42E5AAC15A5
+          A19BA1DD5A6B1C6BE8A11761FDD3A7B53FAD2D71DF0AFFC75B272703C7294C78
+          12D39E95C8732C366BEEB6AC236A3222669992A5D02C55D6045F579242939808
+          74370926EEA45DE5D8C125BB414254D3428C0B0DEC6E8DC5901615B468811658
+          690121722DB1E22A16EE6A76238B0BFFBA50BCC2AFC4DBB3DA1AF7ADF0777EF7
+          9D0305250730E30398F641533EC8420761A1E16E8786B38C86FB43EF0BD7B000
+          237D891A2F04492EC05B2E201F9C27B1F35C14E731ACEBF2D3AFFED48F9F095B
+          2A7CCA4E09FD92E4EC24495D5627A8D5DD23099210F11CACB45FD9E684791626
+          9B53E259E1A24C969471E572FF12F707A3D8CA9B8596EB71A4888B9AF002A6BB
+          0885AF20F95D66D32B2CB258A82E52565ECC28EF2CD164E795C3A7DD5B3E115B
+          272D287BF1002593B4945AA13314E8880A1D37D6AFE3EC7381F91F29DA53C4C5
+          3EB7AC2B9BF33ADCF7C130DF9CE76A564FD6884A5D0D7529B0B8664F31F1319C
+          FE670BF24D2CF03F85408F65793E8EF7867D8EBD0F7F0A42FFF88998FAC1F1A4
+          DE5D2AE594A51C8B43227C0CABFC75D48783C2F149ACD9E32CBC07971A49124A
+          61593F3C70F6AF5590F390F5E0D2014A5548A4064FC2F7107CAD40AE90038871
+          44506821217E8405897992757EF7D21B1BB7AFB03936756977E3EBFF773D64B5
+          4C3A2DD9A789CE58976650279F864F3CADA44F23F9D434296A4259ADFFB18702
+          8FED9956EC58D5BA28E5E7493DA621AC17D9C29F988B8B5A688EB9B77FFCC48F
+          F3FEC706D8D412AE6C75AA9AACAC5056509CA5189FA1A0DF40F93866511F138A
+          93AEEC467B23EB7FE4A1610673BE560D29942DA354CD468E47C9F4798B722C92
+          3EDEA1742A64A196DFCC37CD219B2AEC96BD71AD28A529654C3A4B2647B9A06F
+          90748FC1CF1E03419A74CB56CBF587AE3010A074C993E2D5D5F9D942368ED22A
+          3F8FAAFE15D46C1843A7F2581A9544369DDBFF77E91E79FBD65B2FEC43D6C175
+          751F22E82BA879C75CD9A253AA48DA2E072A57FAE3FFB698878DE75873709212
+          0D9DC1F4CFB0F15978E2EF71F6C336577E3F36D429DEBD3A1E5F7BFE74E11FB9
+          DBC23D654FBD780A2449F718C7274CE459D487436041731C4B23AE6C6145A93F
+          7E1B00F69A37596A34C5C30C84E54970F4E7A0C821C8EC30B5AAEEDA47675706
+          C9F98EC27D65CF3E7D969DF4A3C63D8EDAFAAC453B1423CF229F8FB865331E7E
+          E092F3B9610E1ACF31CF8DCD0935923D79879E9448CF818A1E044F980131AABA
+          6B376EA583390F143EF1F3134397FF6D6562FCF1F1FD92F00C4ACF5E38CC1452
+          FE688258EE0FDBB6C8C75A92A596E405A7A85513C8350750B58E46E547D2D81E
+          ED0FBBA3F0D0C45445ACD81363693F5AB45914F57DB0EC14E862ADD56E3E186B
+          7A0870B7CEB99564B70CE443BD5E3F0A2F3D0A4B3F5262A9DF1EF5B1182E8642
+          60B8B2ED47D0CF6295F6C2B2533831FA37CAC6F704776BD0F784C63895681378
+          EB51E49EA3E8C8BE64A6030B0FB2F47FBDFDBDC3A08B474CF508B13D55181D4C
+          589EEA9FDE5150CA97CDD215215E466BFA2BB0B25F81EFFEDACF0D2CECAB80F2
+          83D5E0C320E75F4A383E5406F579024DCD1073679C634483C37BD1CD4D6C54A8
+          E672579686C26CFB59E3E1A2CBFBA9250337D869085CAE80184D5012E6D0554D
+          7B120B916A2EE2F7A05C507347509A46D079573D2BB7C2DAF6293F0F0065A920
+          278D29D98C8BF80D371765ADC19587936EAC7A564ECAC9969DD44E005CB8023E
+          312E12677AE277175D50776BE0A3C3540D55CFCABD8CB70B102D96A1D7981311
+          1741504FDE965E406FFBF273CF10710E310AB79E76B9CD412148DF70E9DDA7B0
+          C288E0D575A4EE6997818559A586B2B4EB14E60E9729324256A65D50A210D410
+          134B59785724AABB21A53CA034A5CA7E3FDC409F992B2E580BBF1FB5FB14E610
+          6212524179EA099255A527646961BAEB1426682BD44D2D4247089216273D01F3
+          08EA1EBEBB9017E80CAC24F0DDDE1F5C3A262EF0EFA001156B97212B226B179E
+          5DC4E00293A2DD87A02485806EBF3F6ED760AD1A38A626DD44828B804EB65DC0
+          B4BAF0F1CFFC506AA720CD494BC6450905CA052E6D6D1766EDB0789DDE5D2865
+          B94A8C051A878E0B2C4CB030846061DD7D1646B65224EA028919CA4210B44D17
+          10EB169AE2CFFCD871A7A0E8241DD2B8869E78D94560E6A6CB6D857BCF5B7715
+          42427990B006CB2EF7C560616B8266DF52E64F7DB6BA1381A284D8A5F5818511
+          BF375CE0D68D40DAA28675725A2FE61BF3BB2281252C6D566BA01BBCEE2248D9
+          375C10D00D77EB7C883B99558BC9B1FAAE50584937E0C60D52BEEE22599EDD70
+          3192269A87F52C81853B5C648DEAAE50D854DAD14396F5BA8BD46AB5E8226C37
+          B1028B2AF6C790EA62B7DA4B623B12FED07C8DE8165EAEA2375C812197507217
+          5CC2D4F1295A5A5AB26CAC32C981EBCC5C1566E79C1510CD9D7AAB364F8D6EA1
+          035C0FCC67C12ECE04D1F760D4F50177FECF775E388213478CA9F7E4C13790EC
+          D4270FC06AD76C554C5785E455D0E6571B17965EF51383EE4834F15A056FE00F
+          90C0E671A2D16A3773778F9D96B15DD992D125D4DF77A1E125356DFA7E4D9741
+          C3FFECB7BE8A6E82A204B882721D8DD35429E1D9AA157CAB32CEBE9BA63F74DB
+          035DDF2534BA1F92D97B68162EA0F3BDFADFFFFEC38F5E3BFEDA1D0BDFA8EE59
+          4B13BB1625FD0003E761ED15F0D01C31DD1D6D838CED24C0C2BDCD6BCCEF46A6
+          4B4959BD02A1EAD29D86FFD012584775B2F01D6DC8580BF0FB734AE175A6F47C
+          351959EAB9B5EFA998C707B72194F29B54444CD2CE42AB3F40EBCB60560B8162
+          B3D52D7973D4C39D3B1CC7490F5CA4C2B7EF996FF3633B1B945F877AE78D65A9
+          4744E61896DE96FA9214C94D0A32EF9B5A30CB3FA0005F4E4BB4D0A67293EACD
+          81C29BDEE178E1CD1726F28C2624D2044AD3F128765C1A74DCB715F893F6DE9E
+          8A6D06B76C4F593F129D419F7BE6675F7EE94CFFF4009B4E7CA3BBD1E1B4B4A6
+          819661D18B1EFC3A46AF275A39373736BDB05DF8B6BB3158D455BC3C2766E7FE
+          A22C4AEA7CA90B22B5093655787F7D7F1E576EAE67392D73D03F05A37791F95E
+          474D3B6B3159DC2E7CDB285D033B9C3735E41B1A583629E84A524F56FBC33E86
+          4D5DFA6E7CF7FDEFEEED74C99FA2EFC5927E0D9FF89A1F7DB74C6F03C9186FB9
+          83F5AF8873AE2C0B8EC4EF2341BDFF937FF8C9FBFD739B62CB58F40CE799CE33
+          9E097F80B77E4B817F9195EC3754A7F358D1AB146D2552FB5377B13E089CFC44
+          6B6FB80B830F5F891ADF2335DFB3F126E6F2962B8B7A7B05D47853ABDE8DAD93
+          0F329C673ACF7881E4037455BF418CFC02967E1345EA1C1AEAABF8D29510B3BF
+          9AC2D3D62E50536FF532B1E8656750C6FC6B337B034EFA965B56927839E671D3
+          B8BD1B5BBAF4DD38F1F6F7ABBE9DAFB7C3CDE819B45BCF20929EC10AFBBEAE59
+          50B1D9FED0CF156E59575613B9C9A6EF3085775036DF71AF7343BC74F8A585FE
+          D02D714F0A9FFCF064E67B177D3B5F0CFC0817E100B33D82959EC6A5A651FBFC
+          471F4326564182AB14A6E5245A9627A15CB29C4553EE46E6525AF4BFD77FB654
+          F40A7BB793582968A71B38F7FBC7861831D1365C7503B36C6048030BBC02CB5E
+          02D7BF18155C19A1E6DEF7F2977FD4F46B7C16DC93C2FFF23FA712DFA8E97B17
+          ABB65E274B47958A7A101987A2E358F109B460E3A073BD1F67912ACE4BDD5847
+          A138986AF08777C28A1178DD05FF83724631AAFFC6050AAEA1615F43EDF736AE
+          816303E39B484A4B58D8A5A8FC91DF7F0BAC4D09B2DA635008B9971F7D79402C
+          B6C23D29FC4938F9C6C9DE1E28DF16A4EC5B3EE31C2E3D8752311D4CA7A1EB34
+          B3A235455A31C65BF001FF838A784F7B7F58067C7619EA2F43D165AC43EF968C
+          1FEFC7753F09DB8E317D812FF02020FA335C1113F6976E555E0000000049454E
+          44AE426082}
+        FileName = 
+          'C:\Users\User1\Downloads\fontes-app\Fontes\Mobile\Images\icon-ve' +
+          'rde.png'
+      end>
+    MarginWrapMode = Center
+    Position.X = 168.000000000000000000
+    Position.Y = 324.000000000000000000
+    Size.Width = 57.000000000000000000
+    Size.Height = 57.000000000000000000
+    Size.PlatformDefault = False
+    Visible = False
+    WrapMode = Center
+  end
+  object imgCurrentLoc: TImage
+    MultiResBitmap.Height = 64
+    MultiResBitmap.Width = 48
+    MultiResBitmap = <
+      item
+        Width = 48
+        Height = 64
+        PNG = {
+          89504E470D0A1A0A0000000D49484452000000300000004008060000005C20F4
+          46000000017352474200AECE1CE90000000467414D410000B18F0BFC61050000
+          012A494441546843ED99D10DC2301043DB0EC02A4CC1D44CC12A2C00322A12A0
+          B44AEE7C5895FC7EE0A73E3F94444A99A7024EB7CB63FDFAC5FD7CA5CF5BD6CF
+          C36201351650630135165063013516506301358717785D30B62E203DB42E2923
+          179AECEC25130032CF33667B0FA8B140E64D03E32DC5DCDA48D9E0ADCD5991EB
+          25A42624903DBF5B44338705DE83981299CC2181DF010C896C66B7C056704682
+          91D92DB077044624F69E19396E8796104B82551E0C6FE2AC04B33C1816005109
+          7679101200D1812D32596101C090C866A40440A600E307480B80481146794011
+          00238558E5014D00F4146396075401B057905D1ED00540AB6845795022003E0B
+          579507650200C52BCB8352817F600135165063013516506301351650630135CD
+          FFC88E8497901A0B6899A62758978C376E8377210000000049454E44AE426082}
+        FileName = 'E:\MFCAppMobile\IMG\Current_location.png'
+      end>
+    Position.X = 168.000000000000000000
+    Position.Y = 280.000000000000000000
+    Visible = False
+  end
+  object imgPrevLoc: TImage
+    MultiResBitmap.Height = 64
+    MultiResBitmap.Width = 48
+    MultiResBitmap = <
+      item
+        Width = 48
+        Height = 64
+        PNG = {
+          89504E470D0A1A0A0000000D49484452000000300000004008060000005C20F4
+          46000000017352474200AECE1CE90000000467414D410000B18F0BFC61050000
+          0123494441546843ED97410A83301444D53374D965EF7FA22EBBEC1D5A2A0E88
+          24D69F3F6114E66D144A26F34A22FC71E8C4FBFEF82CAF33B7D7B3CB5E5D42B7
+          E5410F097A60AD3C604B50C3FE95074C095AD0D1F2802541098996070C897440
+          6B799095482DCE96071989E685ACF2A055625A9E21F6CAEF15D9FBADF50F090B
+          B496076C899040B63C604A1C166095072C89C302B50D5BCA034666E8086D8333
+          E54136337C89B101A33CC864D24AACA99D61A6349803A3377F4DA9544420BBF7
+          9409F89159CFD83B7C07CE8605D4A405325F16C657692C5DA46C70ED72F6C8F5
+          11526301351650630135165063013516506301355D044A830B63FA2AD16522EB
+          8527B2336201351650630135165063013516506301359717284E6457C247488D
+          05B40CC317F4C98CF0FE87BED70000000049454E44AE426082}
+        FileName = 'E:\MFCAppMobile\IMG\Prev_location.png'
+      end>
+    Position.X = 176.000000000000000000
+    Position.Y = 288.000000000000000000
+    Visible = False
+  end
+end

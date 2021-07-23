@@ -88,7 +88,7 @@ end;
 
 procedure TfrmCarregaUsuario.FormShow(Sender: TObject);
 begin
-    listarUsuario;
+
 end;
 
 procedure TfrmCarregaUsuario.listarUsuario;
@@ -133,3 +133,4 @@ begin
 end;
 
 end.
+

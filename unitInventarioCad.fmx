@@ -3,7 +3,7 @@ object frmInventarioCad: TfrmInventarioCad
   Top = 0
   Caption = 'Cadastro Inventario'
   ClientHeight = 600
-  ClientWidth = 373
+  ClientWidth = 358
   Fill.Kind = Solid
   StyleBook = StyleBook1
   FormFactor.Width = 320
@@ -18,7 +18,7 @@ object frmInventarioCad: TfrmInventarioCad
     Fill.Color = claSlategray
     Opacity = 0.899999976158142100
     Position.Y = 530.000000000000000000
-    Size.Width = 373.000000000000000000
+    Size.Width = 358.000000000000000000
     Size.Height = 70.000000000000000000
     Size.PlatformDefault = False
     Stroke.Kind = None
@@ -52,116 +52,6 @@ object frmInventarioCad: TfrmInventarioCad
             '- f014.png'
         end>
       Align = Center
-    end
-  end
-  object lytMenuTop: TLayout
-    Align = Top
-    Size.Width = 373.000000000000000000
-    Size.Height = 65.000000000000000000
-    Size.PlatformDefault = False
-    TabOrder = 3
-    object lblTituloCad: TLabel
-      Align = Contents
-      StyledSettings = [Family, Style]
-      Size.Width = 373.000000000000000000
-      Size.Height = 65.000000000000000000
-      Size.PlatformDefault = False
-      TextSettings.Font.Size = 18.000000000000000000
-      TextSettings.FontColor = xFF5E5555
-      TextSettings.HorzAlign = Center
-      Text = 'New Asset'
-      TabOrder = 3
-    end
-    object imgVoltar: TImage
-      MultiResBitmap.Height = 64
-      MultiResBitmap.Width = 30
-      MultiResBitmap = <
-        item
-          Width = 30
-          Height = 64
-          PNG = {
-            89504E470D0A1A0A0000000D494844520000001E0000004008060000000DB4C7
-            25000000017352474200AECE1CE90000000467414D410000B18F0BFC61050000
-            0248494441545847EDD8CD4B546114C7F1296BD19FE046A2A50B2B6897D8ABBD
-            20111948A8606144106184D1A2205A4510844421B8F17F70514420B470E1DF21
-            B8699566F952FAFD9917A6E1E83DCF79BCB4B93FF830338B3967E672E779CE3C
-            8D3A75AA4ADBCE631539860BE8C022D65169F465DE63B3C9375C466539886934
-            372DACA292E66A3A05AB69E127CE63DF72001F60356BF50327901D359D80D564
-            379F9015357D03ABF85E56108E9ABE8255B88C2E77382F6115F5984128CF6115
-            F4F88E4E24E729AC821ECBE846721EC32AE8A11BEA2C92F31056418F5FB888E4
-            DC8755D0434BE51524671456410FED48D7909C11FC8155B4CC06FA919C41449B
-            FEC60092A337E9CD56D132FAB04348CE0DE83259453D6E2339BA11D66015F4B8
-            87E45C856E7DABA0C70324A717FA915B053D1E2139A7A0E5CC2AE8F104A17C81
-            55D0E319C2895E62EDC7E168325491FF928F68FD365E1A08C2E9823668ABB087
-            068370CE20E7CED680108EFE6069D2B70A7B68500847FF6D72562F0D0CE1F421
-            67BDBE8B70AE43D38355B88CB6450D10E1DC44747B54730D12E1DC427420084F
-            21458691337769B008E70EACC21EBA51439366114D1756610FFD44356884A329
-            C32AECA15DF012C2198355D823FB0C641C56610FFD293F1E3D609B831618ADEF
-            A9398CA37F9FC6F302D6B72AB3927BA4F81587D0B3FDCA9FF5FD38CB9CC5119C
-            DE7EE5CBE79DC7ECE804E82DACCBDA2A7C06B25BD4FC1DAC6605DDD1A13390B2
-            A8F924ACA6FA0D9F4365D1C8FC1ACD5BEA02FE3978D127AC2AED388925CC43EB
-            759D3A75EAE4A6D1D802D67871A80974060F0000000049454E44AE426082}
-          FileName = 
-            'C:\Users\User1\Downloads\pack-icones\Font Awesome\PNG\64\213012 ' +
-            '- f053.png'
-        end>
-      Align = Left
-      Opacity = 0.500000000000000000
-      Margins.Left = 10.000000000000000000
-      Margins.Top = 8.000000000000000000
-      Margins.Bottom = 8.000000000000000000
-      Position.X = 10.000000000000000000
-      Position.Y = 8.000000000000000000
-      Size.Width = 47.000000000000000000
-      Size.Height = 49.000000000000000000
-      Size.PlatformDefault = False
-      OnClick = imgVoltarClick
-    end
-    object imgAplicar: TImage
-      MultiResBitmap.Height = 64
-      MultiResBitmap.Width = 48
-      MultiResBitmap = <
-        item
-          Width = 48
-          Height = 64
-          PNG = {
-            89504E470D0A1A0A0000000D49484452000000300000004008060000005C20F4
-            46000000017352474200AECE1CE90000000467414D410000B18F0BFC61050000
-            024B494441546843EDD9DBAB0D611CC6F1E574E1CCC63FE042724C92DA97FE01
-            4952124989A49090484A3B25498A48949428F76E1C231139DC2B77CE24DC387F
-            7FE5AD697A66CD3B6B66D6CCAEDFB73EEDDAED59EB59EDF69AB7BD3A9EE7799E
-            E7799ED758A3FE7F6D6BCBB0054BF0125F316CDA8FBF09EF301FC3A27D488E0F
-            DE631E5ADD1EA8F181FD26E6A295ED821A9DF61673D0AA76428DCDF206B3D08A
-            B6438DCC730B8DB70D6A5C8C9F68B4AD50C362BD42636D861A55C43A34D226A8
-            4145EC40662360378C418CB56F54D846A84145D8DB6D6613701DE1875F6329AA
-            6803FE2039A6A8DDC86C3CEE207DD117D881AA4CEB5176FC5E6466E3ED7D555D
-            683E63317A692DCA8EB7F35166E37013EAC2A44F588422ADC16FA8C78B750099
-            D9F81B50172A1FB11031AD46D9F107D1B573501776F3010BD0AD55F805757DAC
-            43C8ED3BD4C579BA9DCD57A2ECF8C3B0B7F3DCBE413D400C3B9BA78FB52B6067
-            14F5F3B1861035DE3A03F520B1EC583B1BD672941D7F04D1E32DBBD316F92356
-            EC6667A7CA1F89EFF5E2280A8D0FC5BE8DD6E9187A1A1FB21BD96DA807AFDB71
-            941A1FB273D05DA827A9CB0954323E642FE21ED49355ED242A1D1F9A88FB504F
-            5A9553A8657C68121E403D7959A73112B537190FA146F4EA2CFA323E34058FA0
-            C61465E7AEBE8E0FD98B780C352AD67934323E34154FA0C6E5B98046C78706F0
-            146A64968B68D5E710D3F00C6A6CDA25B4F24394E9780E353AB88CD1686DF622
-            5E408DBF82568F0FCD40FA455CC518F4A52A6EE5768AB5FFF9CC84DDF4AEC1FE
-            85E2799EE7799EE7D55AA7F30F316BC1E59F00A9400000000049454E44AE4260
-            82}
-          FileName = 
-            'C:\Users\User1\Downloads\pack-icones\Font Awesome\PNG\64\212946 ' +
-            '- f00c.png'
-        end>
-      Align = Right
-      Opacity = 0.500000000000000000
-      Margins.Top = 8.000000000000000000
-      Margins.Right = 10.000000000000000000
-      Margins.Bottom = 8.000000000000000000
-      Position.X = 319.000000000000000000
-      Position.Y = 8.000000000000000000
-      Size.Width = 44.000000000000000000
-      Size.Height = 49.000000000000000000
-      Size.PlatformDefault = False
-      OnClick = imgAplicarClick
     end
   end
   object StyleBook1: TStyleBook
@@ -1062,17 +952,17 @@ object frmInventarioCad: TfrmInventarioCad
   end
   object TabControlInventarioioEdt: TTabControl
     Align = Client
-    Size.Width = 373.000000000000000000
-    Size.Height = 465.000000000000000000
+    Size.Width = 358.000000000000000000
+    Size.Height = 530.000000000000000000
     Size.PlatformDefault = False
     TabIndex = 0
-    TabOrder = 4
+    TabOrder = 3
     TabPosition = None
     Sizes = (
-      373s
-      465s
-      373s
-      465s)
+      358s
+      530s
+      358s
+      530s)
     object tbInventarioEdt: TTabItem
       CustomIcon = <
         item
@@ -1086,20 +976,133 @@ object frmInventarioCad: TfrmInventarioCad
       Text = 'tbInventarioEdt'
       ExplicitSize.cx = 8.000000000000000000
       ExplicitSize.cy = 8.000000000000000000
+      object lytMenuTop: TLayout
+        Align = Top
+        Size.Width = 358.000000000000000000
+        Size.Height = 65.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 1
+        object lblTituloCad: TLabel
+          Align = Contents
+          StyledSettings = [Family, Style]
+          Size.Width = 358.000000000000000000
+          Size.Height = 65.000000000000000000
+          Size.PlatformDefault = False
+          TextSettings.Font.Size = 18.000000000000000000
+          TextSettings.FontColor = xFF5E5555
+          TextSettings.HorzAlign = Center
+          Text = 'New Asset'
+          TabOrder = 3
+        end
+        object imgVoltar: TImage
+          MultiResBitmap.Height = 64
+          MultiResBitmap.Width = 30
+          MultiResBitmap = <
+            item
+              Width = 30
+              Height = 64
+              PNG = {
+                89504E470D0A1A0A0000000D494844520000001E0000004008060000000DB4C7
+                25000000017352474200AECE1CE90000000467414D410000B18F0BFC61050000
+                0248494441545847EDD8CD4B546114C7F1296BD19FE046A2A50B2B6897D8ABBD
+                20111948A8606144106184D1A2205A4510844421B8F17F70514420B470E1DF21
+                B8699566F952FAFD9917A6E1E83DCF79BCB4B93FF830338B3967E672E779CE3C
+                8D3A75AA4ADBCE631539860BE8C022D65169F465DE63B3C9375C466539886934
+                372DACA292E66A3A05AB69E127CE63DF72001F60356BF50327901D359D80D564
+                379F9015357D03ABF85E56108E9ABE8255B88C2E77382F6115F5984128CF6115
+                F4F88E4E24E729AC821ECBE846721EC32AE8A11BEA2C92F31056418F5FB888E4
+                DC8755D0434BE51524671456410FED48D7909C11FC8155B4CC06FA919C41449B
+                FEC60092A337E9CD56D132FAB04348CE0DE83259453D6E2339BA11D66015F4B8
+                87E45C856E7DABA0C70324A717FA915B053D1E2139A7A0E5CC2AE8F104A17C81
+                55D0E319C2895E62EDC7E168325491FF928F68FD365E1A08C2E9823668ABB087
+                068370CE20E7CED680108EFE6069D2B70A7B68500847FF6D72562F0D0CE1F421
+                67BDBE8B70AE43D38355B88CB6450D10E1DC44747B54730D12E1DC427420084F
+                21458691337769B008E70EACC21EBA51439366114D1756610FFD44356884A329
+                C32AECA15DF012C2198355D823FB0C641C56610FFD293F1E3D609B831618ADEF
+                A9398CA37F9FC6F302D6B72AB3927BA4F81587D0B3FDCA9FF5FD38CB9CC5119C
+                DE7EE5CBE79DC7ECE804E82DACCBDA2A7C06B25BD4FC1DAC6605DDD1A13390B2
+                A8F924ACA6FA0D9F4365D1C8FC1ACD5BEA02FE3978D127AC2AED388925CC43EB
+                759D3A75EAE4A6D1D802D67871A80974060F0000000049454E44AE426082}
+              FileName = 
+                'C:\Users\User1\Downloads\pack-icones\Font Awesome\PNG\64\213012 ' +
+                '- f053.png'
+            end>
+          Align = Left
+          Opacity = 0.500000000000000000
+          Margins.Left = 10.000000000000000000
+          Margins.Top = 8.000000000000000000
+          Margins.Bottom = 8.000000000000000000
+          Position.X = 10.000000000000000000
+          Position.Y = 8.000000000000000000
+          Size.Width = 47.000000000000000000
+          Size.Height = 49.000000000000000000
+          Size.PlatformDefault = False
+          OnClick = imgVoltarClick
+        end
+        object imgAplicar: TImage
+          MultiResBitmap.Height = 64
+          MultiResBitmap.Width = 48
+          MultiResBitmap = <
+            item
+              Width = 48
+              Height = 64
+              PNG = {
+                89504E470D0A1A0A0000000D49484452000000300000004008060000005C20F4
+                46000000017352474200AECE1CE90000000467414D410000B18F0BFC61050000
+                024B494441546843EDD9DBAB0D611CC6F1E574E1CCC63FE042724C92DA97FE01
+                4952124989A49090484A3B25498A48949428F76E1C231139DC2B77CE24DC387F
+                7FE5AD697A66CD3B6B66D6CCAEDFB73EEDDAED59EB59EDF69AB7BD3A9EE7799E
+                E7799ED758A3FE7F6D6BCBB0054BF0125F316CDA8FBF09EF301FC3A27D488E0F
+                DE631E5ADD1EA8F181FD26E6A295ED821A9DF61673D0AA76428DCDF206B3D08A
+                B6438DCC730B8DB70D6A5C8C9F68B4AD50C362BD42636D861A55C43A34D226A8
+                4145EC40662360378C418CB56F54D846A84145D8DB6D6613701DE1875F6329AA
+                6803FE2039A6A8DDC86C3CEE207DD117D881AA4CEB5176FC5E6466E3ED7D555D
+                683E63317A692DCA8EB7F35166E37013EAC2A44F588422ADC16FA8C78B750099
+                D9F81B50172A1FB11031AD46D9F107D1B573501776F3010BD0AD55F805757DAC
+                43C8ED3BD4C579BA9DCD57A2ECF8C3B0B7F3DCBE413D400C3B9BA78FB52B6067
+                14F5F3B1861035DE3A03F520B1EC583B1BD672941D7F04D1E32DBBD316F92356
+                EC6667A7CA1F89EFF5E2280A8D0FC5BE8DD6E9187A1A1FB21BD96DA807AFDB71
+                941A1FB273D05DA827A9CB0954323E642FE21ED49355ED242A1D1F9A88FB504F
+                5A9553A8657C68121E403D7959A73112B537190FA146F4EA2CFA323E34058FA0
+                C61465E7AEBE8E0FD98B780C352AD67934323E34154FA0C6E5B98046C78706F0
+                146A64968B68D5E710D3F00C6A6CDA25B4F24394E9780E353AB88CD1686DF622
+                5E408DBF82568F0FCD40FA455CC518F4A52A6EE5768AB5FFF9CC84DDF4AEC1FE
+                85E2799EE7799EE7D55AA7F30F316BC1E59F00A9400000000049454E44AE4260
+                82}
+              FileName = 
+                'C:\Users\User1\Downloads\pack-icones\Font Awesome\PNG\64\212946 ' +
+                '- f00c.png'
+            end>
+          Align = Right
+          Opacity = 0.500000000000000000
+          Margins.Top = 8.000000000000000000
+          Margins.Right = 10.000000000000000000
+          Margins.Bottom = 8.000000000000000000
+          Position.X = 304.000000000000000000
+          Position.Y = 8.000000000000000000
+          Size.Width = 44.000000000000000000
+          Size.Height = 49.000000000000000000
+          Size.PlatformDefault = False
+          OnClick = imgAplicarClick
+          OnMouseDown = imgAplicarMouseDown
+          OnMouseUp = imgAplicarMouseUp
+        end
+      end
       object VertScrollBox1: TVertScrollBox
         Align = Client
-        Size.Width = 373.000000000000000000
+        Size.Width = 358.000000000000000000
         Size.Height = 465.000000000000000000
         Size.PlatformDefault = False
+        StyleLookup = 'scrollboxstyle'
         TabOrder = 0
         ShowScrollBars = False
-        Viewport.Width = 373.000000000000000000
+        Viewport.Width = 358.000000000000000000
         Viewport.Height = 465.000000000000000000
         object lytAsset: TLayout
           Align = Top
           Margins.Top = 10.000000000000000000
-          Position.Y = 10.000000000000000000
-          Size.Width = 373.000000000000000000
+          Position.Y = 131.000000000000000000
+          Size.Width = 358.000000000000000000
           Size.Height = 55.000000000000000000
           Size.PlatformDefault = False
           TabOrder = 0
@@ -1110,12 +1113,12 @@ object frmInventarioCad: TfrmInventarioCad
             Margins.Left = 20.000000000000000000
             Margins.Right = 20.000000000000000000
             Position.X = 20.000000000000000000
-            Size.Width = 333.000000000000000000
+            Size.Width = 318.000000000000000000
             Size.Height = 33.000000000000000000
             Size.PlatformDefault = False
             TextSettings.FontColor = xFF5E5555
             Text = 'Asset Tag'
-            TabOrder = 2
+            TabOrder = 1
           end
           object edtAsset: TEdit
             Touch.InteractiveGestures = [LongTap, DoubleTap]
@@ -1124,6 +1127,7 @@ object frmInventarioCad: TfrmInventarioCad
             TabOrder = 0
             KeyboardType = NumberPad
             ReturnKeyType = Next
+            ReadOnly = True
             TextSettings.Font.Size = 14.000000000000000000
             TextSettings.Font.StyleExt = {00070000000000000004000000}
             TextSettings.FontColor = xFFACA8A8
@@ -1131,7 +1135,7 @@ object frmInventarioCad: TfrmInventarioCad
             Margins.Left = 20.000000000000000000
             Margins.Right = 20.000000000000000000
             Margins.Bottom = 1.000000000000000000
-            Size.Width = 333.000000000000000000
+            Size.Width = 318.000000000000000000
             Size.Height = 20.000000000000000000
             Size.PlatformDefault = False
             StyledSettings = [Family]
@@ -1144,7 +1148,7 @@ object frmInventarioCad: TfrmInventarioCad
             Margins.Right = 20.000000000000000000
             Position.X = 20.000000000000000000
             Position.Y = 54.000000000000000000
-            Size.Width = 333.000000000000000000
+            Size.Width = 318.000000000000000000
             Size.Height = 1.000000000000000000
             Size.PlatformDefault = False
             Stroke.Color = xFF5E5555
@@ -1153,8 +1157,8 @@ object frmInventarioCad: TfrmInventarioCad
         object lytBrand: TLayout
           Align = Top
           Margins.Top = 10.000000000000000000
-          Position.Y = 270.000000000000000000
-          Size.Width = 373.000000000000000000
+          Position.Y = 391.000000000000000000
+          Size.Width = 358.000000000000000000
           Size.Height = 55.000000000000000000
           Size.PlatformDefault = False
           TabOrder = 1
@@ -1165,7 +1169,7 @@ object frmInventarioCad: TfrmInventarioCad
             Margins.Left = 20.000000000000000000
             Margins.Right = 20.000000000000000000
             Position.X = 20.000000000000000000
-            Size.Width = 333.000000000000000000
+            Size.Width = 318.000000000000000000
             Size.Height = 33.000000000000000000
             Size.PlatformDefault = False
             TextSettings.FontColor = xFF5E5555
@@ -1178,6 +1182,7 @@ object frmInventarioCad: TfrmInventarioCad
             StyleLookup = 'transparentedit'
             TabOrder = 3
             ReturnKeyType = Next
+            ReadOnly = True
             TextSettings.Font.Size = 14.000000000000000000
             TextSettings.Font.StyleExt = {00070000000000000004000000}
             TextSettings.FontColor = xFFACA8A8
@@ -1185,7 +1190,7 @@ object frmInventarioCad: TfrmInventarioCad
             Margins.Left = 20.000000000000000000
             Margins.Right = 20.000000000000000000
             Margins.Bottom = 1.000000000000000000
-            Size.Width = 333.000000000000000000
+            Size.Width = 318.000000000000000000
             Size.Height = 20.000000000000000000
             Size.PlatformDefault = False
             StyledSettings = [Family]
@@ -1198,7 +1203,7 @@ object frmInventarioCad: TfrmInventarioCad
             Margins.Right = 20.000000000000000000
             Position.X = 20.000000000000000000
             Position.Y = 54.000000000000000000
-            Size.Width = 333.000000000000000000
+            Size.Width = 318.000000000000000000
             Size.Height = 1.000000000000000000
             Size.PlatformDefault = False
             Stroke.Color = xFF5E5555
@@ -1207,8 +1212,8 @@ object frmInventarioCad: TfrmInventarioCad
         object lytCategory: TLayout
           Align = Top
           Margins.Top = 10.000000000000000000
-          Position.Y = 140.000000000000000000
-          Size.Width = 373.000000000000000000
+          Position.Y = 261.000000000000000000
+          Size.Width = 358.000000000000000000
           Size.Height = 55.000000000000000000
           Size.PlatformDefault = False
           TabOrder = 2
@@ -1219,7 +1224,7 @@ object frmInventarioCad: TfrmInventarioCad
             Margins.Left = 20.000000000000000000
             Margins.Right = 50.000000000000000000
             Position.X = 20.000000000000000000
-            Size.Width = 303.000000000000000000
+            Size.Width = 288.000000000000000000
             Size.Height = 33.000000000000000000
             Size.PlatformDefault = False
             TextSettings.FontColor = xFF5E5555
@@ -1239,7 +1244,7 @@ object frmInventarioCad: TfrmInventarioCad
             Margins.Left = 20.000000000000000000
             Margins.Right = 20.000000000000000000
             Margins.Bottom = 1.000000000000000000
-            Size.Width = 293.000000000000000000
+            Size.Width = 318.000000000000000000
             Size.Height = 20.000000000000000000
             Size.PlatformDefault = False
             StyledSettings = [Family]
@@ -1252,7 +1257,7 @@ object frmInventarioCad: TfrmInventarioCad
             Margins.Right = 20.000000000000000000
             Position.X = 20.000000000000000000
             Position.Y = 54.000000000000000000
-            Size.Width = 333.000000000000000000
+            Size.Width = 318.000000000000000000
             Size.Height = 1.000000000000000000
             Size.PlatformDefault = False
             Stroke.Color = xFF5E5555
@@ -1288,13 +1293,14 @@ object frmInventarioCad: TfrmInventarioCad
             Size.Width = 32.000000000000000000
             Size.Height = 11.000000000000000000
             Size.PlatformDefault = False
+            Visible = False
           end
         end
         object lytDateIn: TLayout
           Align = Top
           Margins.Top = 10.000000000000000000
-          Position.Y = 400.000000000000000000
-          Size.Width = 373.000000000000000000
+          Position.Y = 521.000000000000000000
+          Size.Width = 358.000000000000000000
           Size.Height = 55.000000000000000000
           Size.PlatformDefault = False
           TabOrder = 3
@@ -1305,12 +1311,12 @@ object frmInventarioCad: TfrmInventarioCad
             Margins.Left = 20.000000000000000000
             Margins.Right = 20.000000000000000000
             Position.X = 20.000000000000000000
-            Size.Width = 333.000000000000000000
+            Size.Width = 318.000000000000000000
             Size.Height = 33.000000000000000000
             Size.PlatformDefault = False
             TextSettings.FontColor = xFF5E5555
             Text = 'Date Input'
-            TabOrder = 2
+            TabOrder = 3
           end
           object Line2: TLine
             Align = Bottom
@@ -1320,84 +1326,30 @@ object frmInventarioCad: TfrmInventarioCad
             Margins.Right = 20.000000000000000000
             Position.X = 20.000000000000000000
             Position.Y = 54.000000000000000000
-            Size.Width = 333.000000000000000000
+            Size.Width = 318.000000000000000000
             Size.Height = 1.000000000000000000
             Size.PlatformDefault = False
             Stroke.Color = xFF5E5555
           end
-          object dt_empre_loc: TDateEdit
-            Date = 44048.000000000000000000
+          object lblDateEntrada: TLabel
             Align = Client
+            StyledSettings = [Family, Style]
+            Opacity = 0.800000011920929000
             Margins.Left = 20.000000000000000000
-            Margins.Right = 150.000000000000000000
-            Margins.Bottom = 1.000000000000000000
-            Size.Width = 203.000000000000000000
-            Size.Height = 20.000000000000000000
+            Margins.Right = 20.000000000000000000
+            Size.Width = 318.000000000000000000
+            Size.Height = 21.000000000000000000
             Size.PlatformDefault = False
-            StyleLookup = 'DateEdit1Style1'
-            TabOrder = 3
-            object imgHoje: TImage
-              MultiResBitmap.Height = 64
-              MultiResBitmap.Width = 55
-              MultiResBitmap = <
-                item
-                  Width = 55
-                  Height = 64
-                  PNG = {
-                    89504E470D0A1A0A0000000D4948445200000037000000400806000000BEFCEF
-                    3F000000017352474200AECE1CE90000000467414D410000B18F0BFC61050000
-                    0426494441546843ED9A49AC154514862F880C8EC8A4E084A08CC1208382312C
-                    64836E5C48A246766C08262EDC92B861C59EB0800590C0CE04172C9020840091
-                    08CA202A328F120D20A080894CDF7FE9737328BAFB4E7DBB3BB1BFE4CB7BB75E
-                    77759DD7D5A7AAAB6EADA2A2A2A2A2E27FC6A3F8097E8DE7F136DECDC9BF7137
-                    2EC1A198C4045C83DFE2527C1C9B321D7FC1B80BE7ED7A8C631AFE85FED89DF8
-                    0426F21EDE447F5251DEC20F30642A5EC6B873B663EC1D7C03CB12981E838F30
-                    E475BC8871E7985BF1316CD00F0F6278E06A5417E88F79D0079FC771F54F0FA3
-                    E02E61D8CED02D3808EBCCC7F080855846D2BAA577330EC4DA575181B912CB82
-                    B2E2367CAEFEE93E710925CE15583BEB0AE4242C03EA9EBFA3DAF4338E406306
-                    5E41DFEED06B58CF4C56F02FAAEF17CDABA831D637F6271C8EC69B7815FD31DE
-                    7A70BE40FF8DA2198B616F320FA01FDC67A182883B76393E50507470AFE019B4
-                    F61C410D0BFFB8B27D38048DB751331BFBBB6C24145F5864702FE329B4B61C43
-                    0D0D13F17A5466FE80CFA0F10EDA3F4053B2C650E04F2A2AB817F1045A3BF4BB
-                    CAC6E385A82CF47B1C8CC61CDC880F0CE2FE8422827B017597AC0D275177F135
-                    B46C99A426D94F6122FEE0BC831B857AAEECFAA771342A5B9E8BCA9AB90B9FC4
-                    58FC81790637127F43BBB632E498C8A46C1967E9827B167F45BBAEEE92EE96EE
-                    9AEE9E6F539AA5EB969A6968C661D7D473A5E74BCF999E37DF9E3495509EC654
-                    FC09BD0E6E18FA3710654265C4305B36732FFA4C99883FA997C16966B11FED5A
-                    7FA0C6B0305B36331CC453F127F62A3835E647B4EBFC899331CC96CD0CA75F4D
-                    F127F72238CD24D48DEC1A7AE39F82CA9687A3B2560C27CE2DE12BC83A383DF0
-                    7AF0FD3514DC026C67212A7CE569195F4996C129457F87BEFE4ED490A1A1A323
-                    7C455905A7415583ABAFBB9D6C686A9057F7ED185F5916C169FD7007FA7A17A1
-                    928A329D2F4FF328EAADA02B7C85DD06A77543AD1FFA3A3F4343994E19CFFF3D
-                    CEE3A821A26B7CA5DD06370F7D7D9F638832DE21F4C779354B790933C1579C65
-                    709B54904038B734EDAD2044775F93E999F54F6DE02BCF32386DA4A411AE97DA
-                    5B41C862B463F4ECB685BF40D6DDD25C879E70DDC3DE0A423E445F4F5BC1F58D
-                    7EE6C95BA82E6BBB329A3CBF8B9A5F86CC8E7E7644DEC16931F51BB4974B4D9E
-                    1598E697999357709FA2BAD51EB477304D9E1598E6973DA1886E29B415351735
-                    BFEC190AEECEFD5FEB0CC05E2FA76B97468169AC6B4663FD31E2BFE867CB84AB
-                    4C65D908115A23F16DD3EE6F5B845B58ABB00C68B8F0EDD28EAB9629DAA28C9B
-                    8FE1D2BA4C9BF124F208C66D1BAF45A5EEBCB68DF5FC6BB2ACF968DCDEB77674
-                    3A42DBB165D9F08F731976C5FB58C600D583D4BBBA465FB2497B1DC9D31BF805
-                    663A34E9AB1B1FE306D43091E7D7A33471D7BACB97D8D5F24245454545454545
-                    45454576D46AF700BD2145F3B5B6E3930000000049454E44AE426082}
-                  FileName = 
-                    'C:\Users\User1\Downloads\pack-icones\Font Awesome\PNG\64\212998 ' +
-                    '- f044.png'
-                end>
-              Align = Right
-              Margins.Right = -48.000000000000000000
-              Position.X = 201.000000000000000000
-              Size.Width = 50.000000000000000000
-              Size.Height = 20.000000000000000000
-              Size.PlatformDefault = False
-            end
+            TextSettings.FontColor = xFF5E5555
+            Text = 'Date Input'
+            TabOrder = 2
           end
         end
         object lytEquipment: TLayout
           Align = Top
           Margins.Top = 10.000000000000000000
-          Position.Y = 205.000000000000000000
-          Size.Width = 373.000000000000000000
+          Position.Y = 326.000000000000000000
+          Size.Width = 358.000000000000000000
           Size.Height = 55.000000000000000000
           Size.PlatformDefault = False
           TabOrder = 4
@@ -1408,7 +1360,7 @@ object frmInventarioCad: TfrmInventarioCad
             Margins.Left = 20.000000000000000000
             Margins.Right = 70.000000000000000000
             Position.X = 20.000000000000000000
-            Size.Width = 283.000000000000000000
+            Size.Width = 268.000000000000000000
             Size.Height = 24.000000000000000000
             Size.PlatformDefault = False
             TextSettings.FontColor = xFF5E5555
@@ -1423,7 +1375,7 @@ object frmInventarioCad: TfrmInventarioCad
             Margins.Right = 20.000000000000000000
             Position.X = 20.000000000000000000
             Position.Y = 54.000000000000000000
-            Size.Width = 333.000000000000000000
+            Size.Width = 318.000000000000000000
             Size.Height = 1.000000000000000000
             Size.PlatformDefault = False
             Stroke.Color = xFF5E5555
@@ -1435,13 +1387,12 @@ object frmInventarioCad: TfrmInventarioCad
             Opacity = 0.800000011920929000
             Margins.Left = 20.000000000000000000
             Margins.Right = 20.000000000000000000
-            Size.Width = 280.000000000000000000
+            Size.Width = 318.000000000000000000
             Size.Height = 30.000000000000000000
             Size.PlatformDefault = False
             TextSettings.FontColor = xFF5E5555
             Text = 'Nome Equipamento'
             TabOrder = 2
-            OnClick = lblDescricaoClick
           end
           object Image2: TImage
             MultiResBitmap.Height = 64
@@ -1483,13 +1434,14 @@ object frmInventarioCad: TfrmInventarioCad
             Size.Width = 38.000000000000000000
             Size.Height = 30.000000000000000000
             Size.PlatformDefault = False
+            Visible = False
           end
         end
         object lytLocation: TLayout
           Align = Top
           Margins.Top = 10.000000000000000000
-          Position.Y = 75.000000000000000000
-          Size.Width = 373.000000000000000000
+          Position.Y = 196.000000000000000000
+          Size.Width = 358.000000000000000000
           Size.Height = 55.000000000000000000
           Size.PlatformDefault = False
           TabOrder = 5
@@ -1501,15 +1453,15 @@ object frmInventarioCad: TfrmInventarioCad
             Margins.Right = 20.000000000000000000
             Position.X = 20.000000000000000000
             Position.Y = 54.000000000000000000
-            Size.Width = 333.000000000000000000
+            Size.Width = 318.000000000000000000
             Size.Height = 1.000000000000000000
             Size.PlatformDefault = False
             Stroke.Color = xFF5E5555
           end
           object Layout1: TLayout
             Align = Client
-            Margins.Right = 15.000000000000000000
-            Size.Width = 313.000000000000000000
+            Margins.Right = 5.000000000000000000
+            Size.Width = 292.000000000000000000
             Size.Height = 54.000000000000000000
             Size.PlatformDefault = False
             TabOrder = 6
@@ -1526,7 +1478,7 @@ object frmInventarioCad: TfrmInventarioCad
               Margins.Left = 20.000000000000000000
               Margins.Right = 20.000000000000000000
               Margins.Bottom = 1.000000000000000000
-              Size.Width = 273.000000000000000000
+              Size.Width = 252.000000000000000000
               Size.Height = 28.000000000000000000
               Size.PlatformDefault = False
               StyledSettings = [Family]
@@ -1539,7 +1491,7 @@ object frmInventarioCad: TfrmInventarioCad
               Margins.Left = 20.000000000000000000
               Margins.Right = 70.000000000000000000
               Position.X = 20.000000000000000000
-              Size.Width = 223.000000000000000000
+              Size.Width = 202.000000000000000000
               Size.Height = 25.000000000000000000
               Size.PlatformDefault = False
               TextSettings.FontColor = xFF5E5555
@@ -1572,19 +1524,19 @@ object frmInventarioCad: TfrmInventarioCad
             Align = Right
             Opacity = 0.500000000000000000
             Margins.Right = 8.000000000000000000
-            Margins.Bottom = 10.000000000000000000
-            Position.X = 328.000000000000000000
-            Size.Width = 37.000000000000000000
-            Size.Height = 44.000000000000000000
+            Position.X = 297.000000000000000000
+            Size.Width = 53.000000000000000000
+            Size.Height = 54.000000000000000000
             Size.PlatformDefault = False
+            WrapMode = Center
             OnClick = Image1Click
           end
         end
         object lytSerial: TLayout
           Align = Top
           Margins.Top = 10.000000000000000000
-          Position.Y = 335.000000000000000000
-          Size.Width = 373.000000000000000000
+          Position.Y = 456.000000000000000000
+          Size.Width = 358.000000000000000000
           Size.Height = 55.000000000000000000
           Size.PlatformDefault = False
           TabOrder = 6
@@ -1595,7 +1547,7 @@ object frmInventarioCad: TfrmInventarioCad
             Margins.Left = 20.000000000000000000
             Margins.Right = 20.000000000000000000
             Position.X = 20.000000000000000000
-            Size.Width = 333.000000000000000000
+            Size.Width = 318.000000000000000000
             Size.Height = 33.000000000000000000
             Size.PlatformDefault = False
             TextSettings.FontColor = xFF5E5555
@@ -1608,6 +1560,7 @@ object frmInventarioCad: TfrmInventarioCad
             StyleLookup = 'transparentedit'
             TabOrder = 4
             ReturnKeyType = Next
+            ReadOnly = True
             TextSettings.Font.Size = 14.000000000000000000
             TextSettings.Font.StyleExt = {00070000000000000004000000}
             TextSettings.FontColor = xFFACA8A8
@@ -1615,7 +1568,7 @@ object frmInventarioCad: TfrmInventarioCad
             Margins.Left = 20.000000000000000000
             Margins.Right = 20.000000000000000000
             Margins.Bottom = 1.000000000000000000
-            Size.Width = 333.000000000000000000
+            Size.Width = 318.000000000000000000
             Size.Height = 20.000000000000000000
             Size.PlatformDefault = False
             StyledSettings = [Family]
@@ -1628,7 +1581,7 @@ object frmInventarioCad: TfrmInventarioCad
             Margins.Right = 20.000000000000000000
             Position.X = 20.000000000000000000
             Position.Y = 54.000000000000000000
-            Size.Width = 333.000000000000000000
+            Size.Width = 318.000000000000000000
             Size.Height = 1.000000000000000000
             Size.PlatformDefault = False
             Stroke.Color = xFF5E5555
@@ -1637,8 +1590,8 @@ object frmInventarioCad: TfrmInventarioCad
         object lytVersion: TLayout
           Align = Top
           Margins.Top = 10.000000000000000000
-          Position.Y = 465.000000000000000000
-          Size.Width = 373.000000000000000000
+          Position.Y = 586.000000000000000000
+          Size.Width = 358.000000000000000000
           Size.Height = 55.000000000000000000
           Size.PlatformDefault = False
           TabOrder = 7
@@ -1649,7 +1602,7 @@ object frmInventarioCad: TfrmInventarioCad
             Margins.Left = 20.000000000000000000
             Margins.Right = 20.000000000000000000
             Position.X = 20.000000000000000000
-            Size.Width = 333.000000000000000000
+            Size.Width = 318.000000000000000000
             Size.Height = 33.000000000000000000
             Size.PlatformDefault = False
             TextSettings.FontColor = xFF5E5555
@@ -1662,6 +1615,7 @@ object frmInventarioCad: TfrmInventarioCad
             StyleLookup = 'transparentedit'
             TabOrder = 6
             ReturnKeyType = Next
+            ReadOnly = True
             TextSettings.Font.Size = 14.000000000000000000
             TextSettings.Font.StyleExt = {00070000000000000004000000}
             TextSettings.FontColor = xFFACA8A8
@@ -1669,7 +1623,7 @@ object frmInventarioCad: TfrmInventarioCad
             Margins.Left = 20.000000000000000000
             Margins.Right = 20.000000000000000000
             Margins.Bottom = 1.000000000000000000
-            Size.Width = 333.000000000000000000
+            Size.Width = 318.000000000000000000
             Size.Height = 20.000000000000000000
             Size.PlatformDefault = False
             StyledSettings = [Family]
@@ -1682,15 +1636,229 @@ object frmInventarioCad: TfrmInventarioCad
             Margins.Right = 20.000000000000000000
             Position.X = 20.000000000000000000
             Position.Y = 54.000000000000000000
-            Size.Width = 333.000000000000000000
+            Size.Width = 318.000000000000000000
             Size.Height = 1.000000000000000000
             Size.PlatformDefault = False
             Stroke.Color = xFF5E5555
           end
         end
+        object img_equip: TImage
+          MultiResBitmap = <
+            item
+            end>
+          Align = Top
+          Size.Width = 358.000000000000000000
+          Size.Height = 121.000000000000000000
+          Size.PlatformDefault = False
+        end
+        object img_semFoto: TImage
+          MultiResBitmap.Height = 340
+          MultiResBitmap.Width = 640
+          MultiResBitmap = <
+            item
+              Width = 640
+              Height = 340
+              PNG = {
+                89504E470D0A1A0A0000000D4948445200000280000001540806000000B48A8D
+                87000000017352474200AECE1CE90000000467414D410000B18F0BFC61050000
+                177049444154785EEDDD0B531467DA80E16657101196831163CC6A12DD9883FB
+                FFFFC746A3D1B8C443405044040411E1FB9EB649DC44C34C4FF74C77BFD75545
+                393D6E6D70B492DBF738B6BCBC7C940100908CBF153F02009008010800901801
+                0800901801080090180108009018010800901801080090180108009018010800
+                9018010800901801080090180108009018010800901801080090180108009018
+                0108009018010800901801080090180108009018010800901801080090180108
+                0090180108009018010800901801080090180108009018010800901801080090
+                1801080090180108009018010800901801080090180108009018010800901801
+                0800901801080090180108009018010800901801080090180108009018010800
+                9018010800901801080090180108009018010800901801080090180108009018
+                0108009018010800901801080090180108009018010800901801080090180108
+                0090180108009018010800901801080090180108009018010800901801080090
+                1801080090180108009018010800901801080090180108009018010800901801
+                0800901801080090180108009018010800901801080090180108009018010800
+                9018010800901801080090180108009018010800901801080090180108009018
+                01080090180108009098B1E5E5E5A3E235D032070707D9DADA5AFEB5BFBF5FBC
+                FBCEC4C44476FEFCF9ECD2A54BC53B00F08E008416BB7BF76EF6E2C58BE2E9C3
+                666767B36BD7AE657FFFFBDF8B7700489D296068A9478F1E9D187F61737333FB
+                E9A79FF2D142000802105A687B7B3B5B5959299E4E16FFFB182D148100040108
+                2DB4BEBE5EBCEADD7104BE7DFBB678078054094068A157AF5E15AFFA131118D3
+                C12210206D3681400BDDB973277BF9F265F1D4BFE9E9E9ECFAF5EBADDE1812D3
+                D9F119C4EEE758E7D86467CE9CC9A6A6A6F29DD9F1D9FFED6FFEEE0D8C960084
+                16BA7DFB76B6B5B5553C95D3D6088CE88B636FE2C736AE699C9C9CCCE6E6E6B2
+                C5C5C5FC35C028084068A1D801DCCF26908F695304C648DFE3C78FB367CF9E15
+                EFB45B8C02C6398D9F7FFEB9237A80A1330F012DB4B0B0908D8D8D154FE5B565
+                63486C7A8951CFAEC45F383C3CCC565757B35BB76E65BBBBBBC5BB00C32100A1
+                85CE9E3D9BCDCFCF174F8389A9E42647E0D3A74FB3FBF7EF67AF5FBF2EDEE996
+                BDBDBD7C638E0804864900424B7DF9E597D93FFEF18FE2693011814DDC1D1C07
+                5D2F2D2D154FDD15D3DB3FFFFC73767464450E301C02105A2AD68DFDEB5FFFAA
+                2C029B76444C6CF078F0E041F1D47D3102F8EBAFBF164F00F51280D062754460
+                53A68363A34B57A77D3F267637BF79F3A67802A88F008496AB3A029B301D1C07
+                5DC7DABFD4C4A8676C0C01A89B00840E8808FCFAEBAF2B9F0E1ED5397BCBCBCB
+                C5ABF4C428606A239FC0F00940E8883857AEEA081CC574708CFE6D6C6C144FE9
+                496DED23301A02103A2422B0ED1B4362F42FF5DDB071B5DDCECE4EF104503D01
+                081DD3E6DDC1A98FFE1D8B004E791A1CA89F00840E6A6B041AFDFB5D9C816814
+                10A88B00848E6A5B04C6397846FF7E671410A89300840E6B53043E7FFEDCE8DF
+                1F180504EA2200A1E3EA88C0AA77073BFFEEC38C02027511809080AA23300E8B
+                AE320223FE4675E660D3C5B4B85140A06A021012514704C674F0A0E166F4EF64
+                460181AA094048484460D30E8B36FA7732A38040D5C6FEFF6F96565D43620E0F
+                0FF3707BF9F265F1CE60A6A7A7B3C5C5C5E2A977F17D3C7EFC5800F6A0EC675C
+                A5999999FCB0F1B1B1B1ECD4A953C5BB401B094048548CDADDBB77AFB208A4FB
+                8EE32FBE2206E36B6E6E2E9B9C9C2CFE17405B08404898086450C73178F1E2C5
+                6C7676B67817683A01088913815425D6960A416807010888402A156B15AF5CB9
+                928F0E02CD64173050F91131A46D6D6D2DFF0BC520BBC3817A0940202702A952
+                5C6377EBD6ADECD5AB57C53B40930840E888B84BF7F5EBD7C5533922902AEDED
+                ED654B4B4BF9713F40B30840E8809872FBF9E79FF3B3FDDEBC7953BC5B8E08A4
+                4A718075FCD9049A450042CBEDEEEE660F1E3CF8ED755CCF5645045679630869
+                8BE9E0F84B0AD01C02105AEC78F7EED1D1EF9BF963CD5515111887FE8A40AA12
+                37BEC49430D00C02105AECD9B3671FFC8F6A9511683A982AC4757FBFFEFA6BF1
+                048C9A0084968AD1BF959595E2E9CFAA8A406B02A94A6C54B22B189A4100424B
+                C5E8DFFEFE7EF1F46122902689A50A1B1B1BC513304A6E0281168AFF90FEF8E3
+                8FF90ECB5E4C4D4D65D7AF5FCFC6C7C78B77CAE9DA8D21715345C4ED9933678A
+                773E2EA6308FA7DBDF5F73497F262626B21B376E64A74E9D2ADE01464100420B
+                C56EDF9B376FF61522A94760AC678CCF60727232FF3142247E8C00ECE53389CF
+                FAF89CC5F8B5C7D9769B9B9BF9EFC54923B1FCAFEFBFFF3E3B7BF66CF1048C82
+                0084167AFAF4697EC06EBF528BC088BC98B69E9E9ECE666767B3D3A74F173F53
+                9DF82C62643062707B7B3BDBDADACADFE3E32E5FBE9C7DFAE9A7C513300A0210
+                5AE8E1C387D993274F8AA7FE743D0263A46F6161219B9F9FCF666666863ED518
+                A384118371EE9D0D0F1F16311E7F0681D11180D042B76FDFCE479ACAEA6204C6
+                E85E8C2ACDCDCDD532D2574604606CD689115BA382BF8BE9DF98060646C72E60
+                68A1D8BC30882A77078FFAB0E818E5BB72E54ABEB1E0C2850B8D89BF10A11DD3
+                9DF1BD459CC6E7C5E07F7E81C109404854551138AA1B4362F432E2EA9B6FBEC9
+                C3AFC9711551FA7E08028C9A008484551981C33A2730FE598B8B8BD977DF7D97
+                C7549B46938E4330A235D6C1018C8A0084C455391D5C7704C6746F84DF175F7C
+                D1A8A9DE7EC567146B3063EABACDBF0EA0BD0420D0F8088CFFDF18EDFBF6DB6F
+                F375755D1153D7F16B321A080C9B0004724D8EC01825FBE73FFF593C754B9C55
+                18A381172F5EB43902181A0108FCA6A91118DFD79D3B773A7D944A04EEB56BD7
+                442030140210F81F4D8DC038F7F0EEDDBB9D8EC038BC3A4603BB34CD0D349300
+                04FEA4C91118DF575D1118B778C4DDBEEF7FC5356FC3149F950804EAE6261068
+                A1980E1DC6ED1B4DBD3124EEF68DB307CB5CF376787898876DDCDBBBBFBF9FBD
+                78F1223B3A7AF7AFC108DFF8F9F7C5946C7C0EF163DC6011EB1123D2E2C708DC
+                BAC4F718B11BDF53D7C4EF5FECE606464700420B0D2B0043551118611553B855
+                46607C5FBD4458FCB323F8363636F27B7A63A4EF38FACA8A008CCF26A66D6317
+                EFA09FCF8774350205208C9E0084161A660086B646E0C1C141B6BEBE9EADAEAE
+                D63A951BFFFC18153C7FFE7C7E1771956294F2871F7EE8D4DA470108A3670D20
+                70A2AAD604567D63488CEA7D684D60C4DE83070FB2FFFCE73FF98F75AFE38B7F
+                7E8C2E46DCDEBE7D3B9F56AE4A1C13F3D5575FE59F1D4055FC1B05E849533786
+                BC1F8131C2B8B2B292DDBC79331FF58B11C0613BDEAD1C21B8B3B353BC3B9898
+                668EDB4F00AA2200819E353902635AFCD6AD5BD9A3478FFEB491631422047FFC
+                F1C76C6969A992EFE7934F3EC9A79801AA200081BE34350263B42D8E6D6992D8
+                68F2F4E9D33C4EAB180DBC7CF97276E6CC99E209A03C0108F4ADA911D854C7D3
+                D411838388CFEBEAD5ABC51340790210284504F627D623C67470AC511C44ECC8
+                5E5C5C2C9E00CA1180406922B07FB14671D0088C7B83CB1C820D704C00020311
+                81FD1B3402E3B38AF5800065094060605546605CF126024F16BB82E36A3A8032
+                04205089AA22300E3C4E2902E3B898B23EFBECB3E215407F0420501911D8BF7B
+                F7EE953EB03AAE9D330A08942100814A551981A9EC0EBE7FFF7E7E6660BFC6C6
+                C68C0202A50840A0723686F4677373335B5F5F2F9EFA13A38071340C403F0420
+                508BE308DCDFDF2FDE292795088CF580653EAB18055C5858289E007A230081DA
+                44043E7CF8B0782A2F85088CD1D2D5D5D5E2A93FF3F3F3F9943940AFFC1B03A8
+                D5DBB76F8B5783492102D7D6D64A4D9BC7FDC05D1F2105AA2500815A55B93EAD
+                EB1118B1FCE4C993E2A93FA681817E0840A056333333C5AB6A743D02CB8E02CE
+                CECEE69F0D402F0420509B0892E9E9E9E2A93AF1FFDBD573026314F0C58B17C5
+                53EFE26EE0C9C9C9E209E0AF0940A0367148715DA3525D3E2CFAF9F3E7C5ABDE
+                C56EE03A621BE8260108D4666262220F93BA74F5B0E8EDEDED5247C274755A1C
+                A89E00046A13EBD2EAD6C53581310DBCB3B3533CF52E465C632A18E0240210A8
+                4584D9B0EEA9ED6204BE7CF9B278D5BBF1F1F15A475C81EE1080402D2244620A
+                7858BA1681310D5CE67E60D7C201BD1080402DE270E2618F467529025FBF7E9D
+                1D1E1E164FBD89CFFBF4E9D3C513C0C70940A0161122FD0660EC7E8DF0194457
+                22B0EC3AC0F8F5039C440002B58811C07EADAFAF673FFDF453A98390DFD78508
+                8CE9DF7E4700C3DCDC5CF10AE0E30420508B321B406207EBDEDE9E082CECEEEE
+                16AF7A5766DD20901E0108D462901079F5EA556511D8E6C3A2632308401D0420
+                D0485545609B6F0C89EF1DA00EFEED0234569511D8A52362000625008146AB72
+                3A580402BC230081C64B3502CBEC0206E88500041AE3AF8227C5089C9999295E
+                01544B00028D313D3D5DBCFAB0D422707272B27805502D010834462F8747A714
+                8165A680877DFD1ED04E0210A8C5E6E666F1AA77112FBD044C0A11183B97CB8C
+                0096F9DC81F40840A016070707C5ABDEC51470DC06D28BAE47607C5F6502B0CC
+                E70EA4470002B5D8DFDF2F751B483FD153650436EDB0E8B84AAFDFE9DCF8BCDD
+                1E02F4420002B58838EB370023784EDA08F247554560D36E0C999898E83B0063
+                CDE0A09F0390060108D422E2AF4C8C9409B02A23B029D3C1F3F3F3C5ABDEEDEC
+                EC0840A0270210A8C5DBB76F4B4D474E4D4DF5BC0EF07D5D5A1318A37F65CE00
+                747034D02B0108D4E6E5CB97C5ABDE8D8F8F973E00B92B11383B3B9B8F46F6EB
+                C58B17C52B80BF260081DAC408609951A9858585E255FFDA1E81B1EEEFFCF9F3
+                C553EF62C4550002BD1280406D5EBF7E5D2AC46204ACCC34F0B1364760FCDAFB
+                DD081362FD5FECBC06E88500046A13A37F650E268EF8BB70E142F1544E5B23B0
+                ECE8A7E35F807E0840A056CF9F3F2F5EF52702709051C0D0B6088CABF0CE9D3B
+                573CF52E765C97FD9C81340940A0565B5B5BF9F464BFAA18050C6D8AC04B972E
+                F57DF65FD8DDDDCDBF007A2500815A0D323A15011847A20CAACA08ACEBB0E838
+                F7AFECF4EFCACA4ADF876E0369138040ED3636364A054A8C025EBE7CB9781A4C
+                551158D78D21172F5E2C5EF5277E3DF1F902F4430002B5DBDBDB2B3D0A182363
+                656EC5F8902A23B0EAE9E0C78F1FE747B9F4EBD9B3670E8006FA260081A1283B
+                4D196BE2BEFAEAAB4AA6824353D704C6A1D9F17DF51381070707D993274F8A27
+                80DE0940602822BCCA8E021EC756559A1A8171944B3F11B8B6B636F0AF014893
+                000486264601CB3A7BF66C65EB01439323F0EEDDBB2746601CB26DF40F284B00
+                024313D115A356657DFAE9A74944601C9D735204C69AC19802062843000243F5
+                E8D1A381C24504BEFB9E1DFC0C0C420002431541F3F0E1C3E2A99CD422F08FC1
+                BCB4B4E4DC3F6020021018BA38BAA4CCED20EF8B088CDDC1E3E3E3C53B8369CB
+                48E02FBFFC32F0670720008191B87FFFFEC06BD83EF9E493ECFAF5EBD9CCCC4C
+                F1CE60AA8CC02A0F8B8E8D21F7EEDDCB9E3E7D3AD01A4A806302101889381CFA
+                C18307034F654E4D4D65DF7CF34D7E6D5C1CD03CA8AA22B0EA1B43E29CC098FA
+                05A882000446667D7D3D1FD51A541C167DE5CA95ECBBEFBEAB24B8AA8CC02AA7
+                8301AA220081918A51C0AA76B41E8F06C6B4F0A0D1D5D4358100551080C048C5
+                14F07FFFFBDFFC60E3AACCCECEFE1682718FF0A953A78A9FE98F0804BA4A0002
+                2377787898EF74DDDFDF2FDEA946846084D7BFFFFDEFECEAD5AB790C4E4E4E16
+                3FDB9B88C0DBB76F0F1CA822106812010834C2EEEE6E3EDA56750486382AE6DC
+                B9737980DDB871230FC23847308E92999E9ECEBF621DE187C4E8617C9D74355B
+                2F4420D01463CBCBCB4E138596B973E74EBE2BB48B62842EA66F2726268A7786
+                2346F86224F28F22FEAA3A6BF058C4641CEBD2D5DFC3934470C7861D60748C00
+                028D12C7C344E06E6E6E16EF0CC7E9D3A7B33367CEFCE9ABEAF80B4602815113
+                8040E34404C6747097EFBB1581C0280940A0B1E2B69041EF0D6EB288C02A0F8B
+                06E89500041A2B8E8879F2E4493E255CE531314D52F58D2100BD108040E3C566
+                89388A2562B08B4420306C02106885381E26A68347B14164185C1B070C930004
+                5A2546036383485C21179B45BAC4C61060580420D04AABABABD9CD9B37F310EC
+                D2FA4011080C830084168ACD11BCBB422E42F0871F7EC843706767A7F89976EB
+                7A04FAF30BA32700A185EA389CB8CD8E43F0D6AD5BF9A860BC1ED5A860DC1D1C
+                5F835E1DD7E5088CDB5580D172151CB4D0DADA5AF6CB2FBF144F7C4804545C39
+                36333393CDCECEE6377D541D1E070707D99B376FB2ADADAD7CF4717B7B3BBFD3
+                384C4D4D65D7AF5F1F38D6BB786DDCF13DCCC0E8084068A1888C18E93295D6BB
+                B85B38AE768B188C1DB7C7236B1186636363F9EBBF12238AF1794788C58863EC
+                448EDF87D89DFC3122F0C3BEFFFEFBECECD9B3C513300A02105A28822002B0AB
+                87230F4B84DFE4E4E4892383117E31C25726B8AB8AC088CEBB77EFB63E0223C4
+                6FDCB8611A18464C00424BADACAC648F1E3D2A9E683211F8BB4B972EE55FC068
+                D904022D353F3F9F4F65D27CB12924CE2E8CF5828368FB61D131E21A7F6E81D1
+                F35F0F68A998BA3C77EE5CF144D35515816DDE1DBCB0B0908F8602A32700A1C5
+                3EFBEC3347C2B448CA11186BFE4CFD4273084068B1D8C11A476AD01EA946E0E7
+                9F7F9E8F5A03CD2000A1E5621A38A6D6688FD422706E6E2E5B5C5C2C9E802610
+                80D00157AF5ECD0F3CA63D5289C038EFEFDAB56BC513D01402103A2076577EF1
+                C517F941C7B447D72330A67CBFFCF24BBBD5A1819C03081D12E7C4DDBF7F3FDB
+                D8D828DEA10DBA7863484CFBC6C874C429D03CFE5A061D12232D31DDE69ED576
+                E9DA4860ACF78BEF43FC41731901848E8A51A0B82D24EEACA51DDA7E634884E7
+                C58B17F3FB9681661380D071C721B8B5B5958701CDD6B6E9E0587F1A1B90841F
+                B48B008444ECEDEDE5A3811104DBDBDB790C1E1D1D89C2068AF31DBFFDF6DB6C
+                6262A278A79C3A2230A67563A9C1F4F4741E7EB1D6CFF97ED03E021012747070
+                F05BFCC5C820CD12BF2F1156830660A83A02638432D6F745A402ED2500013AAE
+                EA088CB57E367940BBD9050CD07155EF0E8E908C4D261196403B09408004541D
+                81B174202230961300ED230001122102816302102021554760EC281781D03E02
+                1020317545A03581D01E0210204111815F7FFD75A51118D7D989406807010890
+                A838D05904429A042040C22202AB9E0E1681D07C02102071D604427A042000B5
+                1D112302A199042000B93A22D0743034930004E037754D073B27109A450002F0
+                3FEA9A0E1681D01C0210803F311208DD260001F8A088C0AACF095C5A5A2A9E80
+                511280007C54D587456F6C6CE421088C960004E02F551D81EBEBEBC52B605404
+                200027AAF2C6102380307A0210809E54B531646C6CAC78058C8A0004A0675544
+                E0D1D151F10A18150108405F068DC0A9A9A9E215302A021080BE0D1281E7CE9D
+                2B5E01A322000128A54C045EB87061E03584C0E0042000A51D47E0FCFC7CF1CE
+                C7CDCECE6657AE5C299E80511A5B5E5EB61A178081ADACAC64ABABABD9FEFE7E
+                F1CE3BE3E3E3D9E2E2623EFA77EAD4A9E25D609404200040624C010300244600
+                0200244600020024460002002446000200244600020024460002002446000200
+                2446000200244600020024460002002446000200244600020024460002002446
+                0002002446000200244600020024460002002446000200244600020024460002
+                0024460002002446000200244600020024460002002446000200244600020024
+                4600020024460002002446000200244600020024460002002446000200244600
+                0200244600020024460002002446000200244600020024460002002446000200
+                2446000200244600020024460002002446000200244600020024460002002446
+                0002002446000200244600020024460002002446000200244600020024460002
+                0024460002002446000200244600020024460002002446000200244600020024
+                4600020024460002002446000200244600020024460002002446000200244600
+                0200244600020024460002002446000200244600020024460002002446000200
+                2446000200244600020024460002002446000200244600020024460002002446
+                000200244600020024460002002425CBFE0F4174A793EEDFCD97000000004945
+                4E44AE426082}
+              FileName = 'E:\AppDiager\MFCApp\MobileDiager\IMG\no-foto.png'
+            end>
+          Position.X = 160.000000000000000000
+          Position.Y = 208.000000000000000000
+          Visible = False
+        end
       end
     end
-    object TbInventarioLoc: TTabItem
+    object tbiUsuario: TTabItem
       CustomIcon = <
         item
         end>
@@ -1700,9 +1868,65 @@ object frmInventarioCad: TfrmInventarioCad
       Size.PlatformDefault = False
       StyleLookup = ''
       TabOrder = 0
-      Text = 'TbInventarioLoc'
+      Text = 'tbiUsuario'
       ExplicitSize.cx = 8.000000000000000000
       ExplicitSize.cy = 8.000000000000000000
+      object lvUsuario: TListView
+        ItemAppearanceClassName = 'TDynamicAppearance'
+        ItemEditAppearanceClassName = 'TDynamicAppearance'
+        HeaderAppearanceClassName = 'TListHeaderObjects'
+        FooterAppearanceClassName = 'TListHeaderObjects'
+        AllowSelection = False
+        ItemSpaces.Left = 0.000000000000000000
+        ItemSpaces.Right = 0.000000000000000000
+        Align = Client
+        Size.Width = 358.000000000000000000
+        Size.Height = 530.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 0
+        ItemAppearance.ItemHeight = 50
+        ItemAppearanceObjects.ItemObjects.ObjectsCollection = <
+          item
+            AppearanceObjectName = 'txtNome'
+            AppearanceClassName = 'TTextObjectAppearance'
+            Appearance.Font.Family = 'Arial'
+            Appearance.Font.StyleExt = {00070000000000000004000000}
+            Appearance.TextAlign = Leading
+            Appearance.TextColor = xFF6B6B6B
+            Appearance.Width = 103.000000000000000000
+            Appearance.Height = 35.000000000000000000
+            Appearance.PlaceOffset.X = 88.000000000000000000
+            Appearance.PlaceOffset.Y = 5.000000000000000000
+          end
+          item
+            AppearanceObjectName = 'txtDepartamento'
+            AppearanceClassName = 'TTextObjectAppearance'
+            Appearance.TextColor = xFF6B6B6B
+            Appearance.Width = 115.000000000000000000
+            Appearance.Height = 35.000000000000000000
+            Appearance.PlaceOffset.X = 213.000000000000000000
+            Appearance.PlaceOffset.Y = 5.000000000000000000
+          end
+          item
+            AppearanceObjectName = 'imgUsuario'
+            AppearanceClassName = 'TImageObjectAppearance'
+            Appearance.Width = 38.000000000000000000
+            Appearance.Height = 38.000000000000000000
+            Appearance.PlaceOffset.X = 11.000000000000000000
+            Appearance.PlaceOffset.Y = 3.000000000000000000
+          end>
+        ItemAppearanceObjects.ItemEditObjects.ObjectsCollection = <
+          item
+            AppearanceObjectName = 'Text1'
+            AppearanceClassName = 'TTextObjectAppearance'
+          end>
+        ItemAppearanceObjects.FooterObjects.Text.Width = 379.000000000000000000
+        ItemAppearanceObjects.FooterObjects.Text.Height = 32.000000000000000000
+        ItemAppearanceObjects.FooterObjects.Text.PlaceOffset.Y = -8.000000000000000000
+        CanSwipeDelete = False
+        OnItemClickEx = lvUsuarioItemClickEx
+        ShowSelection = False
+      end
     end
   end
 end

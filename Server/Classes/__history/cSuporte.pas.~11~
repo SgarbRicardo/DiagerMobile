@@ -1,0 +1,191 @@
+unit cSuporte;
+
+interface
+
+uses Firedac.Comp.Client, System.SysUtils, Firedac.DApt, FMX.Graphics;
+
+type
+    TSuporte = class
+      private
+        FConn : TFDConnection;
+        FVIN: STRING;
+        FYEAR: STRING;
+        FVERSION: STRING;
+        FSOLUTION: STRING;
+        FREASON2: STRING;
+        FEMAIL: STRING;
+        FOCCURRENCE: STRING;
+        FREASON1: STRING;
+        FMODEL: STRING;
+        FSHOP_NAME: STRING;
+        FREASON: STRING;
+        FPHONE: STRING;
+        FENGINE: STRING;
+        FSTATUS: STRING;
+        FCALL_DATE: TDateTime;
+        FSYSTEM: STRING;
+        FINTERNET: STRING;
+        FSCANNER: STRING;
+        FTELEPHONIST: STRING;
+        FBEN: STRING;
+        FCONTACT: STRING;
+        FSN: STRING;
+        FSO: STRING;
+        FFUEL: STRING;
+        FSCC_VERSION: STRING;
+        FMAKE: STRING;
+        FCR: STRING;
+        FCALL_ID: INTEGER;
+
+      public
+           constructor Create (conn: TFDConnection);
+           property CALL_ID: INTEGER read FCALL_ID write FCALL_ID;
+           property SCANNER: STRING read FSCANNER write FSCANNER;
+           property SN : STRING read FSN write FSN;
+           property VERSION : STRING read FVERSION  write FVERSION;
+           property SHOP_NAME : STRING read FSHOP_NAME  write FSHOP_NAME;
+           property CONTACT : STRING read FCONTACT  write FCONTACT;
+           property PHONE : STRING read FPHONE  write FPHONE;
+           property EMAIL : STRING read FEMAIL  write FEMAIL;
+           property REASON : STRING read FREASON  write FREASON;
+           property REASON1 : STRING read FREASON1  write FREASON1;
+           property REASON2 : STRING read FREASON2  write FREASON2;
+           property MAKE : STRING read FMAKE  write FMAKE;
+           property YEAR : STRING read FYEAR  write FYEAR;
+           property MODEL : STRING read FMODEL  write FMODEL;
+           property ENGINE : STRING read FENGINE  write FENGINE;
+           property FUEL : STRING read FFUEL  write FFUEL;
+           property SYSTEM : STRING read FSYSTEM  write FSYSTEM;
+           property BEN : STRING read FBEN  write FBEN;
+           property OCCURRENCE : STRING read FOCCURRENCE  write FOCCURRENCE;
+           property SCC_VERSION : STRING read FSCC_VERSION  write FSCC_VERSION;
+           property SO : STRING read FSO  write FSO;
+           property INTERNET : STRING read FINTERNET  write FINTERNET;
+           property CALL_DATE : TDateTime read FCALL_DATE  write FCALL_DATE;
+           property TELEPHONIST : STRING read FTELEPHONIST  write FTELEPHONIST;
+           property STATUS : STRING read FSTATUS  write FSTATUS;
+           property SOLUTION : STRING read FSOLUTION  write FSOLUTION;
+           property VIN : STRING read FVIN  write FVIN;
+           property CR : STRING read FCR  write FCR;
+
+           function ListaStatusSuporte(order_by: string; out erro: string): TFDQuery;
+           function ListaTop10Atend(order_by: string; out erro: string): TFDQuery;
+           function ListaWaitCR(order_by: string; out erro: string): TFDQuery;
+end;
+
+
+implementation
+  { TCategoria }
+
+constructor TSuporte.Create(conn: TFDConnection);
+begin
+     FConn := conn;
+end;
+
+function TSuporte.ListaStatusSuporte(order_by: string; out erro : string): TFDQuery;
+var
+  qry : TFDQuery;
+begin
+  try
+      qry := TFDQuery.Create(nil);
+      qry.Connection := FConn;
+
+      with  qry do
+        begin
+          Active := false;
+          sql.Add('SELECT distinct telephonist, status, count (*) as quantidade');
+          sql.Add('FROM [MF_Control].[mf_control_db].[support]');
+          sql.Add('group by telephonist, status');
+
+        if order_by = '' then
+            SQL.Add('ORDER BY telephonist')
+        else
+            SQL.Add('ORDER BY ' + Order_by);
+
+        qry.Active := true;
+
+        end;
+         result := qry;
+         erro:='';
+
+    except on ex:exception do
+    begin
+        erro:= 'Erro ao carregar a lista de status de atendimento : ' + ex.Message;
+        result := nil;
+    end;
+
+  end;
+end;
+
+function TSuporte.ListaTop10Atend(order_by: string; out erro : string): TFDQuery;
+var
+  qry : TFDQuery;
+begin
+  try
+      qry := TFDQuery.Create(nil);
+      qry.Connection := FConn;
+
+      with  qry do
+        begin
+          Active := false;
+          sql.Add('select TOP (10) call_id,telephonist, scanner, version, reason, phone,occurrence ,solution, ');
+          sql.Add('FROM [MF_Control].[mf_control_db].[support]');
+
+        if order_by = '' then
+            SQL.Add('ORDER BY call_id desc')
+        else
+            SQL.Add('ORDER BY ' + Order_by);
+
+        qry.Active := true;
+
+        end;
+         result := qry;
+         erro:='';
+
+    except on ex:exception do
+    begin
+        erro:= 'Erro ao carregar a lista dos ultimos 10 atendimentos : ' + ex.Message;
+        result := nil;
+    end;
+
+  end;
+end;
+
+function TSuporte.ListaWaitCR(order_by: string; out erro : string): TFDQuery;
+var
+  qry : TFDQuery;
+begin
+  try
+      qry := TFDQuery.Create(nil);
+      qry.Connection := FConn;
+
+      with  qry do
+        begin
+          Active := false;
+          sql.Add('SELECT distinct reason as Categoria, reason1  as Sub_Categoria, count (reason) as Atendimentos_em_Wait_for_CR ');
+          sql.Add('FROM [MF_Control].[mf_control_db].[support]');
+          sql.Add('WHERE status = Wait for CR ');
+          sql.Add('GROUP BY reason, reason1');
+
+        if order_by = '' then
+            SQL.Add('ORDER BY reason asc')
+        else
+            SQL.Add('ORDER BY ' + Order_by);
+
+        qry.Active := true;
+
+        end;
+         result := qry;
+         erro:='';
+
+    except on ex:exception do
+    begin
+        erro:= 'Erro ao carregar a lista dos atendimentos com status Wait CR : ' + ex.Message;
+        result := nil;
+    end;
+
+  end;
+end;
+
+
+end.

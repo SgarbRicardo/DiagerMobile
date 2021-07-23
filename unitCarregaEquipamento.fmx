@@ -3,7 +3,7 @@ object frmCarregaEquipamento: TfrmCarregaEquipamento
   Top = 0
   Caption = 'Equipamentos'
   ClientHeight = 507
-  ClientWidth = 357
+  ClientWidth = 361
   Fill.Kind = Solid
   Position = MainFormCenter
   FormFactor.Width = 320
@@ -13,14 +13,14 @@ object frmCarregaEquipamento: TfrmCarregaEquipamento
   DesignerMasterStyle = 0
   object lytMenuTop: TLayout
     Align = Top
-    Size.Width = 357.000000000000000000
+    Size.Width = 361.000000000000000000
     Size.Height = 65.000000000000000000
     Size.PlatformDefault = False
     TabOrder = 2
     object lblTituloCad: TLabel
       Align = Contents
       StyledSettings = [Family, Style]
-      Size.Width = 357.000000000000000000
+      Size.Width = 361.000000000000000000
       Size.Height = 65.000000000000000000
       Size.PlatformDefault = False
       TextSettings.Font.Size = 18.000000000000000000
@@ -113,7 +113,7 @@ object frmCarregaEquipamento: TfrmCarregaEquipamento
       Margins.Top = 8.000000000000000000
       Margins.Right = 10.000000000000000000
       Margins.Bottom = 8.000000000000000000
-      Position.X = 303.000000000000000000
+      Position.X = 307.000000000000000000
       Position.Y = 8.000000000000000000
       Size.Width = 44.000000000000000000
       Size.Height = 49.000000000000000000
@@ -128,7 +128,7 @@ object frmCarregaEquipamento: TfrmCarregaEquipamento
     ItemSpaces.Left = 0.000000000000000000
     ItemSpaces.Right = 0.000000000000000000
     Align = Client
-    Size.Width = 357.000000000000000000
+    Size.Width = 361.000000000000000000
     Size.Height = 442.000000000000000000
     Size.PlatformDefault = False
     TabOrder = 1

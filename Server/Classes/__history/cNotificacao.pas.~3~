@@ -1,0 +1,52 @@
+unit cNotificacao;
+
+interface
+
+uses Firedac.Comp.Client, Data.DB, FMX.Graphics;
+
+type
+    TNotificacao  = class
+      private
+          Fconn :  TFDConnection;
+          FDT_GERACAO: TDateTime;
+          FEXTRA2: STRING;
+          FEXTRA1: STRING;
+          FTEXTO: STRING;
+          FIND_LIDO: STRING;
+          FCOD_USUARIO: integer;
+          FID_NOTIFICACAO: integer;
+
+      public
+          constructor Create (conn : TFDConnection);
+          property ID_NOTIFICACAO : integer read FID_NOTIFICACAO write FID_NOTIFICACAO;
+          property COD_USUARIO : integer read FCOD_USUARIO write FCOD_USUARIO;
+          property DT_GERACAO : TDateTime read FDT_GERACAO write FDT_GERACAO;
+          property TEXTO : STRING read FTEXTO write FTEXTO;
+          property IND_LIDO : STRING read FIND_LIDO write FIND_LIDO;
+          property EXTRA1 : STRING read FEXTRA1 write FEXTRA1;
+          property EXTRA2 : STRING read FEXTRA2 write FEXTRA2;
+
+          function ListarNotificacao(order_by: string; out erro: string): TFDQuery;
+
+end;
+
+implementation
+
+uses
+  system.SysUtils;
+
+constructor TNotificacao.Create(conn: TFDConnection);
+begin
+    Fconn := conn;
+end;
+
+function ListarNotificacao(order_by: string; out erro: string): TFDQuery;
+var
+    qry : TFDQuery;
+begin
+    if (cod_) then
+
+
+end;
+
+end.

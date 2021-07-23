@@ -1,0 +1,147 @@
+object frmPrincipal: TfrmPrincipal
+  Left = 0
+  Top = 0
+  Caption = 'Server APP'
+  ClientHeight = 418
+  ClientWidth = 335
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  OnCreate = FormCreate
+  DesignerMasterStyle = 0
+  object Label1: TLabel
+    StyledSettings = [Family, FontColor]
+    Position.X = 16.000000000000000000
+    Position.Y = 32.000000000000000000
+    TextSettings.Font.Size = 16.000000000000000000
+    TextSettings.Font.StyleExt = {00070000000000000004000000}
+    Text = 'Servidor Ativo'
+    TabOrder = 0
+  end
+  object Switch1: TSwitch
+    IsChecked = True
+    Position.X = 152.000000000000000000
+    Position.Y = 24.000000000000000000
+    TabOrder = 1
+    OnSwitch = Switch1Switch
+  end
+  object TabControl: TTabControl
+    Align = Bottom
+    Position.Y = 136.000000000000000000
+    Size.Width = 335.000000000000000000
+    Size.Height = 282.000000000000000000
+    Size.PlatformDefault = False
+    TabIndex = 0
+    TabOrder = 3
+    TabPosition = PlatformDefault
+    Sizes = (
+      335s
+      256s)
+    object tbiCategoria: TTabItem
+      CustomIcon = <
+        item
+        end>
+      IsSelected = True
+      Size.Width = 72.000000000000000000
+      Size.Height = 26.000000000000000000
+      Size.PlatformDefault = False
+      StyleLookup = ''
+      TabOrder = 0
+      Text = 'Categoria'
+      ExplicitSize.cx = 72.000000000000000000
+      ExplicitSize.cy = 26.000000000000000000
+      object btn_foto_cat: TButton
+        Position.X = 87.000000000000000000
+        Position.Y = 99.000000000000000000
+        Size.Width = 108.000000000000000000
+        Size.Height = 29.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 4
+        Text = 'Carregar Foto'
+        OnClick = btn_foto_catClick
+      end
+      object btn_cat_update: TButton
+        Position.X = 214.000000000000000000
+        Position.Y = 19.000000000000000000
+        Size.Width = 105.000000000000000000
+        Size.Height = 29.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 1
+        Text = 'Alterar'
+        OnClick = btn_cat_updateClick
+      end
+      object edt_categoria_id: TEdit
+        Touch.InteractiveGestures = [LongTap, DoubleTap]
+        TabOrder = 0
+        Position.X = 16.000000000000000000
+        Position.Y = 22.000000000000000000
+        Size.Width = 57.000000000000000000
+        Size.Height = 22.000000000000000000
+        Size.PlatformDefault = False
+        TextPrompt = 'Id Cat'
+      end
+      object Rectangle2: TRectangle
+        Position.X = 87.000000000000000000
+        Position.Y = 22.000000000000000000
+        Size.Width = 108.000000000000000000
+        Size.Height = 75.000000000000000000
+        Size.PlatformDefault = False
+        object img_categoria: TImage
+          MultiResBitmap = <
+            item
+            end>
+          Align = Client
+          Margins.Left = 1.000000000000000000
+          Margins.Top = 1.000000000000000000
+          Margins.Right = 1.000000000000000000
+          Margins.Bottom = 1.000000000000000000
+          Size.Width = 106.000000000000000000
+          Size.Height = 73.000000000000000000
+          Size.PlatformDefault = False
+        end
+      end
+    end
+    object RectAnimation1: TRectAnimation
+      Duration = 0.200000002980232200
+    end
+  end
+  object OpenDialog: TOpenDialog
+    Left = 272
+    Top = 368
+  end
+  object RESTServicePooler: TRESTServicePooler
+    Active = False
+    CORS = False
+    CORS_CustomHeaders.Strings = (
+      'Access-Control-Allow-Origin=*'
+      
+        'Access-Control-Allow-Methods=GET, POST, PATCH, PUT, DELETE, OPTI' +
+        'ONS'
+      
+        'Access-Control-Allow-Headers=Content-Type, Origin, Accept, Autho' +
+        'rization, X-CUSTOM-HEADER')
+    RequestTimeout = -1
+    ServicePort = 8082
+    ProxyOptions.Port = 8888
+    AuthenticationOptions.AuthorizationOption = rdwAOBasic
+    AuthenticationOptions.OptionParams.AuthDialog = True
+    AuthenticationOptions.OptionParams.CustomDialogAuthMessage = 'Protected Space...'
+    AuthenticationOptions.OptionParams.Custom404TitleMessage = '(404) The address you are looking for does not exist'
+    AuthenticationOptions.OptionParams.Custom404BodyMessage = '404'
+    AuthenticationOptions.OptionParams.Custom404FooterMessage = 'Take me back to <a href="./">Home REST Dataware'
+    AuthenticationOptions.OptionParams.Username = 'admin'
+    AuthenticationOptions.OptionParams.Password = 'admin'
+    SSLMethod = sslvSSLv2
+    SSLVersions = []
+    Encoding = esUtf8
+    RootPath = '/'
+    SSLVerifyMode = []
+    SSLVerifyDepth = 0
+    ForceWelcomeAccess = False
+    CriptOptions.Use = False
+    CriptOptions.Key = 'RDWBASEKEY256'
+    MultiCORE = False
+    Left = 280
+    Top = 8
+  end
+end

@@ -9,7 +9,6 @@ object frmCarregaUsuario: TfrmCarregaUsuario
   FormFactor.Height = 480
   FormFactor.Devices = [Desktop]
   OnClose = ap
-  OnShow = FormShow
   DesignerMasterStyle = 0
   object lvUsuario: TListView
     ItemAppearanceClassName = 'TDynamicAppearance'

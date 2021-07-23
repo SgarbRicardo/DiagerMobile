@@ -1,0 +1,58 @@
+unit UnitPrincipal;
+
+interface
+
+uses
+  System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
+  FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, uDWAbout,
+  uRESTDWBase, FMX.StdCtrls, FMX.Controls.Presentation, UnitDM, FMX.Objects,
+  FMX.Edit, FMX.Ani, FMX.TabControl;
+
+type
+  TfrmPrincipal = class(TForm)
+    Label1: TLabel;
+    Switch1: TSwitch;
+    RESTServicePooler: TRESTServicePooler;
+    TabControl: TTabControl;
+    tbiCategoria: TTabItem;
+    RectAnimation1: TRectAnimation;
+    btn_foto_cat: TButton;
+    btn_cat_update: TButton;
+    edt_categoria_id: TEdit;
+    img_categoria: TImage;
+    Rectangle2: TRectangle;
+    OpenDialog: TOpenDialog;
+    procedure Switch1Switch(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+    procedure btn_foto_catClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmPrincipal: TfrmPrincipal;
+
+implementation
+
+{$R *.fmx}
+
+procedure TfrmPrincipal.btn_foto_catClick(Sender: TObject);
+begin
+    if OpenDialog.Execute then
+       img_categoria.Bitmap.LoadFromFile(OpenDialog.FileName);
+end;
+
+procedure TfrmPrincipal.FormCreate(Sender: TObject);
+begin
+    RESTServicePooler.ServerMethodClass := Tdm;
+    RESTServicePooler.Active := Switch1.IsChecked;
+end;
+
+procedure TfrmPrincipal.Switch1Switch(Sender: TObject);
+begin
+      RESTServicePooler.Active := Switch1.IsChecked;
+end;
+
+end.

@@ -6,12 +6,60 @@
     <Transaction>2020/06/09 11:49:48.000.104,C:\Users\User1\Documents\Embarcadero\Studio\Projects\Unit1.pas=C:\Users\User1\OneDrive\Delphi_Projects\Server\UnitPrincipal.pas</Transaction>
     <Transaction>2020/06/09 11:49:52.000.252,C:\Users\User1\Documents\Embarcadero\Studio\Projects\Project1.dproj=C:\Users\User1\OneDrive\Delphi_Projects\Server\Server.dproj</Transaction>
     <Transaction>2020/06/10 09:04:49.000.243,=C:\Users\User1\OneDrive\Delphi_Projects\Server\Unit1.pas</Transaction>
-    <Transaction>2020/06/10 09:05:21.000.142,C:\Users\User1\OneDrive\Delphi_Projects\Server\Unit1.pas=C:\Users\User1\OneDrive\Delphi_Projects\Server\UnitDM.pas</Transaction>
     <Transaction>2020/06/10 09:05:21.000.142,C:\Users\User1\OneDrive\Delphi_Projects\Server\Unit1.dfm=C:\Users\User1\OneDrive\Delphi_Projects\Server\UnitDM.dfm</Transaction>
+    <Transaction>2020/06/10 09:05:21.000.142,C:\Users\User1\OneDrive\Delphi_Projects\Server\Unit1.pas=C:\Users\User1\OneDrive\Delphi_Projects\Server\UnitDM.pas</Transaction>
     <Transaction>2020/06/10 10:58:19.000.428,=C:\Users\User1\OneDrive\Delphi_Projects\Server\Unit1.pas</Transaction>
     <Transaction>2020/06/10 10:58:53.000.095,C:\Users\User1\OneDrive\Delphi_Projects\Server\Unit1.pas=C:\Users\User1\OneDrive\Delphi_Projects\Server\Classes\cUsuario.pas</Transaction>
+    <Transaction>2020/11/13 10:07:22.000.999,=E:\AppDiager\MFCApp\MobileDiager\Server\Unit1.pas</Transaction>
+    <Transaction>2020/11/13 10:07:52.000.528,E:\AppDiager\MFCApp\MobileDiager\Server\Unit1.pas=E:\AppDiager\MFCApp\MobileDiager\Server\Classes\cPerfil.pas</Transaction>
+    <Transaction>2020/12/02 16:21:03.000.016,=E:\AppDiager\MFCApp\MobileDiager\Server\Unit1.pas</Transaction>
+    <Transaction>2020/12/02 16:21:48.000.229,E:\AppDiager\MFCApp\MobileDiager\Server\Unit1.pas=E:\AppDiager\MFCApp\MobileDiager\Server\Classes\cEmprestimo.pas</Transaction>
+    <Transaction>2021/01/13 14:46:11.000.831,=E:\AppDiager\MFCApp\MobileDiager\Server\Unit1.pas</Transaction>
+    <Transaction>2021/01/13 14:47:01.000.978,E:\AppDiager\MFCApp\MobileDiager\Server\Classes\cNotificação.pas=E:\AppDiager\MFCApp\MobileDiager\Server\Unit1.pas</Transaction>
+    <Transaction>2021/01/13 14:49:16.000.279,E:\AppDiager\MFCApp\MobileDiager\Server\Classes\cNotificacao.pas=E:\AppDiager\MFCApp\MobileDiager\Server\Classes\cNotificação.pas</Transaction>
+    <Transaction>2021/01/31 11:18:10.000.584,=E:\AppDiager\MFCApp\MobileDiager\Server\Unit1.pas</Transaction>
+    <Transaction>2021/01/31 11:18:35.000.578,E:\AppDiager\MFCApp\MobileDiager\Server\Classes\cCategoria.pas=E:\AppDiager\MFCApp\MobileDiager\Server\Unit1.pas</Transaction>
+    <Transaction>2021/02/05 10:04:53.000.468,=E:\AppDiager\MFCApp\MobileDiager\Server\Classes\cChat.pas</Transaction>
+    <Transaction>2021/03/22 15:21:38.000.433,=E:\AppDiager\MFCApp\MobileDiager\Units\uFunctions.pas</Transaction>
+    <Transaction>2021/03/29 21:20:16.000.842,=E:\AppDiager\MFCApp\MobileDiager\Server\Unit1.pas</Transaction>
+    <Transaction>2021/03/29 21:20:53.000.948,E:\AppDiager\MFCApp\MobileDiager\Server\Unit1.pas=E:\AppDiager\MFCApp\MobileDiager\Server\Classes\cTask.pas</Transaction>
+    <Transaction>2021/06/24 16:48:34.000.443,C:\Users\Diager\Documents\AppDiager\MFCApp\MobileDiager\Server\Classes\cCategoria.pas=C:\Users\Diager\Documents\AppDiager\MFCApp\MobileDiager\Server\Classes\cSuporte.pas</Transaction>
+    <Transaction>2021/06/24 16:59:49.000.912,=C:\Users\Diager\Documents\AppDiager\MFCApp\MobileDiager\Server\Classes\cCategoria.pas</Transaction>
   </Transactions>
 	<ActiveMobileDevice>
 		<NoProfile iOSSimulator="iPhone5" Android=""/>
 	</ActiveMobileDevice>
+	<ProjectSortOrder AutoSort="0" SortType="0">
+    <File Path="android-support-v4.dex.jar"/>
+    <File Path="cloud-messaging.dex.jar"/>
+    <File Path="fmx.dex.jar"/>
+    <File Path="google-analytics-v2.dex.jar"/>
+    <File Path="google-play-billing.dex.jar"/>
+    <File Path="google-play-licensing.dex.jar"/>
+    <File Path="google-play-services-ads-7.0.0.dex.jar"/>
+    <File Path="google-play-services-analytics-7.0.0.dex.jar"/>
+    <File Path="google-play-services-base-7.0.0.dex.jar"/>
+    <File Path="google-play-services-gcm-7.0.0.dex.jar"/>
+    <File Path="google-play-services-identity-7.0.0.dex.jar"/>
+    <File Path="google-play-services-maps-7.0.0.dex.jar"/>
+    <File Path="google-play-services-panorama-7.0.0.dex.jar"/>
+    <File Path="google-play-services-plus-7.0.0.dex.jar"/>
+    <File Path="google-play-services-wallet-7.0.0.dex.jar"/>
+    <File Path="..\..\MobileDiager"/>
+    <File Path="..\Units"/>
+    <File Path="..\Units\uFunctions.pas"/>
+    <File Path="Classes"/>
+    <File Path="Classes\cChat.pas"/>
+    <File Path="Classes\cEmprestimo.pas"/>
+    <File Path="Classes\cNotificacao.pas"/>
+    <File Path="Classes\cPerfil.pas"/>
+    <File Path="Classes\cSuporte.pas"/>
+    <File Path="Classes\cTask.pas"/>
+    <File Path="Classes\cUsuario.pas"/>
+    <File Path="Classes\cCategoria.pas"/>
+    <File Path="UnitDM.pas"/>
+    <File Path="UnitDM.dfm"/>
+    <File Path="UnitPrincipal.pas"/>
+    <File Path="UnitPrincipal.fmx"/>
+  </ProjectSortOrder>
 </BorlandProject>

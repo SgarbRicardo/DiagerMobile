@@ -19,8 +19,6 @@ type
     procedure imgVoltarDblClick(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormShow(Sender: TObject);
-    procedure lvCategoryUpdateObjects(const Sender: TObject;
-      const AItem: TListViewItem);
     procedure lvCategoryItemClick(const Sender: TObject;
       const AItem: TListViewItem);
   private
@@ -29,7 +27,6 @@ type
   public
     { Public declarations }
     procedure cadCategoria(id_cat: string);
-    procedure ListarCategorias;
   end;
 
 var
@@ -73,40 +70,6 @@ begin
 
 end;
 
-procedure TfrmCategorias.ListarCategorias;
-var
-   cat : TCategoria;
-   qry : TFDQuery;
-   erro : string;
-   icone : TStream;
-begin
-    try
-       cat := Tcategoria.create(Dm.conn);
-       qry := cat.ListarCategoria(erro);
-
-       while not qry.Eof do
-       begin
-          //icone
-          if qry.FieldByName('ICONE').AsString <> '' then
-            icone := qry.CreateBlobStream(qry.FieldByName('ICONE'), TBlobStreamMode.bmRead)
-          else
-             icone := nil;
-
-         frmInventario.addCategory(lvCategory,
-                                              qry.FieldByName('ID_CATEGORIA').AsString,
-                                              qry.FieldByName('DESCRICAO').AsString, ICONE);
-          if icone <> nil then
-          icone.DisposeOf;
-
-         qry.Next;
-       end;
-
-    finally
-        qry.DisposeOf;
-        cat.DisposeOf;
-    end;
-end;
-
 procedure TfrmCategorias.FormShow(Sender: TObject);
 //var
 //  Photo : TStream;
@@ -126,8 +89,6 @@ begin
 //    end;
 //
 //    photo.DisposeOf;
-
-    ListarCategorias;
 end;
 procedure TfrmCategorias.imgVoltarDblClick(Sender: TObject);
 begin
@@ -140,10 +101,6 @@ begin
     cadCategoria(AItem.TagString);
 end;
 
-procedure TfrmCategorias.lvCategoryUpdateObjects(const Sender: TObject;
-  const AItem: TListViewItem);
-begin
-    frmInventario.SetupCategory(lvCategory, AItem);
-end;
 
 end.
+

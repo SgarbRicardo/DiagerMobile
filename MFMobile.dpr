@@ -5,23 +5,24 @@ uses
   FMX.Forms,
   unitLogin in 'unitLogin.pas' {frmLogin},
   uMD5 in 'Units\uMD5.pas',
-  unitInventario in 'unitInventario.pas' {frmInventario},
-  u99Permissions in 'u99Permissions.pas',
   unitInventarioCad in 'unitInventarioCad.pas' {frmInventarioCad},
   unitCategorias in 'unitCategorias.pas' {frmCategorias},
   unitPrincipal in 'unitPrincipal.pas' {frmMainscreen},
-  uFunctions in 'Units\uFunctions.pas',
   untDM in 'untDM.pas' {dm: TDataModule},
   cCategoria in 'Classes\cCategoria.pas',
-  unitCategoriasCad in 'unitCategoriasCad.pas' {frmCadastroCategoria},
-  unitSincronizar in 'unitSincronizar.pas' {frmSincronizar},
   cEmprestimo in 'Classes\cEmprestimo.pas',
-  unitCarregaEquipamento in 'unitCarregaEquipamento.pas' {frmCarregaEquipamento},
   cEquipamento in 'Classes\cEquipamento.pas',
   cUsuario in 'Classes\cUsuario.pas',
-  unitCarregarUsuario in 'unitCarregarUsuario.pas' {frmCarregarUsuario},
-  unitDadosUsuario in 'unitDadosUsuario.pas' {frmDadosUsuario},
-  unitChat in 'unitChat.pas' {frmChat};
+  unitNotificacao in 'unitNotificacao.pas' {frmNotification},
+  uFunctions in 'Units\uFunctions.pas',
+  unitTestQuality in 'unitTestQuality.pas' {frmTestQuality},
+  unitFrameCategory in 'unitFrameCategory.pas' {Frame_Categoria: TFrame},
+  uLoading in 'Units\uLoading.pas',
+  unitInventario in 'unitInventario.pas' {frmInventario},
+  u99Permissions in '..\..\..\..\Downloads\FontesMarketplace29\Fontes\Units\u99Permissions.pas',
+  uSuperChart in 'Units\uSuperChart.pas',
+  unitDashBoard in 'unitDashBoard.pas' {frmDashBoard},
+  unitFrameVehicles in 'unitFrameVehicles.pas' {frameVehicle: TFrame};
 
 {$R *.res}
 

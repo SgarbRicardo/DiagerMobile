@@ -136,7 +136,6 @@ object frmCategorias: TfrmCategorias
     ItemEditAppearanceClassName = 'TDynamicAppearance'
     HeaderAppearanceClassName = 'TListHeaderObjects'
     FooterAppearanceClassName = 'TListHeaderObjects'
-    OnUpdateObjects = lvCategoryUpdateObjects
     AllowSelection = False
     ItemSpaces.Left = 0.000000000000000000
     ItemSpaces.Right = 0.000000000000000000

@@ -1,0 +1,5 @@
+object frameVehicle: TframeVehicle
+  Size.Width = 262.000000000000000000
+  Size.Height = 179.000000000000000000
+  Size.PlatformDefault = False
+end

@@ -126,8 +126,7 @@ begin
               exit;
           end;
 
-          frmCategorias.ListarCategorias;
-          close;
+         close;
 
       finally
             cat.DisposeOf;

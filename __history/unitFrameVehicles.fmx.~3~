@@ -1,0 +1,55 @@
+object frameVehicle: TframeVehicle
+  Size.Width = 285.000000000000000000
+  Size.Height = 189.000000000000000000
+  Size.PlatformDefault = False
+  object Rectangle1: TRectangle
+    Align = Center
+    Fill.Color = xFFA5B4F8
+    Size.Width = 203.000000000000000000
+    Size.Height = 129.000000000000000000
+    Size.PlatformDefault = False
+    Stroke.Kind = None
+    XRadius = 15.000000000000000000
+    YRadius = 15.000000000000000000
+    object lblYear: TLabel
+      Align = Scale
+      StyledSettings = [Family, Size, Style]
+      Margins.Bottom = 50.000000000000000000
+      Position.X = 42.736839294433590000
+      Position.Y = 23.000000000000000000
+      Size.Width = 117.526313781738300000
+      Size.Height = 33.000000000000000000
+      Size.PlatformDefault = False
+      TextSettings.FontColor = xFFFAF9F9
+      TextSettings.HorzAlign = Center
+      Text = 'lblYear'
+      TabOrder = 0
+    end
+    object lblModel: TLabel
+      Align = Scale
+      StyledSettings = [Family, Size, Style]
+      Position.X = 41.765548706054690000
+      Position.Y = 48.000000000000000000
+      Size.Width = 118.497604370117200000
+      Size.Height = 33.000000000000000000
+      Size.PlatformDefault = False
+      TextSettings.FontColor = xFFFAF9F9
+      TextSettings.HorzAlign = Center
+      Text = 'lblModel'
+      TabOrder = 1
+    end
+    object lblEngSize: TLabel
+      Align = Scale
+      StyledSettings = [Family, Size, Style]
+      Position.X = 41.765548706054690000
+      Position.Y = 80.000000000000000000
+      Size.Width = 116.555023193359400000
+      Size.Height = 17.000000000000000000
+      Size.PlatformDefault = False
+      TextSettings.FontColor = xFFFAF9F9
+      TextSettings.HorzAlign = Center
+      Text = 'lblEngSize'
+      TabOrder = 2
+    end
+  end
+end

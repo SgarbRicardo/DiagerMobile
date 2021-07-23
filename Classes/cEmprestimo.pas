@@ -23,6 +23,7 @@ type
         FDATA_ATE: STRING;
         FDATA_DE: STRING;
         FPROD_DESCRICAO: string;
+    function Excluir(out erro: string): Boolean;
 
 
     public
@@ -176,12 +177,12 @@ begin
         qry.DisposeOf;
       end;
 end;
- {
+
 function TEmprestimo.Excluir(out erro: string): Boolean;
 var
   qry : TFDQuery;
 begin
-     //validações
+{     //validações
     if DESCRICAO = '' then
       begin
         erro:= 'Informe a descrição da Categoria: ';
@@ -221,9 +222,9 @@ begin
            end;
       finally
         qry.DisposeOf;
-      end;
+      end;}
 end;
-   }
+
 function TEmprestimo.ListarEmprestimo(qtd_result: integer; out erro: string): TFDQuery;
 var
   qry : TFDQuery;

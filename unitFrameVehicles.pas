@@ -5,7 +5,7 @@ interface
 uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants, 
   FMX.Types, FMX.Graphics, FMX.Controls, FMX.Forms, FMX.Dialogs, FMX.StdCtrls,
-  FMX.Objects, FMX.Controls.Presentation;
+  FMX.Objects, FMX.Controls.Presentation, FMX.Layouts;
 
 type
   TframeVehicle = class(TFrame)
@@ -13,6 +13,8 @@ type
     lblYear: TLabel;
     lblModel: TLabel;
     lblEngSize: TLabel;
+    Layout1: TLayout;
+    Layout2: TLayout;
   private
     { Private declarations }
   public

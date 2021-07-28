@@ -163,7 +163,7 @@ type
 
   public
     { Public declarations }
-    usuario, cod_usuario, nome, email, departamento, nivel_acesso,foto64 : string;
+    usuario, cod_usuario, nome, email, departamento, nivel_acesso,foto64, login_ate : string;
   end;
 
 var
@@ -300,6 +300,7 @@ begin
 
         frmMainscreen.nivel_acesso := nivel_acesso;
         frmMainscreen.lblcargoPerfil.Text := nivel_acesso;
+        frmMainscreen.lblDataAcesso.Text := login_ate;
       end
       else
       begin
@@ -322,6 +323,7 @@ begin
 
         frmMainscreen.nivel_acesso := nivel_acesso;
         frmMainscreen.lblcargoPerfil.Text := nivel_acesso;
+        frmMainscreen.lblDataAcesso.Text := login_ate;
       end;
 
       frmMainscreen.Show;
@@ -362,6 +364,7 @@ begin
       email := jsonObj.GetValue('email').Value;
       departamento := jsonObj.GetValue('department').Value;
       nivel_acesso := jsonObj.GetValue('access_level').value;
+      login_ate := jsonObj.GetValue('login_until').value;
       foto64 := jsonObj.GetValue('foto').Value
 
     finally
@@ -415,10 +418,10 @@ end;
 Procedure ProcessaLoginErro(Sender: TObject);
 begin
   if Assigned(sender) and (sender is Exception) then
-  BEGIN
+  begin
       frmLogin.ExibirCampos;
       showmessage(Exception(sender).Message);
-  END;
+  end;
 
 end;
 

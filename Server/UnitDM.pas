@@ -1199,6 +1199,7 @@ begin
                json.AddPair('department',u.Departamento);
                json.AddPair('access_level',u.Nivel_acesso);
                json.AddPair('name',u.Nome_Usuario);
+               json.AddPair('login_until',u.Logado_ate);
                json.AddPair('foto',u.FOTO64);
                Status := 200;
           end;

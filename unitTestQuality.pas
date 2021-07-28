@@ -836,8 +836,8 @@ begin
     begin
         item := TListBoxItem.Create(lbl_vehicleList);
         item.Text := '';
-        item.Width := 195;
-        item.Height := 80;
+        item.Width := 144;
+        item.Height := 40;
         item.Selectable := false;
         item.Margins.top := 10;
         item.tag := roadmap_id;

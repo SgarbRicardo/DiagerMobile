@@ -160,13 +160,13 @@ begin
         edtBrand.Text := '';
         edtCategory.Text :='';
         edtVersion.Text :='';
-        lblDateEntrada.Text := FormatDateTime('dd/mm/yyyy hh:nn', now);
+        lblDateEntrada.Text := FormatDateTime('dd/mm/yyyy hh:nn:ss', now);
         lblTituloCad.Text := ' New Asset';
         rectLixeira.Visible := false;
      end
      else
         lblTituloCad.Text := ' Edit Asset';
-        lblDateEntrada.Text := FormatDateTime('dd/mm/yyyy hh:nn', now);
+        lblDateEntrada.Text := FormatDateTime('dd/mm/yyyy hh:nn:ss', now);
         rectLixeira.Visible := false;
 end;
 
@@ -203,7 +203,7 @@ begin
         dm.Request_Inventario.AddParameter('Empre_Equip_Id', id_emp_pro.ToString);
         dm.Request_Inventario.AddParameter('Empre_Leasing', idusuario.ToString);
         dm.Request_Inventario.AddParameter('Empre_User_Id', idusuario.ToString);
-        dm.request_inventario.addParameter('Empre_DT_Leasing',FormataData(lblDateEntrada.Text));
+        dm.request_inventario.addParameter('Empre_DT_Leasing',lblDateEntrada.Text + ':00');
         dm.Request_Inventario.Execute;
       end;
 

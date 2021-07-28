@@ -475,7 +475,7 @@ procedure TfrmInventario.img_aba3Click(Sender: TObject);
 begin
      MudarAba(Timage(Sender));
      edt_buscar.Text :='';
-     lblTitulo_inventario.Text := 'My Equipments';
+     lblTitulo_inventario.Text := 'All Equipments';
      ListarQTDCateg;
 end;
 

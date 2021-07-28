@@ -112,6 +112,7 @@ begin
             Nivel_acesso := FieldByName('access_level').AsString;
             Departamento := FieldByName('department').AsString;
             Senha := FieldByName('password').AsString;
+            Logado_ate := FieldByName('login_until').AsString;
 
             if qry.FieldByName('photo').AsString <> '' then
             begin
@@ -285,7 +286,7 @@ begin
       with  qry do
         begin
           Active := false;
-          SQL.Add('SELECT user_id, email, [user], Department, access_level, name');
+          SQL.Add('SELECT user_id, email, [user], Department, access_level, name, login_until');
           SQL.Add('From [MF_Control].[mf_control_db].[userP]');
 
         if order_by = '' then

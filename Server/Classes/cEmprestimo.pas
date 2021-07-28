@@ -200,7 +200,7 @@ begin
 
                    ParamByName('EMPRE_EQUIP_ID').Value := Equip_Id;
                    ParamByName('EMPRE_USER_ID').Value := EMPRE_LOCATARIO;
-                   ParamByName('Empre_DT_Leasing').Value := FormatDateTime('yyyy-mm-dd hh:nn:ss', EMPRE_DT_LOCACAO);
+                   ParamByName('Empre_DT_Leasing').Value := FormatDateTime('dd-mm-yyyy hh:nn:ss', EMPRE_DT_LOCACAO);
                    ExecSQL;
 
                    Fconn.Commit;

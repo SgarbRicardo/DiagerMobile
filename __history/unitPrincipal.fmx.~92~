@@ -21,7 +21,7 @@ object frmMainscreen: TfrmMainscreen
     Size.Height = 620.000000000000000000
     Size.PlatformDefault = False
     TabHeight = 49.000000000000000000
-    TabIndex = 0
+    TabIndex = 2
     TabOrder = 0
     TabPosition = None
     Sizes = (
@@ -35,7 +35,7 @@ object frmMainscreen: TfrmMainscreen
       CustomIcon = <
         item
         end>
-      IsSelected = True
+      IsSelected = False
       Size.Width = 8.000000000000000000
       Size.Height = 8.000000000000000000
       Size.PlatformDefault = False
@@ -38119,7 +38119,7 @@ object frmMainscreen: TfrmMainscreen
       CustomIcon = <
         item
         end>
-      IsSelected = False
+      IsSelected = True
       Size.Width = 8.000000000000000000
       Size.Height = 8.000000000000000000
       Size.PlatformDefault = False
@@ -38518,7 +38518,7 @@ object frmMainscreen: TfrmMainscreen
             Size.Width = 50.000000000000000000
             Size.Height = 54.000000000000000000
             Size.PlatformDefault = False
-            TabOrder = 3
+            TabOrder = 4
             object Image10: TImage
               MultiResBitmap.Height = 128
               MultiResBitmap.Width = 128
@@ -38662,7 +38662,7 @@ object frmMainscreen: TfrmMainscreen
             Size.Width = 50.000000000000000000
             Size.Height = 54.000000000000000000
             Size.PlatformDefault = False
-            TabOrder = 3
+            TabOrder = 4
             object Image14: TImage
               MultiResBitmap.Height = 128
               MultiResBitmap.Width = 128
@@ -38834,7 +38834,7 @@ object frmMainscreen: TfrmMainscreen
             Size.Width = 50.000000000000000000
             Size.Height = 54.000000000000000000
             Size.PlatformDefault = False
-            TabOrder = 3
+            TabOrder = 4
             object Image13: TImage
               MultiResBitmap.Height = 128
               MultiResBitmap.Width = 128
@@ -39040,7 +39040,7 @@ object frmMainscreen: TfrmMainscreen
             Size.Width = 50.000000000000000000
             Size.Height = 54.000000000000000000
             Size.PlatformDefault = False
-            TabOrder = 3
+            TabOrder = 4
             object Image15: TImage
               MultiResBitmap.Height = 128
               MultiResBitmap.Width = 128
@@ -39201,7 +39201,7 @@ object frmMainscreen: TfrmMainscreen
             Size.Width = 50.000000000000000000
             Size.Height = 54.000000000000000000
             Size.PlatformDefault = False
-            TabOrder = 3
+            TabOrder = 4
             object Image16: TImage
               MultiResBitmap.Height = 128
               MultiResBitmap.Width = 128
@@ -39448,7 +39448,7 @@ object frmMainscreen: TfrmMainscreen
             Size.Width = 50.000000000000000000
             Size.Height = 54.000000000000000000
             Size.PlatformDefault = False
-            TabOrder = 3
+            TabOrder = 4
             object Image18: TImage
               MultiResBitmap.Height = 128
               MultiResBitmap.Width = 128
@@ -39575,7 +39575,7 @@ object frmMainscreen: TfrmMainscreen
             Size.Width = 50.000000000000000000
             Size.Height = 56.000000000000000000
             Size.PlatformDefault = False
-            TabOrder = 3
+            TabOrder = 4
             object Image17: TImage
               MultiResBitmap.Height = 128
               MultiResBitmap.Width = 128

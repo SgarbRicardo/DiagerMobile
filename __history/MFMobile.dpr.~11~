@@ -19,10 +19,10 @@ uses
   unitFrameCategory in 'unitFrameCategory.pas' {Frame_Categoria: TFrame},
   uLoading in 'Units\uLoading.pas',
   unitInventario in 'unitInventario.pas' {frmInventario},
+  u99Permissions in '..\..\..\..\Downloads\FontesMarketplace29\Fontes\Units\u99Permissions.pas',
   uSuperChart in 'Units\uSuperChart.pas',
   unitDashBoard in 'unitDashBoard.pas' {frmDashBoard},
-  unitFrameVehicles in 'unitFrameVehicles.pas' {frameVehicle: TFrame},
-  u99Permissions in 'u99Permissions.pas';
+  unitFrameVehicles in 'unitFrameVehicles.pas' {frameVehicle: TFrame};
 
 {$R *.res}
 

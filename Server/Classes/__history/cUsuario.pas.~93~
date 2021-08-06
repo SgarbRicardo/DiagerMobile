@@ -84,9 +84,6 @@ begin
 
       with  qry do
       begin
-        if not Connection.InTransaction then
-               Connection.StartTransaction;
-
           Active := false;
           sql.Clear;
           SQL.Add('declare @pwd3 varchar(20),');
@@ -135,14 +132,10 @@ begin
             erro := 'Email or Password is invalid';
             Result := false;
           end;
-          if  Connection.InTransaction then
-              Connection.Commit;
           DisposeOf;
       end;
     except on ex:exception do
     begin
-        if qry.Connection.InTransaction then
-           qry.Connection.Rollback;
         erro:= 'Error in login validation: ' + ex.Message;
         Result:= False;
     end;

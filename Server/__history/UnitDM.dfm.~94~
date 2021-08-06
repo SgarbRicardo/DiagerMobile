@@ -90,7 +90,7 @@ object dm: Tdm
       end>
     ContextName = 'usuarios'
     Left = 32
-    Top = 48
+    Top = 40
   end
   object conn: TFDConnection
     Params.Strings = (
@@ -181,7 +181,7 @@ object dm: Tdm
       end>
     ContextName = 'chat'
     Left = 32
-    Top = 184
+    Top = 200
   end
   object DWTask: TDWServerEvents
     IgnoreInvalidParams = False

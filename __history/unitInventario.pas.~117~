@@ -23,6 +23,7 @@ type
     img_aba3: TImage;
     lytUltimasModificacoes: TLayout;
     lblEquip_user: TLabel;
+    lblVerTodos: TLabel;
     imgEquipment: TImage;
     rectTransição: TRectangle;
     Rectangle2: TRectangle;
@@ -67,9 +68,6 @@ type
     Layout4: TLayout;
     lbMyEquips: TListBox;
     Image6: TImage;
-    Layout5: TLayout;
-    lblMyequip: TLabel;
-    Rectangle6: TRectangle;
     procedure FormShow(Sender: TObject);
     procedure lvInventarioUpdateObjects(const Sender: TObject;
       const AItem: TListViewItem);
@@ -89,7 +87,6 @@ type
     procedure imgBuscaClick(Sender: TObject);
     procedure lbMyEquipsItemClick(const Sender: TCustomListBox;
       const Item: TListBoxItem);
-    procedure lblMyequipClick(Sender: TObject);
   private
     dt_filtro : TDate;
     procedure TransitionForm(sender: TObject);
@@ -320,12 +317,6 @@ begin
     listarEmprestimos(frmMainscreen.cod_usuario_logado,id_cat_global, edt_buscaEquip.Text);
     lblTitulo_inventario.Text := '<<'+item.TagString+'>>';
     lblTitulo_inventario.Font.Size := 15;
-end;
-
-procedure TfrmInventario.lblMyequipClick(Sender: TObject);
-begin
-    MudarAba(img_aba2);
-    lblTitulo_inventario.Text := 'My Equipments';
 end;
 
 procedure TfrmInventario.lblVerTodosClick(Sender: TObject);

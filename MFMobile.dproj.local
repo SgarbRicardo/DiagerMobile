@@ -16,12 +16,6 @@
     <File Path="google-play-services-panorama-7.0.0.dex.jar"/>
     <File Path="google-play-services-plus-7.0.0.dex.jar"/>
     <File Path="google-play-services-wallet-7.0.0.dex.jar"/>
-    <File Path="..\..\..\..\..\Diager"/>
-    <File Path="..\..\..\..\Downloads"/>
-    <File Path="..\..\..\..\Downloads\FontesMarketplace29"/>
-    <File Path="..\..\..\..\Downloads\FontesMarketplace29\Fontes"/>
-    <File Path="..\..\..\..\Downloads\FontesMarketplace29\Fontes\Units"/>
-    <File Path="..\..\..\..\Downloads\FontesMarketplace29\Fontes\Units\u99Permissions.pas"/>
     <File Path="Classes"/>
     <File Path="Classes\cCategoria.pas"/>
     <File Path="Classes\cEmprestimo.pas"/>
@@ -54,6 +48,7 @@
     <File Path="unitDashBoard.fmx"/>
     <File Path="unitFrameVehicles.pas"/>
     <File Path="unitFrameVehicles.fmx"/>
+    <File Path="u99Permissions.pas"/>
   </ProjectSortOrder>
 	<Transactions>
     <Transaction>2020/09/22 16:30:51.000.208,=E:\MFCAppMobile\Unit1.pas</Transaction>
@@ -69,8 +64,8 @@
     <Transaction>2020/10/06 23:29:03.000.799,=E:\MFCAppMobile\Unit1.pas</Transaction>
     <Transaction>2020/10/06 23:29:57.000.751,E:\MFCAppMobile\Classes\cEquipamento.pas=E:\MFCAppMobile\Unit1.pas</Transaction>
     <Transaction>2020/10/10 21:39:49.000.834,=E:\MFCAppMobile\Unit1.pas</Transaction>
-    <Transaction>2020/10/10 21:40:07.000.383,E:\MFCAppMobile\Unit1.fmx=E:\MFCAppMobile\Classes\cUsuario.fmx</Transaction>
     <Transaction>2020/10/10 21:40:07.000.383,E:\MFCAppMobile\Unit1.pas=E:\MFCAppMobile\Classes\cUsuario.pas</Transaction>
+    <Transaction>2020/10/10 21:40:07.000.383,E:\MFCAppMobile\Unit1.fmx=E:\MFCAppMobile\Classes\cUsuario.fmx</Transaction>
     <Transaction>2020/10/10 21:40:30.000.070,E:\MFCAppMobile\Classes\cUsuario.pas=</Transaction>
     <Transaction>2020/10/10 21:40:35.000.636,=E:\MFCAppMobile\Unit1.pas</Transaction>
     <Transaction>2020/10/10 21:40:50.000.192,E:\MFCAppMobile\Unit1.pas=E:\MFCAppMobile\Classes\cUsuario.pas</Transaction>
@@ -82,8 +77,8 @@
     <Transaction>2020/10/14 08:52:24.000.510,E:\MFCAppMobile\Unit1.pas=E:\MFCAppMobile\unitCarregarUsuario.pas</Transaction>
     <Transaction>2020/10/14 09:16:20.000.289,E:\MFCAppMobile\unitCarregaUsuario.pas=</Transaction>
     <Transaction>2020/11/03 21:57:26.000.113,=E:\MFCAppMobile\Unit1.pas</Transaction>
-    <Transaction>2020/11/03 21:58:55.000.279,E:\MFCAppMobile\unitDadosUsuario.pas=E:\MFCAppMobile\Unit1.pas</Transaction>
     <Transaction>2020/11/03 21:58:55.000.279,E:\MFCAppMobile\unitDadosUsuario.fmx=E:\MFCAppMobile\Unit1.fmx</Transaction>
+    <Transaction>2020/11/03 21:58:55.000.279,E:\MFCAppMobile\unitDadosUsuario.pas=E:\MFCAppMobile\Unit1.pas</Transaction>
     <Transaction>2020/11/09 10:45:17.000.927,=E:\MFCAppMobile\Unit1.pas</Transaction>
     <Transaction>2020/11/09 10:45:54.000.937,E:\MFCAppMobile\unitNotificacao.fmx=E:\MFCAppMobile\Unit1.fmx</Transaction>
     <Transaction>2020/11/09 10:45:54.000.937,E:\MFCAppMobile\unitNotificacao.pas=E:\MFCAppMobile\Unit1.pas</Transaction>
@@ -126,12 +121,13 @@
     <Transaction>2021/05/22 20:34:11.000.615,=C:\Users\Diager\Documents\AppDiager\MFCApp\MobileDiager\Units\uSuperChart.pas</Transaction>
     <Transaction>2021/05/26 21:01:18.000.573,C:\Users\Diager\Documents\AppDiager\MFCApp\MobileDiager\unitChat.pas=</Transaction>
     <Transaction>2021/05/26 21:01:41.000.378,=C:\Users\Diager\Documents\AppDiager\MFCApp\MobileDiager\Unit1.pas</Transaction>
-    <Transaction>2021/05/26 21:02:15.000.887,C:\Users\Diager\Documents\AppDiager\MFCApp\MobileDiager\Unit1.fmx=C:\Users\Diager\Documents\AppDiager\MFCApp\MobileDiager\unitDashBoard.fmx</Transaction>
     <Transaction>2021/05/26 21:02:15.000.887,C:\Users\Diager\Documents\AppDiager\MFCApp\MobileDiager\Unit1.pas=C:\Users\Diager\Documents\AppDiager\MFCApp\MobileDiager\unitDashBoard.pas</Transaction>
+    <Transaction>2021/05/26 21:02:15.000.887,C:\Users\Diager\Documents\AppDiager\MFCApp\MobileDiager\Unit1.fmx=C:\Users\Diager\Documents\AppDiager\MFCApp\MobileDiager\unitDashBoard.fmx</Transaction>
     <Transaction>2021/07/08 20:53:14.000.036,=C:\Users\Diager\Documents\AppDiager\MFCApp\MobileDiager\Unit1.pas</Transaction>
     <Transaction>2021/07/08 20:53:31.000.755,=C:\Users\Diager\Documents\AppDiager\MFCApp\MobileDiager\Unit1.pas</Transaction>
     <Transaction>2021/07/08 20:54:28.000.548,C:\Users\Diager\Documents\AppDiager\MFCApp\MobileDiager\Unit1.fmx=C:\Users\Diager\Documents\AppDiager\MFCApp\MobileDiager\unitFrameVehicles.fmx</Transaction>
     <Transaction>2021/07/08 20:54:28.000.548,C:\Users\Diager\Documents\AppDiager\MFCApp\MobileDiager\Unit1.pas=C:\Users\Diager\Documents\AppDiager\MFCApp\MobileDiager\unitFrameVehicles.pas</Transaction>
+    <Transaction>2021/07/27 21:36:16.000.322,=C:\Users\Diager\Documents\AppDiager\MFCApp\MobileDiager\u99Permissions.pas</Transaction>
   </Transactions>
 	<ActiveMobileDevice>
 		<NoProfile Android=""/>

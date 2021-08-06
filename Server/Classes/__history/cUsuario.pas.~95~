@@ -84,8 +84,8 @@ begin
 
       with  qry do
       begin
-        if not Connection.InTransaction then
-               Connection.StartTransaction;
+        if not FConn.InTransaction then
+               FConn.StartTransaction;
 
           Active := false;
           sql.Clear;
@@ -135,14 +135,14 @@ begin
             erro := 'Email or Password is invalid';
             Result := false;
           end;
-          if  Connection.InTransaction then
-              Connection.Commit;
+          if  FConn.InTransaction then
+              FConn.Commit;
           DisposeOf;
       end;
     except on ex:exception do
     begin
-        if qry.Connection.InTransaction then
-           qry.Connection.Rollback;
+        if FConn.InTransaction then
+           FConn.Rollback;
         erro:= 'Error in login validation: ' + ex.Message;
         Result:= False;
     end;

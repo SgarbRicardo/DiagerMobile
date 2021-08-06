@@ -182,7 +182,6 @@ begin
 
              except on ex:exception do
                begin
-                  fconn.Rollback;
                   Result := false;
                   erro := 'Erro ao alterar o Emprestimo de ferramentas; ' + ex.Message;
                end;
@@ -193,9 +192,7 @@ begin
             try
                 with qry do
                 begin
-                if not Fconn.InTransaction then
                    Fconn.StartTransaction;
-
                    Active:= false;
                    sql.Clear;
                    sql.Add('Insert into mf_control_db.Leasing (EMPRE_EQUIP_ID,EMPRE_USER_ID, Empre_DT_Leasing)');
@@ -214,7 +211,7 @@ begin
 
              except on ex:exception do
                begin
-                   Fconn.Rollback;
+
                   Result := false;
                   erro := 'Erro ao Inserir o Novo Equipamento para seu usuário ' + ex.Message;
                end;

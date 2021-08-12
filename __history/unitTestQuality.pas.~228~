@@ -73,8 +73,6 @@ type
     edt_buscar: TEdit;
     layout_botoes: TLayout;
     img_busca: TImage;
-    StyleBook1: TStyleBook;
-    lytMakes: TLayout;
     procedure img_BuscarClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure lv_TaskDoneUpdateObjects(const Sender: TObject;
@@ -96,7 +94,6 @@ type
     procedure img_fechar_detalheClick(Sender: TObject);
     procedure lv_TaskDoneScrollViewChange(Sender: TObject);
     procedure img_buscaClick(Sender: TObject);
-    procedure lbl_canc_buscarClick(Sender: TObject);
   private
     makeSel : string;
     procedure AddTaskDone(id_roadmap,id_testador: integer; make, model, range, system, functionality, progress,status,hours : string);
@@ -116,7 +113,6 @@ type
     procedure ListarTask_;
     procedure carregarVeiculosdaTask;
     procedure ListarVeiculosTask;
-    procedure OpenSearch;
 
     { Private declarations }
   public
@@ -146,63 +142,6 @@ begin
     TabControl1.GotoVisibleTab(img.Tag, TTabTransition.Slide);
 end;
 
-procedure CloseSearch();
-begin
-    with frmTestQuality do
-    begin
-        // Recolher a busca...
-        rect_busca.AnimateFloat('Width', 50, 0.5, TAnimationType.InOut,
-                               TInterpolationType.Circular);
-
-        // Exibe o logo...
-       // img_logo.AnimateFloatDelay('Opacity', 1, 0.5, 0.2, TAnimationType.InOut,
-         //                      TInterpolationType.Circular);
-
-        TThread.CreateAnonymousThread(procedure
-        begin
-            sleep(400);
-
-            TThread.Synchronize(nil, procedure
-            begin
-                // Exibe os botoes de busca e msg...
-                layout_botoes.Visible := true;
-
-                // Esconde a busca...
-                layout_busca.Visible := false;
-            end);
-
-        end).Start;
-
-    end;
-end;
-
-procedure TfrmTestQuality.OpenSearch();
-var
-    largura : integer;
-begin
-    with frmTestQuality do
-    begin
-        // Esconder o layout de botoes...
-        layout_botoes.Visible := false;
-
-        // Exibir campos de busca...
-        layout_busca.Visible := true;
-
-        // Animar caixa de busca...
-        largura := trunc(layout_busca.Width - lbl_canc_buscar.Width - 15);
-        rect_busca.Width := 50;
-        rect_busca.AnimateFloat('Width', largura, 0.5, TAnimationType.InOut,
-                               TInterpolationType.Circular);
-
-        // Esconder o logo do app...
-        //img_logo.AnimateFloat('Opacity', 0, 0.5, TAnimationType.InOut,
-          //                     TInterpolationType.Circular);
-
-        // Foco no edit...
-        edt_buscar.setfocus;
-
-    end;
-end;
 Procedure TfrmTestQuality.AddMake(make: string);
 var
     lbl : TLabel;
@@ -333,6 +272,8 @@ begin
      lytMenuInferior.Visible := true;
      MudarAba(img_aba2);
      lblTitulo.Text := 'FRS Avail. to Test';
+     rec_pesquisa.Visible := false;
+     lblBundle.Margins.Left := 5;
      img_validar.Visible:= false;
      img_validar.opacity := 0.7;
      img_dev.Visible := false;
@@ -342,6 +283,8 @@ end;
 
 procedure TfrmTestQuality.FormShow(Sender: TObject);
 begin
+      rec_pesquisa.Visible := true;
+      edt_buscar.TextPrompt := 'Search by Make';
       ListarTask_;
 end;
 
@@ -358,6 +301,7 @@ begin
       MudarAba(img_aba2);
       edt_buscar.Text := '';
       lblTitulo.Text := 'FRS Avail. to Test';
+      rec_pesquisa.Visible := true;
       lv_task_test.Items.Clear;
       makeSel := '';
       ListarTask_;
@@ -368,7 +312,9 @@ begin
       TabControl1.GotoVisibleTab(0,TTabTransition.Slide);
       edt_buscar.TextPrompt := 'Search by Setting (New, Done ..)';
       lblTitulo.Text := 'Roadmap Content';
+      rec_pesquisa.Visible := true;
       edt_buscar.Text := '';
+      lblBundle.Margins.Bottom := 8;
       MudarAba(img_aba1);
       ListarTaskDone(edt_buscar.Text,bundle);
     end;
@@ -378,11 +324,12 @@ end;
 procedure TfrmTestQuality.img_aba1Click(Sender: TObject);
 begin
     MudarAba(TImage(Sender));
-    edt_buscar.TextPrompt := 'Search by (New, Done..)';
+    edt_buscar.TextPrompt := 'Search by Setting (New, Done..)';
     lblTitulo.Text := 'Roadmap Content';
+    lblBundle.Text := '';
     edt_buscar.Text := '';
-    lytMakes.Margins.Bottom := -18;
-    Layout2.Height := 95;
+    rec_pesquisa.Visible := true;
+    Layout2.Height := 65;
     ListarMake;
 end;
 
@@ -390,12 +337,12 @@ procedure TfrmTestQuality.img_aba2Click(Sender: TObject);
 
 begin
     MudarAba(img_aba2);
-  //  edt_buscar.TextPrompt := 'Search by Make';
+    edt_buscar.TextPrompt := 'Search by Make';
     lblTitulo.Text := 'FRS Avail. to Test';
- //   lblBundle.Text := 'Bundle Version '+ bundle;
+    lblBundle.Text := 'Bundle Version '+ bundle;
     lv_task_test.Items.Clear;
- //   edt_buscar.Text := '';
- //   rec_pesquisa.Visible := true;
+    edt_buscar.Text := '';
+    rec_pesquisa.Visible := true;
     ListarTask_;
 end;
 
@@ -403,16 +350,16 @@ procedure TfrmTestQuality.img_aba3Click(Sender: TObject);
 begin
     MudarAba(img_aba3);
     lblTitulo.Text := 'Content Missing Val.';
- //   lblBundle.Text := 'Bundle Version '+ bundle;
+    lblBundle.Text := 'Bundle Version '+ bundle;
     lv_TaskSemTest.Items.Clear;
- //   rec_pesquisa.Visible := false;
+    rec_pesquisa.Visible := false;
     layout2.Height := 60;
     ListarMake;
 end;
 
 procedure TfrmTestQuality.img_buscaClick(Sender: TObject);
 begin
-    OpenSearch;
+    OpenSearch
 end;
 
 procedure TfrmTestQuality.img_BuscarClick(Sender: TObject);
@@ -429,11 +376,6 @@ end;
 procedure TfrmTestQuality.img_fechar_detalheClick(Sender: TObject);
 begin
     layout_detalhe.Visible := false;
-end;
-
-procedure TfrmTestQuality.lbl_canc_buscarClick(Sender: TObject);
-begin
-    CloseSearch;
 end;
 
 procedure TfrmTestQuality.lbMakeItemClick(const Sender: TCustomListBox;
@@ -494,7 +436,7 @@ begin
         json := ItemObject.TagString; // Contem o json com todos os campos salvos...
         jsonObj := TJSONObject.ParseJSONValue(TEncoding.UTF8.GetBytes(json), 0) as TJSONObject;
 
-      //ShowMessage('VocÃª selecionou a Task ' + jsonObj.GetValue('id_roadmap').Value.ToInteger;
+      //ShowMessage('Você selecionou a Task ' + jsonObj.GetValue('id_roadmap').Value.ToInteger;
 
     finally
         jsonObj.DisposeOf;

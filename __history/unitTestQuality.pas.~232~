@@ -176,6 +176,7 @@ begin
     end;
 end;
 
+
 procedure TfrmTestQuality.OpenSearch();
 var
     largura : integer;
@@ -203,6 +204,8 @@ begin
 
     end;
 end;
+
+
 Procedure TfrmTestQuality.AddMake(make: string);
 var
     lbl : TLabel;
@@ -333,6 +336,8 @@ begin
      lytMenuInferior.Visible := true;
      MudarAba(img_aba2);
      lblTitulo.Text := 'FRS Avail. to Test';
+   //  rec_pesquisa.Visible := false;
+   //  lblBundle.Margins.Left := 5;
      img_validar.Visible:= false;
      img_validar.opacity := 0.7;
      img_dev.Visible := false;
@@ -342,6 +347,8 @@ end;
 
 procedure TfrmTestQuality.FormShow(Sender: TObject);
 begin
+    //  rec_pesquisa.Visible := true;
+    //  edt_buscar.TextPrompt := 'Search by Make';
       ListarTask_;
 end;
 
@@ -358,6 +365,7 @@ begin
       MudarAba(img_aba2);
       edt_buscar.Text := '';
       lblTitulo.Text := 'FRS Avail. to Test';
+    //  rec_pesquisa.Visible := true;
       lv_task_test.Items.Clear;
       makeSel := '';
       ListarTask_;
@@ -368,7 +376,9 @@ begin
       TabControl1.GotoVisibleTab(0,TTabTransition.Slide);
       edt_buscar.TextPrompt := 'Search by Setting (New, Done ..)';
       lblTitulo.Text := 'Roadmap Content';
+    //  rec_pesquisa.Visible := true;
       edt_buscar.Text := '';
+   //   lblBundle.Margins.Bottom := 8;
       MudarAba(img_aba1);
       ListarTaskDone(edt_buscar.Text,bundle);
     end;
@@ -381,8 +391,7 @@ begin
     edt_buscar.TextPrompt := 'Search by (New, Done..)';
     lblTitulo.Text := 'Roadmap Content';
     edt_buscar.Text := '';
-    lytMakes.Margins.Bottom := -18;
-    Layout2.Height := 95;
+    Layout2.Height := 65;
     ListarMake;
 end;
 
@@ -494,7 +503,7 @@ begin
         json := ItemObject.TagString; // Contem o json com todos os campos salvos...
         jsonObj := TJSONObject.ParseJSONValue(TEncoding.UTF8.GetBytes(json), 0) as TJSONObject;
 
-      //ShowMessage('VocÃª selecionou a Task ' + jsonObj.GetValue('id_roadmap').Value.ToInteger;
+      //ShowMessage('Você selecionou a Task ' + jsonObj.GetValue('id_roadmap').Value.ToInteger;
 
     finally
         jsonObj.DisposeOf;

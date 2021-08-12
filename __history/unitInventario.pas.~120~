@@ -363,9 +363,9 @@ var
           TListItemText(Item.Objects.FindDrawable('txtSerial')).Text := 'Serial N/A';
        end;
 
-       if TListItemText(Item.Objects.FindDrawable('txtPrevLocation')).text = '' then
+        if TListItemText(Item.Objects.FindDrawable('txtPrevLocation')).text = '' then
        begin
-        TListItemText(Item.Objects.FindDrawable('txtPrevLocation')).Text := 'Location N/A';
+          TListItemText(Item.Objects.FindDrawable('txtPrevLocation')).Text := 'Location N/A';
        end;
 
        img := TListItemImage(Item.Objects.FindDrawable('imgPhoto'));

@@ -62,7 +62,7 @@ begin
               ParamByName('make').Value := make;
             end;
 
-         if setting <> '' then
+         if busca <> '' then
             begin
               qry.SQL.Add('AND setting LIKE :setting');
               qry.ParamByName('setting').Value := '%' + busca + '%';

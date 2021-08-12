@@ -39,7 +39,7 @@ begin
       Fconn := Conn;
 end;
 
-// Busca os conteudos baseados nas configurções new task, ready to global etc...
+// Busca as tasks 100% implementadas
 function TTask.ListaTaskDone(busca, order_by: string; out erro : string): TFDQuery;
 var
   qry : TFDQuery;
@@ -52,28 +52,28 @@ begin
         begin
           Active := false;
           sql.Clear;
-          sql.Add('SELECT roadmap_id, make, model, year_range, system, setting, functionality, vehicle_test,bundle,hours');
+          sql.Add('SELECT roadmap_id, make, model, year_range, system, setting, functionality, vehicle_test,bundle');
           sql.Add('FROM [MF_Control].[mf_control_db].[roadmap] r');
           sql.Add('Where 1 = 1');
 
-         if make <> '' then
+         if BUNDLE <> '' then
             begin
-              sql.Add('AND r.make = :make');
-              ParamByName('make').Value := make;
+              sql.Add('AND r.bundle = :bundle');
+              ParamByName('bundle').Value := BUNDLE;
             end;
 
-         if setting <> '' then
+         if busca <> '' then
             begin
-              qry.SQL.Add('AND setting LIKE :setting');
-              qry.ParamByName('setting').Value := '%' + busca + '%';
-            end;
-//         else
-//          begin
-//            sql.Add('AND r.bundle <> '' ''');
-//          end;
+              qry.SQL.Add('AND make LIKE :make');
+              qry.ParamByName('make').Value := '%' + busca + '%';
+            end
+         else
+          begin
+            sql.Add('AND r.vehicle_test = ''100''');
+          end;
 
          if order_by = '' then
-            sql.Add('ORDER BY r.make desc')
+            sql.Add('ORDER BY r.vehicle_test desc')
          else
             sql.Add('ORDER BY' + order_by);
 

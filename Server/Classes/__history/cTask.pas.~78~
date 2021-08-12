@@ -56,21 +56,21 @@ begin
           sql.Add('FROM [MF_Control].[mf_control_db].[roadmap] r');
           sql.Add('Where 1 = 1');
 
-         if make <> '' then
+         if make = '' then
             begin
               sql.Add('AND r.make = :make');
               ParamByName('make').Value := make;
             end;
 
-         if setting <> '' then
+         if busca <> '' then
             begin
               qry.SQL.Add('AND setting LIKE :setting');
               qry.ParamByName('setting').Value := '%' + busca + '%';
-            end;
-//         else
-//          begin
-//            sql.Add('AND r.bundle <> '' ''');
-//          end;
+            end
+         else
+          begin
+            sql.Add('AND r.bundle = '' ''');
+          end;
 
          if order_by = '' then
             sql.Add('ORDER BY r.make desc')

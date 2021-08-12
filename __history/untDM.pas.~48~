@@ -46,7 +46,7 @@ type
   public
    function ListarInventario(id_usuario, Equip_Cat_Id,busca : string; out jsonArray: TJSONArray; out erro: string): boolean;
    function ListarCategoria (out jsonArray: TJsonArray; out erro: string) : boolean;
-   function ListarTaskDone(make,busca: string;
+   function ListarTaskDone(bundle,busca: string;
       out jsonArray: TJSONArray; out erro: string): boolean;
     { Public declarations }
   end;
@@ -149,7 +149,7 @@ begin
     end;
 end;
 
-function Tdm.ListarTaskDone(make, busca: string;  out jsonArray: TJSONArray; out erro: string): boolean;
+function Tdm.ListarTaskDone(bundle, busca: string;  out jsonArray: TJSONArray; out erro: string): boolean;
 var
     json : string;
 begin
@@ -160,7 +160,7 @@ begin
         begin
             Params.Clear;
             AddParameter('id', '', TRESTRequestParameterKind.pkGETorPOST);
-            AddParameter('make', make, TRESTRequestParameterKind.pkGETorPOST);
+            AddParameter('bundle', bundle, TRESTRequestParameterKind.pkGETorPOST);
             AddParameter('busca', busca, TRESTRequestParameterKind.pkGETorPOST);
             Execute;
         end;

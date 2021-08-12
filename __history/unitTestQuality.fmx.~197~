@@ -450,14 +450,15 @@ object frmTestQuality: TfrmTestQuality
           end
         end
         object lytMakes: TLayout
-          Align = Top
-          Position.Y = 50.000000000000000000
+          Align = Bottom
+          Position.Y = 55.000000000000000000
           Size.Width = 420.000000000000000000
           Size.Height = 50.000000000000000000
           Size.PlatformDefault = False
           TabOrder = 1
           object lbMakes: TListBox
-            Align = Client
+            Align = Bottom
+            Margins.Top = 10.000000000000000000
             Size.Width = 420.000000000000000000
             Size.Height = 50.000000000000000000
             Size.PlatformDefault = False

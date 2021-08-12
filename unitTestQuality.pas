@@ -21,14 +21,9 @@ type
     TabItem2: TTabItem;
     TabItem3: TTabItem;
     TabItem4: TTabItem;
-    Layout2: TLayout;
     lv_TaskDone: TListView;
     img_validar: TImage;
-    rec_pesquisa: TRectangle;
-    edt_buscar: TEdit;
-    img_Buscar: TImage;
     img_dev: TImage;
-    lblBundle: TLabel;
     img_No_cat: TImage;
     lbMake: TListBox;
     ListBoxItem1: TListBoxItem;
@@ -59,6 +54,27 @@ type
     Layout23: TLayout;
     lbl_nome: TLabel;
     lbl_vehicleList: TListBox;
+    lbMakes: TListBox;
+    ListBoxItem2: TListBoxItem;
+    RoundRect2: TRoundRect;
+    Label1: TLabel;
+    ListBoxItem5: TListBoxItem;
+    Label2: TLabel;
+    ListBoxItem6: TListBoxItem;
+    Label4: TLabel;
+    ListBoxItem7: TListBoxItem;
+    Label7: TLabel;
+    Layout2: TLayout;
+    layout_toolbar: TLayout;
+    layout_busca: TLayout;
+    lbl_canc_buscar: TLabel;
+    Layout1: TLayout;
+    rect_busca: TRectangle;
+    edt_buscar: TEdit;
+    layout_botoes: TLayout;
+    img_busca: TImage;
+    StyleBook1: TStyleBook;
+    lytMakes: TLayout;
     procedure img_BuscarClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure lv_TaskDoneUpdateObjects(const Sender: TObject;
@@ -78,15 +94,18 @@ type
     procedure lv_task_testItemClick(const Sender: TObject;
       const AItem: TListViewItem);
     procedure img_fechar_detalheClick(Sender: TObject);
+    procedure lv_TaskDoneScrollViewChange(Sender: TObject);
+    procedure img_buscaClick(Sender: TObject);
+    procedure lbl_canc_buscarClick(Sender: TObject);
   private
     makeSel : string;
-    procedure AddTaskDone(id_roadmap,id_testador: integer; make, model, range, system, functionality, progress : string);
+    procedure AddTaskDone(id_roadmap,id_testador: integer; make, model, range, system, functionality, progress,status,hours : string);
     procedure ListarTaskDone(busca,bundle: string);
     procedure ListarMake;
     procedure processarListaMake;
     procedure ProcessarListaMakeErro(Sender: TObject);
     procedure AddMake(make: string);
-    procedure AddTaskSemTest(id_roadmap, id_testador: integer; make, model, range, system, functionality, progress: string );
+    procedure AddTaskSemTest(id_roadmap: integer; make, model, range, system, functionality, progress: string );
     procedure AddTask(id_roadmap, qtd_Test_realizado: integer; functionality, make, model, range, system,  progress: string );
     procedure ListarTaskSemTest;
     procedure processarTaskSemTest;
@@ -97,6 +116,7 @@ type
     procedure ListarTask_;
     procedure carregarVeiculosdaTask;
     procedure ListarVeiculosTask;
+    procedure OpenSearch;
 
     { Private declarations }
   public
@@ -126,6 +146,63 @@ begin
     TabControl1.GotoVisibleTab(img.Tag, TTabTransition.Slide);
 end;
 
+procedure CloseSearch();
+begin
+    with frmTestQuality do
+    begin
+        // Recolher a busca...
+        rect_busca.AnimateFloat('Width', 50, 0.5, TAnimationType.InOut,
+                               TInterpolationType.Circular);
+
+        // Exibe o logo...
+       // img_logo.AnimateFloatDelay('Opacity', 1, 0.5, 0.2, TAnimationType.InOut,
+         //                      TInterpolationType.Circular);
+
+        TThread.CreateAnonymousThread(procedure
+        begin
+            sleep(400);
+
+            TThread.Synchronize(nil, procedure
+            begin
+                // Exibe os botoes de busca e msg...
+                layout_botoes.Visible := true;
+
+                // Esconde a busca...
+                layout_busca.Visible := false;
+            end);
+
+        end).Start;
+
+    end;
+end;
+
+procedure TfrmTestQuality.OpenSearch();
+var
+    largura : integer;
+begin
+    with frmTestQuality do
+    begin
+        // Esconder o layout de botoes...
+        layout_botoes.Visible := false;
+
+        // Exibir campos de busca...
+        layout_busca.Visible := true;
+
+        // Animar caixa de busca...
+        largura := trunc(layout_busca.Width - lbl_canc_buscar.Width - 15);
+        rect_busca.Width := 50;
+        rect_busca.AnimateFloat('Width', largura, 0.5, TAnimationType.InOut,
+                               TInterpolationType.Circular);
+
+        // Esconder o logo do app...
+        //img_logo.AnimateFloat('Opacity', 0, 0.5, TAnimationType.InOut,
+          //                     TInterpolationType.Circular);
+
+        // Foco no edit...
+        edt_buscar.setfocus;
+
+    end;
+end;
 Procedure TfrmTestQuality.AddMake(make: string);
 var
     lbl : TLabel;
@@ -133,7 +210,7 @@ var
     roundR : TRoundRect;
 begin
 
-    item := TListBoxItem.Create(lbMake);
+    item := TListBoxItem.Create(lbmakes);
     item.Text := '';
     item.Width := 105;
     item.Height := 150;
@@ -148,7 +225,7 @@ begin
     lbl.TextSettings.HorzAlign := TTextAlign.Center;
     lbl.Text := make;
 
-    lbMake.AddObject(item);
+    lbMakes.AddObject(item);
 end;
 
 
@@ -206,13 +283,12 @@ begin
           TListItemImage(Objects.FindDrawable('imgProgresso')).Width := (qtd_Test_realizado);// *
                                                                 //TListItemImage(Objects.FindDrawable('imgFundo')).Width;
           TListItemImage(Objects.FindDrawable('imgProgresso')).PlaceOffset.Y := TListItemImage(Objects.FindDrawable('imgFundo')).PlaceOffset.Y;
-
      end;
 end;
 
-procedure TfrmTestQuality.AddTaskDone(id_roadmap, id_testador: integer; make, model, range, system, functionality, progress: string );
-
+procedure TfrmTestQuality.AddTaskDone(id_roadmap, id_testador: integer; make, model, range, system, functionality, progress, status, hours: string );
 begin
+  try
      with lv_TaskDone.items.Add do
      begin
         Tag:= id_roadmap;
@@ -223,13 +299,11 @@ begin
        TListItemText(Objects.FindDrawable('txtModel')).Text := model;
        TListItemText(Objects.FindDrawable('txtRange')).Text := range;
        TListItemText(Objects.FindDrawable('txtSystem')).Text := system;
+       TListItemText(Objects.FindDrawable('txtStatus')).Text := status;
+
+       TListItemText(Objects.FindDrawable('txtHours')).Text := hours + ' Hours';
        TListItemText(Objects.FindDrawable('txtFunction')).Text := functionality;
 
-       if progress = '100' then
-          TListItemImage(Objects.FindDrawable('imgValidar')).Bitmap := img_validar.Bitmap
-
-       else
-          TListItemImage(Objects.FindDrawable('imgValidar')).Bitmap := img_dev.Bitmap;
        if progress >= '0' then
        begin
           TListItemText(Objects.FindDrawable('txtProgress')).Text := progress + ' %';
@@ -240,6 +314,12 @@ begin
        if progress <= '99' then
           TListItemText(Objects.FindDrawable('txtProgress')).TextColor := $FFF82313;
      end;
+  except on ex:exception do
+        begin
+            showmessage(ex.Message);
+            exit;
+        end;
+  end;
 end;
 
 procedure TfrmTestQuality.FormClose(Sender: TObject; var Action: TCloseAction);
@@ -253,8 +333,6 @@ begin
      lytMenuInferior.Visible := true;
      MudarAba(img_aba2);
      lblTitulo.Text := 'FRS Avail. to Test';
-     rec_pesquisa.Visible := false;
-     lblBundle.Margins.Left := 5;
      img_validar.Visible:= false;
      img_validar.opacity := 0.7;
      img_dev.Visible := false;
@@ -264,9 +342,7 @@ end;
 
 procedure TfrmTestQuality.FormShow(Sender: TObject);
 begin
-      rec_pesquisa.Visible := true;
       ListarTask_;
-      lblBundle.Text := 'Bundle Version '+ bundle;
 end;
 
 procedure TfrmTestQuality.Image1Click(Sender: TObject);
@@ -282,7 +358,6 @@ begin
       MudarAba(img_aba2);
       edt_buscar.Text := '';
       lblTitulo.Text := 'FRS Avail. to Test';
-      rec_pesquisa.Visible := true;
       lv_task_test.Items.Clear;
       makeSel := '';
       ListarTask_;
@@ -291,10 +366,9 @@ begin
     if TabControl1.ActiveTab.Index = 1 then
     begin
       TabControl1.GotoVisibleTab(0,TTabTransition.Slide);
-      lblTitulo.Text := 'FRS Content';
-      rec_pesquisa.Visible := true;
+      edt_buscar.TextPrompt := 'Search by Setting (New, Done ..)';
+      lblTitulo.Text := 'Roadmap Content';
       edt_buscar.Text := '';
-      lblBundle.Margins.Bottom := 8;
       MudarAba(img_aba1);
       ListarTaskDone(edt_buscar.Text,bundle);
     end;
@@ -304,22 +378,24 @@ end;
 procedure TfrmTestQuality.img_aba1Click(Sender: TObject);
 begin
     MudarAba(TImage(Sender));
-    lblTitulo.Text := 'FRS Content';
-    lblBundle.Text := 'Bundle Version '+ bundle;
+    edt_buscar.TextPrompt := 'Search by (New, Done..)';
+    lblTitulo.Text := 'Roadmap Content';
     edt_buscar.Text := '';
-    rec_pesquisa.Visible := true;
-    lblBundle.Margins.Bottom := 8;
-    ListarTaskDone(edt_buscar.Text,bundle);
+    lytMakes.Margins.Bottom := -18;
+    Layout2.Height := 95;
+    ListarMake;
 end;
 
 procedure TfrmTestQuality.img_aba2Click(Sender: TObject);
 
 begin
     MudarAba(img_aba2);
+  //  edt_buscar.TextPrompt := 'Search by Make';
     lblTitulo.Text := 'FRS Avail. to Test';
+ //   lblBundle.Text := 'Bundle Version '+ bundle;
     lv_task_test.Items.Clear;
-    edt_buscar.Text := '';
-    rec_pesquisa.Visible := true;
+ //   edt_buscar.Text := '';
+ //   rec_pesquisa.Visible := true;
     ListarTask_;
 end;
 
@@ -327,11 +403,16 @@ procedure TfrmTestQuality.img_aba3Click(Sender: TObject);
 begin
     MudarAba(img_aba3);
     lblTitulo.Text := 'Content Missing Val.';
-    lblBundle.Text := 'Bundle Version '+ bundle;
+ //   lblBundle.Text := 'Bundle Version '+ bundle;
     lv_TaskSemTest.Items.Clear;
-    rec_pesquisa.Visible := false;
+ //   rec_pesquisa.Visible := false;
     layout2.Height := 60;
     ListarMake;
+end;
+
+procedure TfrmTestQuality.img_buscaClick(Sender: TObject);
+begin
+    OpenSearch;
 end;
 
 procedure TfrmTestQuality.img_BuscarClick(Sender: TObject);
@@ -350,12 +431,17 @@ begin
     layout_detalhe.Visible := false;
 end;
 
+procedure TfrmTestQuality.lbl_canc_buscarClick(Sender: TObject);
+begin
+    CloseSearch;
+end;
+
 procedure TfrmTestQuality.lbMakeItemClick(const Sender: TCustomListBox;
   const Item: TListBoxItem);
 begin
     makesel := Item.TagString;
-    lblTitulo.Text := '#Missing Test to: '+makesel+'#';
-    ListarTaskSemTest;
+    ListarTaskDone(edt_buscar.Text,bundle);
+   // ListarTaskSemTest;
 end;
 
 procedure TfrmTestQuality.ListarTaskDone(busca,bundle: string);
@@ -365,7 +451,7 @@ var
     erro: string;
 begin
 
-    if NOT dm.ListarTaskDone(bundle, busca, jsonArray, erro) then
+    if NOT dm.ListarTaskDone(makeSel, busca, jsonArray, erro) then
     begin
       ShowMessage(erro);
       exit;
@@ -384,7 +470,9 @@ begin
                       jsonArray.Get(i).GetValue<string>('year_range', ''),
                       jsonArray.Get(i).GetValue<string>('system', ''),
                       jsonArray.Get(i).GetValue<string>('functionality', ''),
-                      jsonArray.Get(i).GetValue<string>('vehicle_test', '')
+                      jsonArray.Get(i).GetValue<string>('vehicle_test', ''),
+                      jsonArray.Get(i).GetValue<string>('setting', ''),
+                      jsonArray.Get(i).GetValue<string>('hours', '')
                       );
       end;
       img_No_cat.Visible := jsonarray.size = 0;
@@ -419,12 +507,20 @@ begin
         end;   }
 end;
 
+procedure TfrmTestQuality.lv_TaskDoneScrollViewChange(Sender: TObject);
+begin
+    if lv_TaskDone.GetItemRect(0).Bottom > 0 then
+        Layout2.Margins.Top := lv_TaskDone.GetItemRect(0).Top
+    else
+        Layout2.Margins.Top := -79;
+
+    Layout2.Opacity := lv_TaskDone.GetItemRect(0).Bottom/2/100;
+end;
+
 procedure TfrmTestQuality.lv_TaskDoneUpdateObjects(const Sender: TObject;
   const AItem: TListViewItem);
 var
-    txt,txt2, txtTest: TListItemText;
-    img_validar,img_dev : TListItemImage;
-    altura : integer;
+    txt,txt2: TListItemText;
 begin
 
     // Calcula objeto make...
@@ -441,18 +537,19 @@ begin
     txt.Width := lv_TaskDone.Width - 245;
     txt.Height := TFunctions.GetTextHeight(txt, txt.width, txt.Text);
 
+    //calcula objeto setting
+    txt2 := TListItemText(AItem.Objects.FindDrawable('txtStatus'));
+    txt2.Width := 100;
+    txt2.PlaceOffset.X := 15;
+
      // Calcula objeto Function...
     txt := TListItemText(AItem.Objects.FindDrawable('txtFunction'));
     txt.Width := lv_TaskDone.Width - 105;
     txt.Height := TFunctions.GetTextHeight(txt, txt.width, txt.Text);
-    txt.PlaceOffset.Y := txt.PlaceOffset.Y + 3 {+ txt.Height - 25};
-
-     // Calcula objeto btn...
-    img_validar := TListItemImage(AItem.Objects.FindDrawable('imgValidar'));
-    img_validar.PlaceOffset.X := -5;
+    txt.PlaceOffset.Y := txt.PlaceOffset.Y + txt2.Width/5;
 
     // Calcula altura do item da listview...
-    Aitem.Height := Trunc(img_validar.PlaceOffset.Y + img_validar.Height + 80);
+    Aitem.Height := 130;
 end;
 
 procedure TfrmTestQuality.lv_task_testItemClick(const Sender: TObject;
@@ -567,7 +664,7 @@ begin
     end;
 
     try
-      lbMake.Items.Clear;
+      lbMakes.Items.Clear;
       for i := 0 to jsonArray.Size - 1 do
       begin
           AddMake(jsonArray.Get(i).GetValue<string>('Make', ''));
@@ -637,12 +734,12 @@ begin
         ShowMessage(Exception(Sender).Message);
 end;
 
-procedure TfrmTestQuality.AddTaskSemTest(id_roadmap, id_testador: integer; make, model, range, system, functionality, progress: string );
+procedure TfrmTestQuality.AddTaskSemTest(id_roadmap: integer; make, model, range, system, functionality, progress: string );
 begin
      with lv_TasksemTest.items.Add do
      begin
        Tag:= id_roadmap;
-       tagstring := id_testador.ToString;
+ //      tagstring := id_testador.ToString;
        Height := 369;
 
        TListItemText(Objects.FindDrawable('txtMake')).Text := make;
@@ -701,7 +798,7 @@ begin
     for i := 0 to jsonArray.Size -1 do
       begin
        AddTaskSemTest(jsonArray.Get(i).GetValue<integer>('roadmap_id', 0),
-                      jsonArray.Get(i).GetValue<integer>('id_usuario',0),
+                    //  jsonArray.Get(i).GetValue<integer>('id_usuario',0),
                       jsonArray.Get(i).GetValue<string>('make', ''),
                       jsonArray.Get(i).GetValue<string>('model', ''),
                       jsonArray.Get(i).GetValue<string>('year_range', ''),

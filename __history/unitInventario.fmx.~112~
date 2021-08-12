@@ -1267,7 +1267,6 @@
         Fill.Color = claWhite
         Margins.Top = 550.000000000000000000
         Size.Width = 374.000000000000000000
-        Size.Height = 50.000000000000000000
         Size.PlatformDefault = False
         Visible = False
         object Rectangle2: TRectangle

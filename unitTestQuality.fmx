@@ -17,21 +17,21 @@ object frmTestQuality: TfrmTestQuality
   object TabControl1: TTabControl
     Align = Client
     Size.Width = 420.000000000000000000
-    Size.Height = 434.000000000000000000
+    Size.Height = 337.000000000000000000
     Size.PlatformDefault = False
     TabHeight = 49.000000000000000000
     TabIndex = 1
-    TabOrder = 2
+    TabOrder = 3
     TabPosition = None
     Sizes = (
       420s
-      434s
+      337s
       420s
-      434s
+      337s
       420s
-      434s
+      337s
       420s
-      434s)
+      337s)
     object TabItem1: TTabItem
       CustomIcon = <
         item
@@ -56,7 +56,7 @@ object frmTestQuality: TfrmTestQuality
         ItemSpaces.Right = 0.000000000000000000
         Align = Client
         Size.Width = 420.000000000000000000
-        Size.Height = 329.000000000000000000
+        Size.Height = 337.000000000000000000
         Size.PlatformDefault = False
         TabOrder = 0
         ItemAppearance.ItemHeight = 140
@@ -290,275 +290,6 @@ object frmTestQuality: TfrmTestQuality
           Visible = False
         end
       end
-      object Layout2: TLayout
-        Align = Top
-        Size.Width = 420.000000000000000000
-        Size.Height = 105.000000000000000000
-        Size.PlatformDefault = False
-        TabOrder = 2
-        object layout_toolbar: TLayout
-          Align = Top
-          Size.Width = 420.000000000000000000
-          Size.Height = 50.000000000000000000
-          Size.PlatformDefault = False
-          TabOrder = 0
-          object layout_busca: TLayout
-            Align = Contents
-            Size.Width = 420.000000000000000000
-            Size.Height = 50.000000000000000000
-            Size.PlatformDefault = False
-            Visible = False
-            TabOrder = 2
-            object lbl_canc_buscar: TLabel
-              Align = Right
-              StyledSettings = [Family, Style]
-              HitTest = True
-              Position.X = 367.000000000000000000
-              Size.Width = 53.000000000000000000
-              Size.Height = 50.000000000000000000
-              Size.PlatformDefault = False
-              TextSettings.Font.Size = 11.000000000000000000
-              TextSettings.FontColor = xFF3875E9
-              TextSettings.HorzAlign = Center
-              Text = 'Cancelar'
-              TabOrder = 0
-              OnClick = lbl_canc_buscarClick
-            end
-            object Layout1: TLayout
-              Align = Client
-              Size.Width = 367.000000000000000000
-              Size.Height = 50.000000000000000000
-              Size.PlatformDefault = False
-              TabOrder = 1
-              object rect_busca: TRectangle
-                Align = Right
-                Fill.Color = xFFF2F3F4
-                Margins.Top = 6.000000000000000000
-                Margins.Bottom = 6.000000000000000000
-                Position.X = 121.000000000000000000
-                Position.Y = 6.000000000000000000
-                Size.Width = 246.000000000000000000
-                Size.Height = 38.000000000000000000
-                Size.PlatformDefault = False
-                Stroke.Kind = None
-                XRadius = 19.000000000000000000
-                YRadius = 19.000000000000000000
-                object edt_buscar: TEdit
-                  Touch.InteractiveGestures = [LongTap, DoubleTap]
-                  Align = Client
-                  StyleLookup = 'edt_buscarStyle1'
-                  TabOrder = 0
-                  Margins.Left = 15.000000000000000000
-                  Margins.Top = 3.000000000000000000
-                  Margins.Right = 15.000000000000000000
-                  Size.Width = 216.000000000000000000
-                  Size.Height = 32.000000000000000000
-                  Size.PlatformDefault = False
-                end
-              end
-            end
-          end
-          object layout_botoes: TLayout
-            Align = Contents
-            Size.Width = 420.000000000000000000
-            Size.Height = 50.000000000000000000
-            Size.PlatformDefault = False
-            TabOrder = 1
-            object img_busca: TImage
-              MultiResBitmap.Height = 80
-              MultiResBitmap.Width = 80
-              MultiResBitmap = <
-                item
-                  Width = 80
-                  Height = 80
-                  PNG = {
-                    89504E470D0A1A0A0000000D49484452000000500000005008060000008E11F2
-                    AD000000017352474200AECE1CE90000000467414D410000B18F0BFC61050000
-                    074449444154785EED9C3B8C134718C7C78FF3F91E150485265704E522D2D145
-                    09844841824448143C4449143802159C94A4CE058A0039A88040A450A23C3A14
-                    0E8934814488862E2848A4A02282A3BA877D67FBB2BFF5581CF6CC7A7667C6D8
-                    667FD2CADEB57766BFFF7E33F3CD6337B31220521293959F29094905B42415D0
-                    92975E0756AB35B1B25213B5DA4AF0F97CABF1191C834C3623B2998CC8ACDAB2
-                    C1B14C262B72B997EB031D1710A1AAD5AAA8045BB55215B69967822D97CF897C
-                    2E1788990B85ED241D11901C2A958A580E363CCE2778E4403E2FF2C11638AA77
-                    BC0A58176E592C2D55C222D94928F28502420E7815D29B80CBCB9540B8E58E0B
-                    D74C5DC8013130909747DCE25C408A68B9BC24AA35BF45352EB96C560C0E169C
-                    373ACE0424193C6E29F0BC6EA61078221E494BEE022702E275A572396C617B01
-                    8A75B138E8C41BAD05A4AEA3C8F68674CFC1FF28D2B675A3958014D972B0F532
-                    834171A6482725B10F879ED7E3E20136604B52120948505C0A8A6DBF802DD894
-                    84D802D20D2B95FA47BC06D8846D718925602D88ED16838C7AADC130019BB00D
-                    1BE3602C204D0D77C941D4D3B5605BDD4679C00063019796BAAF77E1036CC456
-                    538CC218EA8685C5B2DC73C7FCDC9CF8EBCE1D71EB8F5BE2E1BF0FC5ECD35931
-                    FBEC59F8DBDA356BC4DAD7D68A0D6F6E105B3ED822DE7BF75D31323A1AFED609
-                    868708B473724F4F5B01F97961A1E47450E0FEDFF7C5A51F2E8B9B377F0F6E8E
-                    59EB97CBE5C5B66D1F89898387C4C67736CAA3FEA0B7323C5C6CDBE56B2BA0CB
-                    60F9D1A347E2ECB973E2C68D1BF24832B66FDF2E8E1F3B26C6C6C6E4113F9804
-                    D99102F2D3FCFCA29356F7F6ED3FC5F1C9C920BD3979C48E91915171767A5A6C
-                    DEFCBE3CE21E7C6F646428D20B231B11227417E25DB972451C397AD49978405A
-                    A449DABEC0F676BD14AD80789F8BA1290C3C75FAB4715D1707D2246D9F22A241
-                    542DA72DC2286FDB5DA3D8E22551E251143FDEB1236C69DF1E1F0F5B5FA035FE
-                    E7C183B085BE3E3313E9BD343017CE9FF7569C8B11A3365A0117164B81E1C9E3
-                    3E1A8CDD7BF66A0DC7E84F0F1C1087270EB50D4F0877BEBF7459FC18789AEE66
-                    70237EFDE5672F0D0BE386C34345B9F722CA225C9F7AB40B9A696D75E2AD5BB7
-                    4EFC74F5AA989C3C6E14DBF11FFECB399CAB82BCC8D30768A11B2C560A98A453
-                    BD1AE23C5DA8D2102F492CC7395122922779FB40A78952C04AC54E4082641514
-                    DB8BE72F88D7D7AF9747E2C3B9A4415A2A7479DBA2D3C4B907525FD1C350419D
-                    E7A217411AA4A582BCB906D7187B20E55DDF68B787BEADAAA2A792A7C17045D8
-                    F804693643DE5C836BD044D52EB40818773CAC19C20E15842A2E0703488B3455
-                    E8AEC1169536CE0564544505719E6B7469EAAEC11643016D0A7010003F9D95DF
-                    5E8420D935BA3475D7608B4A9B560157EC3CB0319ED74CA387E1125D9ABA6BB0
-                    45A54D8B8011DDBE571E95362D02DA2AD849AFE8A4B78728B469F540F9991486
-                    E1553030E01A5D9ABA6BB045A54DAB075AC21C860A1FA1852E4DDD35F8A04540
-                    DB455FBAD0221C9272D843202DD254E12364029536AD1E68B96E8ED933553F95
-                    D11286A45C415AAAD11EF2E61ABCA0D0A6D5032D5D901E02B3672A18CF73315A
-                    421AA4A582BC5DF67856A3D2A645C06CC6BE5A64EA5105FDD4CF8F1E11FF3D7E
-                    2C8FC48773494337B0AACBDB052A6D5A0574F09C05A3254C3DAA78F2E489D8B7
-                    7F7F224FE41CCE250D15E4E962B447874A1B8580F61E08CCDBAA464BA021E2F4
-                    F459A38685FFF0DF28F1A8FB3EDCBA55EEF941A54DCB9C084336CC87B8A05393
-                    4AABC10B4F4C4D79A9079917695E57AD9C549A9B5BB00EA81B34A6353B0943FE
-                    274F9C743A4B47E11D1D1DAEEFAC4229E0E262397C96CD1588F85D5004A33CD1
-                    077B76EF1153535FCB3D3B78166F686850EE3D4729A08B39E1665C2FEDA0CE33
-                    B9219B366D12972E5EB42ED2BAB961658B61B2AC2B2E1427E66D75AD731CC27A
-                    EE9B29B917CDBD7BF7C2F969E6A96DD069E26D623D0AC21117CBDBF068D3955E
-                    D48BBF5DBB96C813A326D6B502FA28C6CD109ED82CB0E4FC4F76EED48636CD1C
-                    FCEC6038411F97444B3B383CBF500A3FBB19EAD689C313722F9AB137C6C4CCCC
-                    75B967064BDB4622165A6AA3664EE0C1BC6E87BA95D6D6842483BA6890787D20
-                    6E6BDFB1F3CF575F7E11B6B6ED181F7F4B7E3303DBDB3D4B172960E88516CF91
-                    750AEAC6E93367B46B661AECDBBB577E33C3E4B1D84801813BC082EB6EA7B166
-                    462722A1CFAE5DBBE45E7BB0B99DF781B611598DAFC71C7C40CBFCEDA9D3E2EE
-                    DDBB619D47B1C5F3E28807CE1E7368C033C1DDFE34BA2B68387896D884B645B8
-                    41A15008DF3BD0EF6023B69A62AC08D560B158685BA9F632D856B7511E302096
-                    4B31A038440672BF9FC0266C8B3BA01CBB4C52B17297FA0D6C4A328892A852E3
-                    B54AF40FFB056CC1A62424121088917896ACD7C10693784F877118A383519BF4
-                    B52796306E98BE78C71292495FFDE400BC317DF99803A81BD3D7DF5942CAE90B
-                    181D5017327D05A813EA4F82A62FA175061E99BE06F915E6E5DEBE3E2015D092
-                    54402B84F81FCF2D2C37A58A3F4B0000000049454E44AE426082}
-                  FileName = 
-                    'D:\99Coders\99 Experience\Curso\05 - Recriando grandes apps\06 -' +
-                    ' Facebook - Barra de busca\Fontes\Images\icone-busca.png'
-                end>
-              Align = Right
-              Margins.Top = 4.000000000000000000
-              Margins.Bottom = 4.000000000000000000
-              Position.X = 375.000000000000000000
-              Position.Y = 4.000000000000000000
-              Size.Width = 45.000000000000000000
-              Size.Height = 42.000000000000000000
-              Size.PlatformDefault = False
-              OnClick = img_buscaClick
-            end
-          end
-        end
-        object lytMakes: TLayout
-          Align = Top
-          Position.Y = 50.000000000000000000
-          Size.Width = 420.000000000000000000
-          Size.Height = 50.000000000000000000
-          Size.PlatformDefault = False
-          TabOrder = 1
-          object lbMakes: TListBox
-            Align = Client
-            Size.Width = 420.000000000000000000
-            Size.Height = 50.000000000000000000
-            Size.PlatformDefault = False
-            StyleLookup = 'transparentlistboxstyle'
-            TabOrder = 1
-            ShowScrollBars = False
-            DisableFocusEffect = True
-            DefaultItemStyles.ItemStyle = ''
-            DefaultItemStyles.GroupHeaderStyle = ''
-            DefaultItemStyles.GroupFooterStyle = ''
-            ListStyle = Horizontal
-            OnItemClick = lbMakeItemClick
-            Viewport.Width = 420.000000000000000000
-            Viewport.Height = 50.000000000000000000
-            object ListBoxItem2: TListBoxItem
-              Selectable = False
-              Size.Width = 100.000000000000000000
-              Size.Height = 50.000000000000000000
-              Size.PlatformDefault = False
-              TabOrder = 3
-              object RoundRect2: TRoundRect
-                Align = Contents
-                Fill.Color = xFF727B84
-                Margins.Left = 5.000000000000000000
-                Margins.Top = 5.000000000000000000
-                Margins.Right = 5.000000000000000000
-                Margins.Bottom = 5.000000000000000000
-                Size.Width = 90.000000000000000000
-                Size.Height = 40.000000000000000000
-                Size.PlatformDefault = False
-                Stroke.Kind = None
-                Visible = False
-              end
-              object Label1: TLabel
-                Align = Contents
-                StyledSettings = [Family, Style]
-                Size.Width = 100.000000000000000000
-                Size.Height = 50.000000000000000000
-                Size.PlatformDefault = False
-                TextSettings.Font.Size = 14.000000000000000000
-                TextSettings.HorzAlign = Center
-                TabOrder = 0
-              end
-            end
-            object ListBoxItem5: TListBoxItem
-              Selectable = False
-              Position.X = 100.000000000000000000
-              Size.Width = 100.000000000000000000
-              Size.Height = 50.000000000000000000
-              Size.PlatformDefault = False
-              TabOrder = 2
-              object Label2: TLabel
-                Align = Contents
-                StyledSettings = [Family, Style]
-                Size.Width = 100.000000000000000000
-                Size.Height = 50.000000000000000000
-                Size.PlatformDefault = False
-                TextSettings.Font.Size = 14.000000000000000000
-                TextSettings.HorzAlign = Center
-                TabOrder = 1
-              end
-            end
-            object ListBoxItem6: TListBoxItem
-              Selectable = False
-              Position.X = 200.000000000000000000
-              Size.Width = 100.000000000000000000
-              Size.Height = 50.000000000000000000
-              Size.PlatformDefault = False
-              TabOrder = 1
-              object Label4: TLabel
-                Align = Contents
-                StyledSettings = [Family, Style]
-                Size.Width = 100.000000000000000000
-                Size.Height = 50.000000000000000000
-                Size.PlatformDefault = False
-                TextSettings.Font.Size = 14.000000000000000000
-                TextSettings.HorzAlign = Center
-                TabOrder = 1
-              end
-            end
-            object ListBoxItem7: TListBoxItem
-              Selectable = False
-              Position.X = 300.000000000000000000
-              Size.Width = 100.000000000000000000
-              Size.Height = 50.000000000000000000
-              Size.PlatformDefault = False
-              TabOrder = 0
-              object Label7: TLabel
-                Align = Contents
-                StyledSettings = [Family, Style]
-                Size.Width = 100.000000000000000000
-                Size.Height = 50.000000000000000000
-                Size.PlatformDefault = False
-                TextSettings.Font.Size = 14.000000000000000000
-                TextSettings.HorzAlign = Center
-                TabOrder = 1
-              end
-            end
-          end
-        end
-      end
     end
     object TabItem2: TTabItem
       CustomIcon = <
@@ -583,7 +314,7 @@ object frmTestQuality: TfrmTestQuality
         ItemSpaces.Right = 0.000000000000000000
         Align = Client
         Size.Width = 420.000000000000000000
-        Size.Height = 434.000000000000000000
+        Size.Height = 337.000000000000000000
         Size.PlatformDefault = False
         TabOrder = 0
         ItemAppearance.ItemHeight = 140
@@ -958,7 +689,7 @@ object frmTestQuality: TfrmTestQuality
         ItemSpaces.Right = 0.000000000000000000
         Align = Client
         Size.Width = 420.000000000000000000
-        Size.Height = 384.000000000000000000
+        Size.Height = 287.000000000000000000
         Size.PlatformDefault = False
         TabOrder = 0
         ItemAppearance.ItemHeight = 110
@@ -1517,7 +1248,7 @@ object frmTestQuality: TfrmTestQuality
     Size.Height = 546.000000000000000000
     Size.PlatformDefault = False
     Visible = False
-    TabOrder = 3
+    TabOrder = 4
     object rect_fundo: TRectangle
       Align = Contents
       Fill.Color = claBlack
@@ -1626,7 +1357,7 @@ object frmTestQuality: TfrmTestQuality
     end
   end
   object lytMenuTop: TLayout
-    Align = Top
+    Align = MostTop
     Size.Width = 420.000000000000000000
     Size.Height = 57.000000000000000000
     Size.PlatformDefault = False
@@ -2063,5 +1794,356 @@ object frmTestQuality: TfrmTestQuality
           00000000900340165465787453657474696E67732E466F6E74436F6C6F720709
           784646323232323232000000}
       end>
+  end
+  object Layout2: TLayout
+    Align = Top
+    Position.Y = 57.000000000000000000
+    Size.Width = 420.000000000000000000
+    Size.Height = 97.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 2
+    object layout_toolbar: TLayout
+      Align = Top
+      Size.Width = 420.000000000000000000
+      Size.Height = 49.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 0
+      object layout_busca: TLayout
+        Align = Contents
+        Size.Width = 420.000000000000000000
+        Size.Height = 50.000000000000000000
+        Size.PlatformDefault = False
+        Visible = False
+        TabOrder = 2
+        object lbl_canc_buscar: TLabel
+          Align = Right
+          StyledSettings = [Family, Style]
+          HitTest = True
+          Position.X = 367.000000000000000000
+          Size.Width = 53.000000000000000000
+          Size.Height = 50.000000000000000000
+          Size.PlatformDefault = False
+          TextSettings.Font.Size = 11.000000000000000000
+          TextSettings.FontColor = xFF3875E9
+          TextSettings.HorzAlign = Center
+          Text = 'Cancelar'
+          TabOrder = 0
+          OnClick = lbl_canc_buscarClick
+        end
+        object Layout1: TLayout
+          Align = Client
+          Size.Width = 367.000000000000000000
+          Size.Height = 50.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 1
+          object rect_busca: TRectangle
+            Align = Right
+            Fill.Color = xFFF2F3F4
+            Margins.Top = 6.000000000000000000
+            Margins.Bottom = 6.000000000000000000
+            Position.X = 121.000000000000000000
+            Position.Y = 6.000000000000000000
+            Size.Width = 246.000000000000000000
+            Size.Height = 38.000000000000000000
+            Size.PlatformDefault = False
+            Stroke.Kind = None
+            XRadius = 19.000000000000000000
+            YRadius = 19.000000000000000000
+            object edt_buscar: TEdit
+              Touch.InteractiveGestures = [LongTap, DoubleTap]
+              Align = Top
+              StyleLookup = 'edt_buscarStyle1'
+              TabOrder = 0
+              Position.X = 15.000000000000000000
+              Position.Y = 3.000000000000000000
+              Margins.Left = 15.000000000000000000
+              Margins.Top = 3.000000000000000000
+              Margins.Right = 15.000000000000000000
+              Size.Width = 216.000000000000000000
+              Size.Height = 32.000000000000000000
+              Size.PlatformDefault = False
+              OnTyping = edt_buscarTyping
+              OnExit = edt_buscarExit
+              object rect_AutoComplete: TRectangle
+                Align = Top
+                Margins.Left = 10.000000000000000000
+                Margins.Top = 35.000000000000000000
+                Margins.Right = 10.000000000000000000
+                Position.X = 10.000000000000000000
+                Position.Y = 35.000000000000000000
+                Size.Width = 196.000000000000000000
+                Size.Height = 50.000000000000000000
+                Size.PlatformDefault = False
+                Stroke.Kind = None
+                object lbAutoComplete: TListBox
+                  Align = Top
+                  Cursor = crHandPoint
+                  Size.Width = 196.000000000000000000
+                  Size.Height = 171.000000000000000000
+                  Size.PlatformDefault = False
+                  StyleLookup = 'transparentlistboxstyle'
+                  TabOrder = 0
+                  ShowScrollBars = False
+                  DisableFocusEffect = True
+                  DefaultItemStyles.ItemStyle = ''
+                  DefaultItemStyles.GroupHeaderStyle = ''
+                  DefaultItemStyles.GroupFooterStyle = ''
+                  OnItemClick = lbAutoCompleteItemClick
+                  Viewport.Width = 196.000000000000000000
+                  Viewport.Height = 171.000000000000000000
+                  object ListBoxItem8: TListBoxItem
+                    Cursor = crHandPoint
+                    Selectable = False
+                    TextSettings.Font.Size = 11.000000000000000000
+                    StyledSettings = [Family, Style, FontColor, Other]
+                    Size.Width = 196.000000000000000000
+                    Size.Height = 39.000000000000000000
+                    Size.PlatformDefault = False
+                    TabOrder = 0
+                    Text = 'Task'
+                  end
+                  object ListBoxItem9: TListBoxItem
+                    Cursor = crHandPoint
+                    Selectable = False
+                    TextSettings.Font.Size = 11.000000000000000000
+                    StyledSettings = [Family, Style, FontColor, Other]
+                    Position.Y = 39.000000000000000000
+                    Size.Width = 196.000000000000000000
+                    Size.Height = 39.000000000000000000
+                    Size.PlatformDefault = False
+                    TabOrder = 1
+                    Text = 'by VCS'
+                  end
+                  object ListBoxItem10: TListBoxItem
+                    Cursor = crHandPoint
+                    Selectable = False
+                    TextSettings.Font.Size = 11.000000000000000000
+                    StyledSettings = [Family, Style, FontColor, Other]
+                    Position.Y = 78.000000000000000000
+                    Size.Width = 196.000000000000000000
+                    Size.Height = 39.000000000000000000
+                    Size.PlatformDefault = False
+                    TabOrder = 2
+                    Text = 'Done'
+                  end
+                  object ListBoxItem11: TListBoxItem
+                    Cursor = crHandPoint
+                    Selectable = False
+                    TextSettings.Font.Size = 11.000000000000000000
+                    StyledSettings = [Family, Style, FontColor, Other]
+                    Position.Y = 117.000000000000000000
+                    Size.Width = 196.000000000000000000
+                    Size.Height = 39.000000000000000000
+                    Size.PlatformDefault = False
+                    TabOrder = 3
+                    Text = 'Supported'
+                  end
+                end
+              end
+            end
+          end
+        end
+      end
+      object layout_botoes: TLayout
+        Align = Contents
+        Size.Width = 420.000000000000000000
+        Size.Height = 49.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 1
+        object img_busca: TImage
+          MultiResBitmap.Height = 80
+          MultiResBitmap.Width = 80
+          MultiResBitmap = <
+            item
+              Width = 80
+              Height = 80
+              PNG = {
+                89504E470D0A1A0A0000000D49484452000000500000005008060000008E11F2
+                AD000000017352474200AECE1CE90000000467414D410000B18F0BFC61050000
+                074449444154785EED9C3B8C134718C7C78FF3F91E150485265704E522D2D145
+                09844841824448143C4449143802159C94A4CE058A0039A88040A450A23C3A14
+                0E8934814488862E2848A4A02282A3BA877D67FBB2BFF5581CF6CC7A7667C6D8
+                667FD2CADEB57766BFFF7E33F3CD6337B31220521293959F29094905B42415D0
+                92975E0756AB35B1B25213B5DA4AF0F97CABF1191C834C3623B2998CC8ACDAB2
+                C1B14C262B72B997EB031D1710A1AAD5AAA8045BB55215B69967822D97CF897C
+                2E1788990B85ED241D11901C2A958A580E363CCE2778E4403E2FF2C11638AA77
+                BC0A58176E592C2D55C222D94928F28502420E7815D29B80CBCB9540B8E58E0B
+                D74C5DC8013130909747DCE25C408A68B9BC24AA35BF45352EB96C560C0E169C
+                373ACE0424193C6E29F0BC6EA61078221E494BEE022702E275A572396C617B01
+                8A75B138E8C41BAD05A4AEA3C8F68674CFC1FF28D2B675A3958014D972B0F532
+                834171A6482725B10F879ED7E3E20136604B52120948505C0A8A6DBF802DD894
+                84D802D20D2B95FA47BC06D8846D718925602D88ED16838C7AADC130019BB00D
+                1BE3602C204D0D77C941D4D3B5605BDD4679C00063019796BAAF77E1036CC456
+                538CC218EA8685C5B2DC73C7FCDC9CF8EBCE1D71EB8F5BE2E1BF0FC5ECD35931
+                FBEC59F8DBDA356BC4DAD7D68A0D6F6E105B3ED822DE7BF75D31323A1AFED609
+                868708B473724F4F5B01F97961A1E47450E0FEDFF7C5A51F2E8B9B377F0F6E8E
+                59EB97CBE5C5B66D1F89898387C4C67736CAA3FEA0B7323C5C6CDBE56B2BA0CB
+                60F9D1A347E2ECB973E2C68D1BF24832B66FDF2E8E1F3B26C6C6C6E4113F9804
+                D99102F2D3FCFCA29356F7F6ED3FC5F1C9C920BD3979C48E91915171767A5A6C
+                DEFCBE3CE21E7C6F646428D20B231B11227417E25DB972451C397AD49978405A
+                A449DABEC0F676BD14AD80789F8BA1290C3C75FAB4715D1707D2246D9F22A241
+                542DA72DC2286FDB5DA3D8E22551E251143FDEB1236C69DF1E1F0F5B5FA035FE
+                E7C183B085BE3E3313E9BD343017CE9FF7569C8B11A3365A0117164B81E1C9E3
+                3E1A8CDD7BF66A0DC7E84F0F1C1087270EB50D4F0877BEBF7459FC18789AEE66
+                70237EFDE5672F0D0BE386C34345B9F722CA225C9F7AB40B9A696D75E2AD5BB7
+                4EFC74F5AA989C3C6E14DBF11FFECB399CAB82BCC8D30768A11B2C560A98A453
+                BD1AE23C5DA8D2102F492CC7395122922779FB40A78952C04AC54E4082641514
+                DB8BE72F88D7D7AF9747E2C3B9A4415A2A7479DBA2D3C4B907525FD1C350419D
+                E7A217411AA4A582BCB906D7187B20E55DDF68B787BEADAAA2A792A7C17045D8
+                F804693643DE5C836BD044D52EB40818773CAC19C20E15842A2E0703488B3455
+                E8AEC1169536CE0564544505719E6B7469EAAEC11643016D0A7010003F9D95DF
+                5E8420D935BA3475D7608B4A9B560157EC3CB0319ED74CA387E1125D9ABA6BB0
+                45A54D8B8011DDBE571E95362D02DA2AD849AFE8A4B78728B469F540F9991486
+                E1553030E01A5D9ABA6BB045A54DAB075AC21C860A1FA1852E4DDD35F8A04540
+                DB455FBAD0221C9272D843202DD254E12364029536AD1E68B96E8ED933553F95
+                D11286A45C415AAAD11EF2E61ABCA0D0A6D5032D5D901E02B3672A18CF73315A
+                421AA4A582BC5DF67856A3D2A645C06CC6BE5A64EA5105FDD4CF8F1E11FF3D7E
+                2C8FC48773494337B0AACBDB052A6D5A0574F09C05A3254C3DAA78F2E489D8B7
+                7F7F224FE41CCE250D15E4E962B447874A1B8580F61E08CCDBAA464BA021E2F4
+                F459A38685FFF0DF28F1A8FB3EDCBA55EEF941A54DCB9C084336CC87B8A05393
+                4AABC10B4F4C4D79A9079917695E57AD9C549A9B5BB00EA81B34A6353B0943FE
+                274F9C743A4B47E11D1D1DAEEFAC4229E0E262397C96CD1588F85D5004A33CD1
+                077B76EF1153535FCB3D3B78166F686850EE3D4729A08B39E1665C2FEDA0CE33
+                B9219B366D12972E5EB42ED2BAB961658B61B2AC2B2E1427E66D75AD731CC27A
+                EE9B29B917CDBD7BF7C2F969E6A96DD069E26D623D0AC21117CBDBF068D3955E
+                D48BBF5DBB96C813A326D6B502FA28C6CD109ED82CB0E4FC4F76EED48636CD1C
+                FCEC6038411F97444B3B383CBF500A3FBB19EAD689C313722F9AB137C6C4CCCC
+                75B967064BDB4622165A6AA3664EE0C1BC6E87BA95D6D6842483BA6890787D20
+                6E6BDFB1F3CF575F7E11B6B6ED181F7F4B7E3303DBDB3D4B172960E88516CF91
+                750AEAC6E93367B46B661AECDBBB577E33C3E4B1D84801813BC082EB6EA7B166
+                462722A1CFAE5DBBE45E7BB0B99DF781B611598DAFC71C7C40CBFCEDA9D3E2EE
+                DDBB619D47B1C5F3E28807CE1E7368C033C1DDFE34BA2B68387896D884B645B8
+                41A15008DF3BD0EF6023B69A62AC08D560B158685BA9F632D856B7511E302096
+                4B31A038440672BF9FC0266C8B3BA01CBB4C52B17297FA0D6C4A328892A852E3
+                B54AF40FFB056CC1A62424121088917896ACD7C10693784F877118A383519BF4
+                B52796306E98BE78C71292495FFDE400BC317DF99803A81BD3D7DF5942CAE90B
+                181D5017327D05A813EA4F82A62FA175061E99BE06F915E6E5DEBE3E2015D092
+                54402B84F81FCF2D2C37A58A3F4B0000000049454E44AE426082}
+              FileName = 
+                'D:\99Coders\99 Experience\Curso\05 - Recriando grandes apps\06 -' +
+                ' Facebook - Barra de busca\Fontes\Images\icone-busca.png'
+            end>
+          Align = Right
+          Margins.Top = 4.000000000000000000
+          Margins.Bottom = 4.000000000000000000
+          Position.X = 375.000000000000000000
+          Position.Y = 4.000000000000000000
+          Size.Width = 45.000000000000000000
+          Size.Height = 41.000000000000000000
+          Size.PlatformDefault = False
+          OnClick = img_buscaClick
+        end
+      end
+    end
+    object lytMakes: TLayout
+      Align = Bottom
+      Position.Y = 48.000000000000000000
+      Size.Width = 420.000000000000000000
+      Size.Height = 49.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 1
+      object lbMakes: TListBox
+        Align = Client
+        Size.Width = 420.000000000000000000
+        Size.Height = 49.000000000000000000
+        Size.PlatformDefault = False
+        StyleLookup = 'transparentlistboxstyle'
+        TabOrder = 1
+        ShowScrollBars = False
+        DisableFocusEffect = True
+        DefaultItemStyles.ItemStyle = ''
+        DefaultItemStyles.GroupHeaderStyle = ''
+        DefaultItemStyles.GroupFooterStyle = ''
+        ListStyle = Horizontal
+        OnItemClick = lbMakeItemClick
+        Viewport.Width = 420.000000000000000000
+        Viewport.Height = 49.000000000000000000
+        object ListBoxItem2: TListBoxItem
+          Selectable = False
+          Size.Width = 100.000000000000000000
+          Size.Height = 49.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 3
+          object RoundRect2: TRoundRect
+            Align = Contents
+            Fill.Color = xFF727B84
+            Margins.Left = 5.000000000000000000
+            Margins.Top = 5.000000000000000000
+            Margins.Right = 5.000000000000000000
+            Margins.Bottom = 5.000000000000000000
+            Size.Width = 90.000000000000000000
+            Size.Height = 40.000000000000000000
+            Size.PlatformDefault = False
+            Stroke.Kind = None
+            Visible = False
+          end
+          object Label1: TLabel
+            Align = Contents
+            StyledSettings = [Family, Style]
+            Size.Width = 100.000000000000000000
+            Size.Height = 49.000000000000000000
+            Size.PlatformDefault = False
+            TextSettings.Font.Size = 14.000000000000000000
+            TextSettings.HorzAlign = Center
+            TabOrder = 0
+          end
+        end
+        object ListBoxItem5: TListBoxItem
+          Selectable = False
+          Position.X = 100.000000000000000000
+          Size.Width = 100.000000000000000000
+          Size.Height = 49.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 2
+          object Label2: TLabel
+            Align = Contents
+            StyledSettings = [Family]
+            Size.Width = 100.000000000000000000
+            Size.Height = 49.000000000000000000
+            Size.PlatformDefault = False
+            TextSettings.Font.Size = 14.000000000000000000
+            TextSettings.Font.StyleExt = {00060000000000000004000000}
+            TextSettings.HorzAlign = Center
+            TabOrder = 1
+          end
+        end
+        object ListBoxItem6: TListBoxItem
+          Selectable = False
+          Position.X = 200.000000000000000000
+          Size.Width = 100.000000000000000000
+          Size.Height = 49.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 1
+          object Label4: TLabel
+            Align = Contents
+            StyledSettings = [Family, Style]
+            Size.Width = 100.000000000000000000
+            Size.Height = 49.000000000000000000
+            Size.PlatformDefault = False
+            TextSettings.Font.Size = 11.000000000000000000
+            TextSettings.HorzAlign = Center
+            TabOrder = 1
+          end
+        end
+        object ListBoxItem7: TListBoxItem
+          Selectable = False
+          Position.X = 300.000000000000000000
+          Size.Width = 100.000000000000000000
+          Size.Height = 49.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 0
+          object Label7: TLabel
+            Align = Contents
+            StyledSettings = [Family, Style]
+            Size.Width = 100.000000000000000000
+            Size.Height = 49.000000000000000000
+            Size.PlatformDefault = False
+            TextSettings.Font.Size = 14.000000000000000000
+            TextSettings.HorzAlign = Center
+            TabOrder = 1
+          end
+        end
+      end
+    end
   end
 end

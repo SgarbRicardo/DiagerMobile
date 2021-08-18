@@ -1,6 +1,7 @@
 object frmMainscreen: TfrmMainscreen
   Left = 0
   Top = 0
+  ActiveControl = tbiPrincipal
   Caption = 'Main Screen'
   ClientHeight = 620
   ClientWidth = 405
@@ -21,7 +22,7 @@ object frmMainscreen: TfrmMainscreen
     Size.Height = 620.000000000000000000
     Size.PlatformDefault = False
     TabHeight = 49.000000000000000000
-    TabIndex = 2
+    TabIndex = 0
     TabOrder = 0
     TabPosition = None
     Sizes = (
@@ -35,7 +36,7 @@ object frmMainscreen: TfrmMainscreen
       CustomIcon = <
         item
         end>
-      IsSelected = False
+      IsSelected = True
       Size.Width = 8.000000000000000000
       Size.Height = 8.000000000000000000
       Size.PlatformDefault = False
@@ -36327,8 +36328,8 @@ object frmMainscreen: TfrmMainscreen
           object ListBox1: TListBox
             Align = Scale
             Margins.Bottom = 250.000000000000000000
-            Position.X = 14.027952194213870000
-            Size.Width = 405.000274658203100000
+            Position.X = 14.027953147888180000
+            Size.Width = 405.000305175781300000
             Size.Height = 789.473754882812500000
             Size.PlatformDefault = False
             StyleLookup = 'transparentlistboxstyle'
@@ -38119,7 +38120,7 @@ object frmMainscreen: TfrmMainscreen
       CustomIcon = <
         item
         end>
-      IsSelected = True
+      IsSelected = False
       Size.Width = 8.000000000000000000
       Size.Height = 8.000000000000000000
       Size.PlatformDefault = False
@@ -39702,17 +39703,16 @@ object frmMainscreen: TfrmMainscreen
   end
   object layout_detalhe: TLayout
     Align = Contents
-    Size.Width = 542.000000000000000000
-    Size.Height = 576.000000000000000000
+    Size.Width = 405.000000000000000000
+    Size.Height = 620.000000000000000000
     Size.PlatformDefault = False
-    Visible = False
     TabOrder = 4
     object rect_fundo: TRectangle
       Align = Contents
       Fill.Color = claBlack
       Opacity = 0.699999988079071000
-      Size.Width = 542.000000000000000000
-      Size.Height = 576.000000000000000000
+      Size.Width = 405.000000000000000000
+      Size.Height = 620.000000000000000000
       Size.PlatformDefault = False
       Stroke.Kind = None
     end
@@ -39844,6 +39844,37 @@ object frmMainscreen: TfrmMainscreen
                 Size.PlatformDefault = False
                 Stroke.Color = claGray
                 Stroke.Join = Round
+              end
+              object img_btn: TImage
+                MultiResBitmap.Height = 64
+                MultiResBitmap.Width = 18
+                MultiResBitmap = <
+                  item
+                    Width = 18
+                    Height = 64
+                    PNG = {
+                      89504E470D0A1A0A0000000D4948445200000012000000400806000000178827
+                      AB000000017352474200AECE1CE90000000467414D410000B18F0BFC61050000
+                      00CD494441545847ED96CB0AC2301045AB3F280AFAFF4BAD7E8252E74A2235DE
+                      249364160A73E040093307FA5874721CC7F921F6E2559CC5030E7AB9894BF02E
+                      1EC52E6264389686BA632C049B632C126D8AB1C05A758C2DA7AA626C91598DB1
+                      A59CC5185B28998DB1E19A34C606357EC5D890D6776C130E467888278B1098B7
+                      E16294C5EAD65ECF293EB81E3FDE1C1BD068F2FA4D3E481A016C38673602D802
+                      B318016C29B51A016C71AD2A02D872541D012C009B22C024024C22007F22C311
+                      B0132FE259C42F8EE338CE1F334D4F6F0E17B2D89EAE830000000049454E44AE
+                      426082}
+                    FileName = 
+                      'C:\Users\User1\Downloads\pack-icones\Font Awesome\PNG\64\213127 ' +
+                      '- f0da.png'
+                  end>
+                Align = Right
+                Opacity = 0.500000000000000000
+                Margins.Right = 8.000000000000000000
+                Position.X = 144.000000000000000000
+                Size.Width = 19.000000000000000000
+                Size.Height = 22.000000000000000000
+                Size.PlatformDefault = False
+                WrapMode = Center
               end
             end
           end

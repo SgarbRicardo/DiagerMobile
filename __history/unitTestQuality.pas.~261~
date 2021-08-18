@@ -21,14 +21,9 @@ type
     TabItem2: TTabItem;
     TabItem3: TTabItem;
     TabItem4: TTabItem;
-    Layout2: TLayout;
     lv_TaskDone: TListView;
     img_validar: TImage;
-    rec_pesquisa: TRectangle;
-    edt_buscar: TEdit;
-    img_Buscar: TImage;
     img_dev: TImage;
-    lblBundle: TLabel;
     img_No_cat: TImage;
     lbMake: TListBox;
     ListBoxItem1: TListBoxItem;
@@ -59,6 +54,23 @@ type
     Layout23: TLayout;
     lbl_nome: TLabel;
     lbl_vehicleList: TListBox;
+    StyleBook1: TStyleBook;
+    Layout2: TLayout;
+    layout_toolbar: TLayout;
+    layout_busca: TLayout;
+    lbl_canc_buscar: TLabel;
+    Layout1: TLayout;
+    rect_busca: TRectangle;
+    edt_buscar: TEdit;
+    rect_AutoComplete: TRectangle;
+    lbAutoComplete: TListBox;
+    ListBoxItem8: TListBoxItem;
+    ListBoxItem9: TListBoxItem;
+    ListBoxItem10: TListBoxItem;
+    ListBoxItem11: TListBoxItem;
+    layout_botoes: TLayout;
+    img_busca: TImage;
+    lytMakes: TLayout;
     lbMakes: TListBox;
     ListBoxItem2: TListBoxItem;
     RoundRect2: TRoundRect;
@@ -89,6 +101,12 @@ type
       const AItem: TListViewItem);
     procedure img_fechar_detalheClick(Sender: TObject);
     procedure lv_TaskDoneScrollViewChange(Sender: TObject);
+    procedure img_buscaClick(Sender: TObject);
+    procedure lbl_canc_buscarClick(Sender: TObject);
+    procedure edt_buscarTyping(Sender: TObject);
+    procedure lbAutoCompleteItemClick(const Sender: TCustomListBox;
+      const Item: TListBoxItem);
+    procedure edt_buscarExit(Sender: TObject);
   private
     makeSel : string;
     procedure AddTaskDone(id_roadmap,id_testador: integer; make, model, range, system, functionality, progress,status,hours : string);
@@ -108,6 +126,9 @@ type
     procedure ListarTask_;
     procedure carregarVeiculosdaTask;
     procedure ListarVeiculosTask;
+    procedure OpenSearch;
+    procedure HideAutoComplete;
+    procedure ShowAutoComplete;
 
     { Private declarations }
   public
@@ -137,6 +158,65 @@ begin
     TabControl1.GotoVisibleTab(img.Tag, TTabTransition.Slide);
 end;
 
+procedure CloseSearch();
+begin
+    with frmTestQuality do
+    begin
+        // Recolher a busca...
+        rect_busca.AnimateFloat('Width', 50, 0.5, TAnimationType.InOut,
+                               TInterpolationType.Circular);
+
+        // Exibe o logo...
+       // img_logo.AnimateFloatDelay('Opacity', 1, 0.5, 0.2, TAnimationType.InOut,
+         //                      TInterpolationType.Circular);
+
+        TThread.CreateAnonymousThread(procedure
+        begin
+            sleep(200);
+
+            TThread.Synchronize(nil, procedure
+            begin
+                // Exibe os botoes de busca e msg...
+                layout_botoes.Visible := true;
+
+                // Esconde a busca...
+                layout_busca.Visible := false;
+            end);
+
+        end).Start;
+
+    end;
+end;
+
+procedure TfrmTestQuality.OpenSearch();
+var
+    largura : integer;
+begin
+    with frmTestQuality do
+    begin
+        // Esconder o layout de botoes...
+        layout_botoes.Visible := false;
+        rect_AutoComplete.Visible := false;
+
+        // Exibir campos de busca...
+        layout_busca.Visible := true;
+
+        // Animar caixa de busca...
+        largura := trunc(layout_busca.Width - lbl_canc_buscar.Width - 15);
+        rect_busca.Width := 50;
+        rect_busca.Fill.Color :=$FFE9E9E9;
+        rect_busca.AnimateFloat('Width', largura, 0.5, TAnimationType.InOut,
+                               TInterpolationType.Circular);
+
+        // Esconder o logo do app...
+        //img_logo.AnimateFloat('Opacity', 0, 0.5, TAnimationType.InOut,
+          //                     TInterpolationType.Circular);
+
+        // Foco no edit...
+        edt_buscar.setfocus;
+
+    end;
+end;
 Procedure TfrmTestQuality.AddMake(make: string);
 var
     lbl : TLabel;
@@ -150,14 +230,25 @@ begin
     item.Height := 150;
     item.Selectable := false;
     item.TagString := make;
+    item.Margins.Bottom := 5;
 
     lbl := TLabel.Create(item);
     lbl.Parent := item;
     lbl.Align := TAlignLayout.Contents;
     lbl.StyledSettings := [];
-    lbl.FontColor := $FFD52121;
+    lbl.FontColor := $FF7A4242;
     lbl.TextSettings.HorzAlign := TTextAlign.Center;
+    lbl.ParentControl.BringToFront;
     lbl.Text := make;
+
+    roundR := TRoundRect.Create(item);
+    roundR.Parent := item;
+    roundr.Align := TAlignLayout.Contents;
+    roundr.Width := lbl.Text.Length;
+    roundr.Opacity := 0.4;
+    roundr.Margins.Bottom := 3;
+    roundr.Stroke.Kind := TBrushKind.None;
+    roundr.HitTest := false;
 
     lbMakes.AddObject(item);
 end;
@@ -267,8 +358,6 @@ begin
      lytMenuInferior.Visible := true;
      MudarAba(img_aba2);
      lblTitulo.Text := 'FRS Avail. to Test';
-     rec_pesquisa.Visible := false;
-     lblBundle.Margins.Left := 5;
      img_validar.Visible:= false;
      img_validar.opacity := 0.7;
      img_dev.Visible := false;
@@ -278,9 +367,7 @@ end;
 
 procedure TfrmTestQuality.FormShow(Sender: TObject);
 begin
-      rec_pesquisa.Visible := true;
-      edt_buscar.TextPrompt := 'Search by Make';
-      ListarTask_;
+    ListarTask_;
 end;
 
 procedure TfrmTestQuality.Image1Click(Sender: TObject);
@@ -296,7 +383,6 @@ begin
       MudarAba(img_aba2);
       edt_buscar.Text := '';
       lblTitulo.Text := 'FRS Avail. to Test';
-      rec_pesquisa.Visible := true;
       lv_task_test.Items.Clear;
       makeSel := '';
       ListarTask_;
@@ -307,9 +393,7 @@ begin
       TabControl1.GotoVisibleTab(0,TTabTransition.Slide);
       edt_buscar.TextPrompt := 'Search by Setting (New, Done ..)';
       lblTitulo.Text := 'Roadmap Content';
-      rec_pesquisa.Visible := true;
       edt_buscar.Text := '';
-      lblBundle.Margins.Bottom := 8;
       MudarAba(img_aba1);
       ListarTaskDone(edt_buscar.Text,bundle);
     end;
@@ -319,47 +403,45 @@ end;
 procedure TfrmTestQuality.img_aba1Click(Sender: TObject);
 begin
     MudarAba(TImage(Sender));
-    edt_buscar.TextPrompt := 'Search by Setting (New, Done..)';
+    edt_buscar.TextPrompt := 'Search by (New, Done..)';
     lblTitulo.Text := 'Roadmap Content';
-    lblBundle.Text := '';
     edt_buscar.Text := '';
-    rec_pesquisa.Visible := true;
-    Layout2.Height := 65;
+  //  lytMakes.Margins.Bottom := -1;
+    Layout2.Height := 97;
     ListarMake;
 end;
 
 procedure TfrmTestQuality.img_aba2Click(Sender: TObject);
-
 begin
     MudarAba(img_aba2);
-    edt_buscar.TextPrompt := 'Search by Make';
     lblTitulo.Text := 'FRS Avail. to Test';
-    lblBundle.Text := 'Bundle Version '+ bundle;
     lv_task_test.Items.Clear;
-    edt_buscar.Text := '';
-    rec_pesquisa.Visible := true;
     ListarTask_;
+    lytMakes.Visible := false;
+    Layout2.Height := 50;
 end;
 
 procedure TfrmTestQuality.img_aba3Click(Sender: TObject);
 begin
     MudarAba(img_aba3);
     lblTitulo.Text := 'Content Missing Val.';
-    lblBundle.Text := 'Bundle Version '+ bundle;
     lv_TaskSemTest.Items.Clear;
-    rec_pesquisa.Visible := false;
     layout2.Height := 60;
     ListarMake;
 end;
 
+procedure TfrmTestQuality.img_buscaClick(Sender: TObject);
+begin
+    OpenSearch;
+end;
+
 procedure TfrmTestQuality.img_BuscarClick(Sender: TObject);
 begin
-
     if TabControl1.ActiveTab.Index = 0 then
       begin
          ListarTaskDone(edt_buscar.Text,bundle);
       end
-      else
+    else
          ListarTask_;
 end;
 
@@ -368,12 +450,24 @@ begin
     layout_detalhe.Visible := false;
 end;
 
+procedure TfrmTestQuality.lbAutoCompleteItemClick(const Sender: TCustomListBox;
+  const Item: TListBoxItem);
+begin
+     edt_buscar.Text := edt_buscar.Text + Copy(Item.Text, 0, Item.Text.Length);
+     HideAutoComplete;
+end;
+
+procedure TfrmTestQuality.lbl_canc_buscarClick(Sender: TObject);
+begin
+    CloseSearch;
+    edt_buscar.Text :='';
+end;
+
 procedure TfrmTestQuality.lbMakeItemClick(const Sender: TCustomListBox;
   const Item: TListBoxItem);
 begin
     makesel := Item.TagString;
     ListarTaskDone(edt_buscar.Text,bundle);
-   // ListarTaskSemTest;
 end;
 
 procedure TfrmTestQuality.ListarTaskDone(busca,bundle: string);
@@ -461,7 +555,7 @@ begin
 
     // Calcula objeto model...
     txt := TListItemText(AItem.Objects.FindDrawable('txtModel'));
-    txt.Width := lv_TaskDone.Width - 210;
+    txt.Width := lv_TaskDone.Width - 300;
     txt.Height := TFunctions.GetTextHeight(txt, txt.width, txt.Text);
 
     // Calcula objeto system...
@@ -887,5 +981,46 @@ begin
     jsonArray.DisposeOf;
 end;
 
+
+procedure TfrmTestQuality.edt_buscarExit(Sender: TObject);
+begin
+    HideAutoComplete;
+    if TabControl1.ActiveTab.Index = 0 then
+      begin
+         ListarTaskDone(edt_buscar.Text,bundle);
+      end
+    else
+         ListarTask_;
+
+
+end;
+
+procedure TfrmTestQuality.edt_buscarTyping(Sender: TObject);
+var
+  t : string;
+begin
+     t := TEdit(Sender).Text;
+      if Copy(t, t.Length, 1) <> '' then
+        ShowAutoComplete
+      else
+        HideAutoComplete;
+end;
+
+procedure TfrmTestQuality.ShowAutoComplete;
+begin
+    rect_AutoComplete.Opacity := 0.9;
+    rect_AutoComplete.visible := true;
+    rect_AutoComplete.Height := 185;
+    lbAutoComplete.Visible := true;
+    rect_AutoComplete.Fill.Color := $FFE9E9E9;
+end;
+
+procedure TfrmTestQuality.HideAutoComplete;
+begin
+    rect_AutoComplete.Height := 62;
+    lbAutoComplete.Visible := false;
+    rect_AutoComplete.visible := false;
+    rect_AutoComplete.Fill.Color := $FFFFFFFF;
+end;
 
 end.

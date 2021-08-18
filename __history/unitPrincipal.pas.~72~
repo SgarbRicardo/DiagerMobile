@@ -73,7 +73,7 @@ type
     Image7: TImage;
     Image8: TImage;
     img_Test: TImage;
-    Image10: TImage;
+    imgDashBoard: TImage;
     Image11: TImage;
     img_selecao: TImage;
     Layout1: TLayout;
@@ -149,6 +149,24 @@ type
     lbl_Bundle: TLabel;
     Line11: TLine;
     ActCamera: TTakePhotoFromCameraAction;
+    lbiDataAcesso: TListBoxItem;
+    Layout24: TLayout;
+    lblData: TLabel;
+    lblDataAcesso: TLabel;
+    Layout25: TLayout;
+    Image10: TImage;
+    Layout26: TLayout;
+    Image13: TImage;
+    Layout27: TLayout;
+    Image14: TImage;
+    Layout28: TLayout;
+    Image15: TImage;
+    Layout29: TLayout;
+    Image16: TImage;
+    Layout30: TLayout;
+    Image17: TImage;
+    Layout31: TLayout;
+    Image18: TImage;
     procedure FormResize(Sender: TObject);
     procedure img_inventarioClick(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
@@ -171,6 +189,7 @@ type
     procedure lbBundleItemClick(const Sender: TCustomListBox;
       const Item: TListBoxItem);
     procedure ActCameraDidFinishTaking(Image: TBitmap);
+    procedure imgDashBoardClick(Sender: TObject);
   private
     permissao : T99Permissions;
     icone_selecionado: TBitmap;
@@ -206,9 +225,9 @@ implementation
 
 {$R *.fmx}
 
-
 uses unitInventario, unitSincronizar, unitLogin, untDM, cUsuario,
-  unitNotificacao, unitChat, unitTestQuality, uFunctions,REST.Types, uLoading;
+  unitNotificacao, unitChat, unitTestQuality, uFunctions,REST.Types, uLoading,
+  unitDashBoard;
 
 procedure TfrmMainscreen.NavegarAbas(pag: integer);
 begin
@@ -229,7 +248,7 @@ begin
     dm.Request_Perfil.Params.Clear;
     dm.Request_Perfil.AddParameter('id', '');
     dm.Request_Perfil.AddParameter('id_usuario', cod_usuario_logado.ToString);
-    dm.Request_Perfil.AddParameter('campo', 'foto');
+    dm.Request_Perfil.AddParameter('campo', 'photo');
     dm.Request_Perfil.AddParameter('valor', TFunctions.Base64FromBitmap(foto), pkREQUESTBODY);
     dm.Request_Perfil.Execute;
 
@@ -285,6 +304,17 @@ end;
 procedure TfrmMainscreen.Image2Click(Sender: TObject);
 begin
     NavegarAbas(-2);
+    CircleUser.Fill.Bitmap.Bitmap := c_fotoPerfil.Fill.Bitmap.Bitmap;
+    c_foto.Fill.Bitmap.Bitmap := c_fotoPerfil.Fill.Bitmap.Bitmap;
+end;
+
+procedure TfrmMainscreen.imgDashBoardClick(Sender: TObject);
+begin
+    SelecionaIcone(TImage(Sender));
+    if not Assigned (frmDashBoard) then
+       Application.CreateForm(TfrmDashBoard, frmDashBoard);
+
+       frmDashBoard.Show;
 end;
 
 procedure TfrmMainscreen.img_fechar_detalheClick(Sender: TObject);
@@ -392,12 +422,16 @@ end;
 procedure TfrmMainscreen.FormResize(Sender: TObject);
 begin
       // redimenciona os icones dentro da tela
-   ListBox1.Columns := Trunc(ListBox1.Width / 80);
+   ListBox1.Columns := Trunc(ListBox1.Width / 250);
 end;
 
 procedure TfrmMainscreen.FormShow(Sender: TObject);
 begin
     layout_detalhe.Visible := false;
+    ListBoxItem3.Visible := false;
+    ListBoxItem4.Visible := false;
+    ListBoxItem5.Visible := false;
+    ListBoxItem8.Visible := false;
 end;
 
 procedure TfrmMainscreen.img_NotificationClick(Sender: TObject);
@@ -529,12 +563,12 @@ var
 begin
     try
       lbl_nome.Margins.Bottom := 10;
-      Layout23.Height := 135;
-      lbBundle.Height :=105;
+      Layout23.Height := 150;
+      lbBundle.Height :=125;
 
       item := TListBoxItem.Create(nil);
       item.Text := '';
-      item.Height := 30;
+      item.Height := 40;
       item.Padding.Bottom := 8;
       item.Width := 171;
       item.Align := TAlignLayout.Client;
@@ -546,7 +580,7 @@ begin
       lbl_Bundle.Align := TAlignLayout.Client;
       lbl_Bundle.StyledSettings := [];
       lbl_Bundle.FontColor := $FFD52121;
-      lbl_Bundle.Font.Size := 22;
+      lbl_Bundle.Font.Size := 28;
       lbl_bundle.TextSettings.HorzAlign := TTextAlign.Center;
       lbl_Bundle.Text := bundle;
 
@@ -556,7 +590,7 @@ begin
       line.Margins.Left := 40;
       line.Margins.Right := 40;
       line.Height := 1;
-      line.Opacity := 0.3;
+      line.Opacity := 0.2;
       line.Stroke.Thickness := 0.5;
 
       lbBundle.AddObject(item);

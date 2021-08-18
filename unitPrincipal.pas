@@ -167,6 +167,7 @@ type
     Image17: TImage;
     Layout31: TLayout;
     Image18: TImage;
+    img_btn: TImage;
     procedure FormResize(Sender: TObject);
     procedure img_inventarioClick(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
@@ -560,11 +561,12 @@ var
     item : TListBoxItem;
     lbl_Bundle : TLabel;
     line : TLine;
+    img_btn : TImage;
 begin
     try
       lbl_nome.Margins.Bottom := 10;
       Layout23.Height := 150;
-      lbBundle.Height :=125;
+      lbBundle.Height := 125;
 
       item := TListBoxItem.Create(nil);
       item.Text := '';
@@ -592,6 +594,12 @@ begin
       line.Height := 1;
       line.Opacity := 0.2;
       line.Stroke.Thickness := 0.5;
+
+      img_btn := TImage.Create(item);
+      img_btn.parent := item;
+      img_btn.Align := TAlignLayout.Right;
+      img_btn.Height := 15;
+      img_btn.MultiResBitmap := img_btn.MultiResBitmap;
 
       lbBundle.AddObject(item);
     finally
@@ -733,7 +741,7 @@ begin
                         jsonArray.Get(i).getvalue<string>('Department', ''),
                                          Photo);
         end;
-           // photo.DisposeOf;
+            photo.DisposeOf;
             jsonArray.DisposeOf;
      finally
             lvUsuario.EndUpdate;

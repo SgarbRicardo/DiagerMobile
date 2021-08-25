@@ -20,7 +20,7 @@ object frmTestQuality: TfrmTestQuality
     Size.Height = 337.000000000000000000
     Size.PlatformDefault = False
     TabHeight = 49.000000000000000000
-    TabIndex = 1
+    TabIndex = 0
     TabOrder = 3
     TabPosition = None
     Sizes = (
@@ -36,7 +36,7 @@ object frmTestQuality: TfrmTestQuality
       CustomIcon = <
         item
         end>
-      IsSelected = False
+      IsSelected = True
       Size.Width = 8.000000000000000000
       Size.Height = 8.000000000000000000
       Size.PlatformDefault = False
@@ -295,7 +295,7 @@ object frmTestQuality: TfrmTestQuality
       CustomIcon = <
         item
         end>
-      IsSelected = True
+      IsSelected = False
       Size.Width = 8.000000000000000000
       Size.Height = 8.000000000000000000
       Size.PlatformDefault = False
@@ -1862,8 +1862,8 @@ object frmTestQuality: TfrmTestQuality
               Size.Width = 216.000000000000000000
               Size.Height = 32.000000000000000000
               Size.PlatformDefault = False
+              OnChange = edt_buscarExit
               OnTyping = edt_buscarTyping
-              OnExit = edt_buscarExit
               object rect_AutoComplete: TRectangle
                 Align = Top
                 Margins.Left = 10.000000000000000000

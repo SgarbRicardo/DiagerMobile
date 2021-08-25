@@ -81,7 +81,6 @@ type
     Label4: TLabel;
     ListBoxItem7: TListBoxItem;
     Label7: TLabel;
-    procedure img_BuscarClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure lv_TaskDoneUpdateObjects(const Sender: TObject;
       const AItem: TListViewItem);
@@ -363,6 +362,8 @@ begin
      img_dev.Visible := false;
      img_dev.opacity := 0.7;
      layout_detalhe.Visible := false;
+     Layout2.Height := 60;
+     lytMakes.Visible := false;
 end;
 
 procedure TfrmTestQuality.FormShow(Sender: TObject);
@@ -405,10 +406,10 @@ end;
 procedure TfrmTestQuality.img_aba1Click(Sender: TObject);
 begin
     MudarAba(TImage(Sender));
+    CloseSearch;
     edt_buscar.TextPrompt := 'Search by (New, Done..)';
     lblTitulo.Text := 'Roadmap Content';
     edt_buscar.Text := '';
-  //  lytMakes.Margins.Bottom := -1;
     Layout2.Height := 97;
     lytMakes.Visible := true;
     ListarMake;
@@ -417,11 +418,12 @@ end;
 procedure TfrmTestQuality.img_aba2Click(Sender: TObject);
 begin
     MudarAba(img_aba2);
+    CloseSearch;
     lblTitulo.Text := 'FRS Avail. to Test';
     lv_task_test.Items.Clear;
     ListarTask_;
     lytMakes.Visible := false;
-    Layout2.Height := 50;
+    Layout2.Height := 60;
 end;
 
 procedure TfrmTestQuality.img_aba3Click(Sender: TObject);
@@ -435,17 +437,19 @@ end;
 
 procedure TfrmTestQuality.img_buscaClick(Sender: TObject);
 begin
-    OpenSearch;
-end;
-
-procedure TfrmTestQuality.img_BuscarClick(Sender: TObject);
-begin
     if TabControl1.ActiveTab.Index = 0 then
       begin
-         ListarTaskDone(edt_buscar.Text,bundle);
-      end
-    else
-         ListarTask_;
+       edt_buscar.Text := '';
+       OpenSearch;
+       ListarTaskDone(edt_buscar.Text,bundle);
+      end;
+    if TabControl1.ActiveTab.Index = 1 then
+      begin
+       edt_buscar.Text := '';
+       edt_buscar.TextPrompt := 'Search by Make';
+       OpenSearch;
+       ListarTask_;
+      end;
 end;
 
 procedure TfrmTestQuality.img_fechar_detalheClick(Sender: TObject);
@@ -463,7 +467,7 @@ end;
 procedure TfrmTestQuality.lbl_canc_buscarClick(Sender: TObject);
 begin
     CloseSearch;
-    edt_buscar.Text :='';
+   // edt_buscar.Text :='';
 end;
 
 procedure TfrmTestQuality.lbMakeItemClick(const Sender: TCustomListBox;

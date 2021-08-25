@@ -308,12 +308,6 @@
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
-                <DeployFile LocalName="Win32\Debug\MFMobile.exe" Configuration="Debug" Class="ProjectOutput">
-                    <Platform Name="Win32">
-                        <RemoteName>MFMobile.exe</RemoteName>
-                        <Overwrite>true</Overwrite>
-                    </Platform>
-                </DeployFile>
                 <DeployFile LocalName="$(BDS)\bin\Artwork\Android\FM_LauncherIcon_36x36.png" Configuration="Debug" Class="Android_LauncherIcon36">
                     <Platform Name="Android64">
                         <RemoteName>ic_launcher.png</RemoteName>
@@ -323,6 +317,12 @@
                 <DeployFile LocalName="$(BDS)\bin\Artwork\Android\FM_NotificationIcon_36x36.png" Configuration="Debug" Class="Android_NotificationIcon36">
                     <Platform Name="Android">
                         <RemoteName>ic_notification.png</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="Win32\Debug\MFMobile.exe" Configuration="Debug" Class="ProjectOutput">
+                    <Platform Name="Win32">
+                        <RemoteName>MFMobile.exe</RemoteName>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>

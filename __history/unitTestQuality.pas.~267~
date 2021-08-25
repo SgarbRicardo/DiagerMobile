@@ -54,6 +54,23 @@ type
     Layout23: TLayout;
     lbl_nome: TLabel;
     lbl_vehicleList: TListBox;
+    StyleBook1: TStyleBook;
+    Layout2: TLayout;
+    layout_toolbar: TLayout;
+    layout_busca: TLayout;
+    lbl_canc_buscar: TLabel;
+    Layout1: TLayout;
+    rect_busca: TRectangle;
+    edt_buscar: TEdit;
+    rect_AutoComplete: TRectangle;
+    lbAutoComplete: TListBox;
+    ListBoxItem8: TListBoxItem;
+    ListBoxItem9: TListBoxItem;
+    ListBoxItem10: TListBoxItem;
+    ListBoxItem11: TListBoxItem;
+    layout_botoes: TLayout;
+    img_busca: TImage;
+    lytMakes: TLayout;
     lbMakes: TListBox;
     ListBoxItem2: TListBoxItem;
     RoundRect2: TRoundRect;
@@ -64,32 +81,6 @@ type
     Label4: TLabel;
     ListBoxItem7: TListBoxItem;
     Label7: TLabel;
-    Layout2: TLayout;
-    layout_toolbar: TLayout;
-    layout_busca: TLayout;
-    lbl_canc_buscar: TLabel;
-    Layout1: TLayout;
-    rect_busca: TRectangle;
-    edt_buscar: TEdit;
-    layout_botoes: TLayout;
-    img_busca: TImage;
-    StyleBook1: TStyleBook;
-    lytMakes: TLayout;
-    lbAutoComplete: TListBox;
-    ListBoxItem8: TListBoxItem;
-    ListBoxItem9: TListBoxItem;
-    ListBoxItem10: TListBoxItem;
-    ListBoxItem11: TListBoxItem;
-    rect_AutoComplete: TRectangle;
-    layout_toobar1: TLayout;
-    layout_busca1: TLayout;
-    lbl_cancelar_busca: TLabel;
-    Layout5: TLayout;
-    rectBusca1: TRectangle;
-    edt_buscar1: TEdit;
-    layout_botao1: TLayout;
-    img_buscar1: TImage;
-    procedure img_BuscarClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure lv_TaskDoneUpdateObjects(const Sender: TObject;
       const AItem: TListViewItem);
@@ -255,7 +246,7 @@ begin
     roundr.Width := lbl.Text.Length;
     roundr.Opacity := 0.4;
     roundr.Margins.Bottom := 3;
-    roundr.Stroke.Kind:=TBrushKind.None;
+    roundr.Stroke.Kind := TBrushKind.None;
     roundr.HitTest := false;
 
     lbMakes.AddObject(item);
@@ -371,11 +362,13 @@ begin
      img_dev.Visible := false;
      img_dev.opacity := 0.7;
      layout_detalhe.Visible := false;
+     Layout2.Height := 60;
+     lytMakes.Visible := false;
 end;
 
 procedure TfrmTestQuality.FormShow(Sender: TObject);
 begin
-      ListarTask_;
+    ListarTask_;
 end;
 
 procedure TfrmTestQuality.Image1Click(Sender: TObject);
@@ -394,6 +387,7 @@ begin
       lv_task_test.Items.Clear;
       makeSel := '';
       ListarTask_;
+      lytMakes.Visible := false;
     end
     else
     if TabControl1.ActiveTab.Index = 1 then
@@ -404,6 +398,7 @@ begin
       edt_buscar.Text := '';
       MudarAba(img_aba1);
       ListarTaskDone(edt_buscar.Text,bundle);
+      lytMakes.Visible := true;
     end;
 
 end;
@@ -411,21 +406,25 @@ end;
 procedure TfrmTestQuality.img_aba1Click(Sender: TObject);
 begin
     MudarAba(TImage(Sender));
+    CloseSearch;
     edt_buscar.TextPrompt := 'Search by (New, Done..)';
     lblTitulo.Text := 'Roadmap Content';
     edt_buscar.Text := '';
-    lytMakes.Margins.Bottom := -18;
-    Layout2.Height := 95;
+  //  lytMakes.Margins.Bottom := -1;
+    Layout2.Height := 97;
+    lytMakes.Visible := true;
     ListarMake;
 end;
 
 procedure TfrmTestQuality.img_aba2Click(Sender: TObject);
-
 begin
     MudarAba(img_aba2);
+    CloseSearch;
     lblTitulo.Text := 'FRS Avail. to Test';
     lv_task_test.Items.Clear;
     ListarTask_;
+    lytMakes.Visible := false;
+    Layout2.Height := 60;
 end;
 
 procedure TfrmTestQuality.img_aba3Click(Sender: TObject);
@@ -439,17 +438,19 @@ end;
 
 procedure TfrmTestQuality.img_buscaClick(Sender: TObject);
 begin
-    OpenSearch;
-end;
-
-procedure TfrmTestQuality.img_BuscarClick(Sender: TObject);
-begin
     if TabControl1.ActiveTab.Index = 0 then
       begin
-         ListarTaskDone(edt_buscar.Text,bundle);
-      end
-    else
-         ListarTask_;
+       edt_buscar.Text := '';
+       OpenSearch;
+       ListarTaskDone(edt_buscar.Text,bundle);
+      end;
+    if TabControl1.ActiveTab.Index = 1 then
+      begin
+       edt_buscar.Text := '';
+       edt_buscar.TextPrompt := 'Search by Make';
+       OpenSearch;
+       ListarTask_;
+      end;
 end;
 
 procedure TfrmTestQuality.img_fechar_detalheClick(Sender: TObject);
@@ -467,7 +468,7 @@ end;
 procedure TfrmTestQuality.lbl_canc_buscarClick(Sender: TObject);
 begin
     CloseSearch;
-    edt_buscar.Text :='';
+   // edt_buscar.Text :='';
 end;
 
 procedure TfrmTestQuality.lbMakeItemClick(const Sender: TCustomListBox;
@@ -992,7 +993,14 @@ end;
 procedure TfrmTestQuality.edt_buscarExit(Sender: TObject);
 begin
     HideAutoComplete;
-    ListarTaskDone(edt_buscar.Text,bundle);
+    if TabControl1.ActiveTab.Index = 0 then
+      begin
+         ListarTaskDone(edt_buscar.Text,bundle);
+      end
+    else
+         ListarTask_;
+
+
 end;
 
 procedure TfrmTestQuality.edt_buscarTyping(Sender: TObject);

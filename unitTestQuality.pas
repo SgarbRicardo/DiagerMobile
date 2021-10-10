@@ -81,6 +81,8 @@ type
     Label4: TLabel;
     ListBoxItem7: TListBoxItem;
     Label7: TLabel;
+    img_open: TImage;
+    img_close: TImage;
     procedure FormCreate(Sender: TObject);
     procedure lv_TaskDoneUpdateObjects(const Sender: TObject;
       const AItem: TListViewItem);
@@ -96,8 +98,6 @@ type
     procedure lv_task_testUpdateObjects(const Sender: TObject;
       const AItem: TListViewItem);
     procedure img_aba2Click(Sender: TObject);
-    procedure lv_task_testItemClick(const Sender: TObject;
-      const AItem: TListViewItem);
     procedure img_fechar_detalheClick(Sender: TObject);
     procedure lv_TaskDoneScrollViewChange(Sender: TObject);
     procedure img_buscaClick(Sender: TObject);
@@ -106,6 +106,8 @@ type
     procedure lbAutoCompleteItemClick(const Sender: TCustomListBox;
       const Item: TListBoxItem);
     procedure edt_buscarExit(Sender: TObject);
+    procedure lv_task_testItemClickEx(const Sender: TObject; ItemIndex: Integer;
+      const LocalClickPos: TPointF; const ItemObject: TListItemDrawable);
   private
     makeSel : string;
     procedure AddTaskDone(id_roadmap,id_testador: integer; make, model, range, system, functionality, progress,status,hours : string);
@@ -268,8 +270,8 @@ begin
        json.AddPair('txtProgress', progress);
 
        TagString := json.ToString;
-
-       Height := 369;
+       Height := 40;
+       tag := 0;
 
        TListItemText(Objects.FindDrawable('txtMake')).Text := make;
        TListItemText(Objects.FindDrawable('txtModel')).Text := model;
@@ -307,6 +309,9 @@ begin
           TListItemImage(Objects.FindDrawable('imgProgresso')).Width := (qtd_Test_realizado);// *
                                                                 //TListItemImage(Objects.FindDrawable('imgFundo')).Width;
           TListItemImage(Objects.FindDrawable('imgProgresso')).PlaceOffset.Y := TListItemImage(Objects.FindDrawable('imgFundo')).PlaceOffset.Y;
+
+          TListItemImage(Objects.FindDrawable('img_collapse')).Bitmap := img_open.Bitmap;
+
      end;
 end;
 
@@ -585,28 +590,46 @@ begin
     Aitem.Height := 130;
 end;
 
-procedure TfrmTestQuality.lv_task_testItemClick(const Sender: TObject;
-  const AItem: TListViewItem);
+procedure TfrmTestQuality.lv_task_testItemClickEx(const Sender: TObject;
+  ItemIndex: Integer; const LocalClickPos: TPointF;
+  const ItemObject: TListItemDrawable);
 var
-    progress: integer;
-    json : string;
-    jsonObj : TJSONObject;
+  item : TlistViewItem;
+  progress : integer;
+  json : string;
+  jsonObj : TJSONObject;
 begin
+    if ItemObject <> nil then
+        if ItemObject.Name = 'img_collapse'  then
+          begin
+             item := lv_task_test.items[ItemIndex];
 
-    try
-        json := AItem.TagString; // Contem o json com todos os campos salvos...
-        jsonObj := TJSONObject.ParseJSONValue(TEncoding.UTF8.GetBytes(json), 0) as TJSONObject;
-        progress := jsonObj.GetValue('txtProgress').Value.ToInteger;
-        if progress.ToString = '100' then
-        begin
-           roadmap_id :=  jsonObj.GetValue('roadmap_id').Value.ToInteger;
-           lv_task_test.AllowSelection := true;
-           layout_detalhe.Visible := true;
-           ListarVeiculosTask;
-        end
-    finally
-      jsonObj.DisposeOf
-    end;
+             if item.Tag = 0 then
+                item.Tag := 1
+             else
+                item.Tag := 0;
+
+           lv_task_test.RecalcSize;
+          end;
+        if ItemObject.Name = 'txtProgress' then
+          begin
+          try
+              json := lv_task_test.items[ItemIndex].TagString;
+            //  json := item.TagString; // Contem o json com todos os campos salvos...
+              jsonObj := TJSONObject.ParseJSONValue(TEncoding.UTF8.GetBytes(json), 0) as TJSONObject;
+              progress := jsonObj.GetValue('txtProgress').Value.ToInteger;
+              if progress.ToString = '100' then
+                begin
+                   roadmap_id :=  jsonObj.GetValue('roadmap_id').Value.ToInteger;
+                   lv_task_test.AllowSelection := true;
+                   layout_detalhe.Visible := true;
+                   ListarVeiculosTask;
+                end
+          finally
+            jsonObj.DisposeOf
+          end;
+
+        end;
 end;
 
 procedure TfrmTestQuality.lv_task_testUpdateObjects(const Sender: TObject;
@@ -627,13 +650,14 @@ begin
 
     // Calcula objeto model...
     txt := TListItemText(AItem.Objects.FindDrawable('txtModel'));
-    txt.Width := lv_task_test.Width - 210;
-    txt.Height := TFunctions.GetTextHeight(txt, txt.width, txt.Text);
+    txt.Width := lv_task_test.Width - 245;
+    txt.Height := TFunctions.GetTextHeight(txt, txt.width*2, txt.Text);
 
     // Calcula objeto system...
     txt := TListItemText(AItem.Objects.FindDrawable('txtSystem'));
     txt.Width := lv_task_test.Width - 245;
     txt.Height := TFunctions.GetTextHeight(txt, txt.width, txt.Text);
+    txt.PlaceOffset.X := txt.PlaceOffset.X + 20;
 
      // Calcula objeto Function...
     txt2 := TListItemText(AItem.Objects.FindDrawable('txtFunction'));
@@ -659,15 +683,43 @@ begin
     progresso := (qtd_Test_realizado);
     //* TListItemImage(AItem.Objects.FindDrawable('imgFundo')).Width
 
+    TListItemImage(AItem.Objects.FindDrawable('imgFundo')).Visible := false;
     TListItemImage(AItem.Objects.FindDrawable('imgFundo')).PlaceOffset.Y := txtTest.PlaceOffset.Y + txtTest.Height + 10;
     TListItemImage(AItem.Objects.FindDrawable('imgFundo')).Width := lv_task_test.Width - 230;
 
     TListItemImage(AItem.Objects.FindDrawable('imgProgresso')).Width := progresso;
     TListItemImage(AItem.Objects.FindDrawable('imgProgresso')).PlaceOffset.Y := TListItemImage(AItem.Objects.FindDrawable('imgFundo')).PlaceOffset.Y;
-   // TListItemImage(AItem.Objects.FindDrawable('imgProgresso')).Visible := progresso > 0;
+    TListItemImage(AItem.Objects.FindDrawable('imgProgresso')).Visible :=false;
+    TListItemImage(AItem.Objects.FindDrawable('img_collapse')).Opacity := 0.5;
+
+
+   if AItem.tag = 0 then
+   begin
+      //AItem.Height := 40;
+      AItem.Height := trunc(txt.Height + 20);
+      TListItemImage(AItem.Objects.FindDrawable('img_collapse')).Bitmap := img_open.Bitmap;
+      TListItemText(AItem.Objects.FindDrawable('txtRange')).Visible := false;
+      TListItemText(AItem.Objects.FindDrawable('txtProgress')).Visible := false;
+      TListItemText(AItem.Objects.FindDrawable('txtFunction')).Visible := false;
+      TListItemText(AItem.Objects.FindDrawable('txtTest')).Visible := false;
+      TListItemImage(AItem.Objects.FindDrawable('imgProgresso')).Visible := false;
+      TListItemImage(AItem.Objects.FindDrawable('imgValidar')).Visible := false;
+   end
+   else
+   begin
+      Aitem.Height := Trunc(img_validar.PlaceOffset.Y + img_validar.Height + 95);
+      TListItemImage(AItem.Objects.FindDrawable('img_collapse')).Bitmap := img_close.Bitmap;
+      TListItemText(AItem.Objects.FindDrawable('txtRange')).Visible := true;
+      TListItemText(AItem.Objects.FindDrawable('txtProgress')).Visible := true;
+      TListItemText(AItem.Objects.FindDrawable('txtFunction')).Visible := true;
+      TListItemText(AItem.Objects.FindDrawable('txtTest')).Visible := true;
+      TListItemImage(AItem.Objects.FindDrawable('imgProgresso')).Visible := false;
+      TListItemImage(AItem.Objects.FindDrawable('imgValidar')).Visible := true;
+   end;
+
 
     // Calcula altura do item da listview...
-    Aitem.Height := Trunc(img_validar.PlaceOffset.Y + img_validar.Height + 95);
+ //   Aitem.Height := Trunc(img_validar.PlaceOffset.Y + img_validar.Height + 95);
 end;
 
 procedure TfrmTestQuality.processarListaMake;

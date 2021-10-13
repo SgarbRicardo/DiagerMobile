@@ -1,0 +1,417 @@
+unit cTask;
+
+interface
+
+uses FireDAC.Comp.Client, FireDAC.DApt, System.SysUtils, FMX.GRAPHICS;
+
+type
+    TTask= class
+    private
+         Fconn : TFDConnection;
+         FBUNDLE: string;
+         FMAKE: string;
+         FVEHICLE_TEST: INTEGER;
+         FID_ROADMAP: INTEGER;
+         FSETTING: string;
+    public
+         constructor Create(Conn: TFDConnection);
+         property ID_ROADMAP : INTEGER read FID_ROADMAP WRITE FID_ROADMAP;
+         property BUNDLE : string read FBUNDLE WRITE FBUNDLE;
+         property MAKE   : string read FMAKE WRITE FMAKE;
+         property SETTING   : string read FSETTING WRITE FSETTING;
+         property VEHICLE_TEST : INTEGER read FVEHICLE_TEST WRITE FVEHICLE_TEST;
+
+
+         function ListaTaskDone(busca, order_by: string; out erro: string): TFDQuery;
+         function ListaBundle(order_by: string; out erro: string): TFDQuery;
+         function ListaFaltaTeste(busca, order_by: string; out erro: string): TFDQuery;
+         function ListaMake(order_by: string; out erro: string): TFDQuery;
+         function ListaTask(busca, order_by: string; out erro: string): TFDQuery;
+         function ListaTaskQtdTasks(busca,order_by: string; out erro: string): TFDQuery;
+         function ListaVeiculosdaTask(order_by: string; out erro: string): TFDQuery;
+         function ListTaskTested(task_id, order_by: string; out erro: string): TFDQuery;
+
+
+end;
+implementation
+
+constructor TTask.Create(Conn: TFDConnection);
+begin
+      Fconn := Conn;
+end;
+
+// Busca os conteudos baseados nas configurções new task, ready to global etc...
+function TTask.ListaTaskDone(busca, order_by: string; out erro : string): TFDQuery;
+var
+  qry : TFDQuery;
+begin
+  try
+      qry := TFDQuery.Create(nil);
+      qry.Connection := FConn;
+
+      with  qry do
+        begin
+          Active := false;
+          sql.Clear;
+          sql.Add('SELECT roadmap_id, make, model, year_range, system, setting, functionality, vehicle_test,bundle,hours');
+          sql.Add('FROM [MF_Control].[mf_control_db].[roadmap] r');
+          sql.Add('Where 1 = 1');
+
+         if make <> '' then
+            begin
+              sql.Add('AND r.make = :make');
+              ParamByName('make').Value := make;
+            end;
+
+         if setting <> '' then
+            begin
+              qry.SQL.Add('AND setting LIKE :setting');
+              qry.ParamByName('setting').Value := '%' + busca + '%';
+            end;
+
+         if order_by = '' then
+            sql.Add('ORDER BY r.make desc')
+         else
+            sql.Add('ORDER BY' + order_by);
+
+         qry.Active := true;
+
+        end;
+         result := qry;
+         erro:='';
+
+    except on ex:exception do
+    begin
+        erro:= 'Erro ao carregar as Tasks: ' + ex.Message;
+        Result := nil;
+    end;
+
+  end;
+end;
+
+function TTask.ListaBundle(order_by: string; out erro : string): TFDQuery;
+var
+  qry : TFDQuery;
+begin
+  try
+      qry := TFDQuery.Create(nil);
+      qry.Connection := FConn;
+
+      with  qry do
+        begin
+          Active := false;
+          sql.Clear;
+          sql.Add('SELECT distinct bundle');
+          sql.Add('FROM [MF_Control].[mf_control_db].[roadmap] r');
+          sql.Add('where r.bundle <>'+QuotedStr(bundle));
+
+          begin
+            sql.Add('AND r.bundle <> ''0''');
+          end;
+
+         if order_by = '' then
+            sql.Add('ORDER BY r.bundle desc')
+         else
+            sql.Add('ORDER BY' + order_by);
+
+         qry.Active := true;
+
+        end;
+         result := qry;
+         erro:='';
+
+    except on ex:exception do
+    begin
+        erro:= 'Erro ao carregar as Bundles: ' + ex.Message;
+        Result := nil;
+    end;
+
+  end;
+end;
+
+function TTask.ListaMake(order_by: string; out erro : string): TFDQuery;
+var
+  qry : TFDQuery;
+begin
+  try
+      qry := TFDQuery.Create(nil);
+      qry.Connection := FConn;
+
+      with  qry do
+        begin
+          Active := false;
+          sql.Clear;
+          sql.Add('SELECT distinct Make');
+          sql.Add('FROM [MF_Control].[mf_control_db].[roadmap] r');
+          sql.Add('where r.make <>'+QuotedStr(make));
+
+         if order_by = '' then
+            sql.Add('ORDER BY r.Make asc')
+         else
+            sql.Add('ORDER BY' + order_by);
+
+         qry.Active := true;
+
+        end;
+         result := qry;
+         erro:='';
+
+    except on ex:exception do
+    begin
+        erro:= 'Erro ao carregar as marcas: ' + ex.Message;
+        Result := nil;
+    end;
+
+  end;
+end;
+
+function TTask.ListaVeiculosdaTask(order_by: string; out erro : string): TFDQuery;
+var
+  qry : TFDQuery;
+begin
+  try
+      qry := TFDQuery.Create(nil);
+      qry.Connection := FConn;
+
+      with  qry do
+        begin
+          Active := false;
+          sql.Clear;
+          sql.Add('SELECT v.vehicle_id, v.year, v.model,v.eng_size');
+          sql.Add('FROM [MF_Control].[mf_control_db].vehicle v');
+          sql.Add('join [MF_Control].[mf_control_db].[task_x_vehicle] vt on vt.vehicle_id = v.vehicle_id');
+          sql.Add('where 1 = 1');
+
+           if ID_ROADMAP <> 0 then
+          begin
+            sql.Add('AND vt.roadmap_id = :ID_ROADMAP');
+            ParamByName('ID_ROADMAP').Value := ID_ROADMAP;
+          end;
+
+           if order_by = '' then
+              sql.Add('ORDER BY v.year')
+           else
+              sql.Add('ORDER BY' + order_by);
+
+           qry.Active := true;
+
+        end;
+         result := qry;
+         erro:='';
+
+    except on ex:exception do
+    begin
+        erro:= 'Erro ao carregar os modelos: ' + ex.Message;
+        Result := nil;
+    end;
+
+  end;
+end;
+
+
+
+function TTask.ListaTask(busca, order_by: string; out erro : string): TFDQuery;
+var
+  qry : TFDQuery;
+begin
+  try
+      qry := TFDQuery.Create(nil);
+      qry.Connection := FConn;
+
+      with  qry do
+        begin
+          Active := false;
+          sql.Clear;
+          sql.Add('SELECT DISTINCT R.roadmap_id, r.functionality,r.make, r.model,r.year_range, r.system, r.vehicle_test, count (*) as QTD_Test_Task');
+          sql.Add('FROM [MF_Control].[mf_control_db].[task_x_test] TT');
+          sql.Add('left join  [MF_Control].[mf_control_db].[roadmap] R on R.roadmap_id = TT.roadmap_id');
+          sql.Add('where 1=1');
+
+          if BUNDLE <> '' then
+          begin
+            sql.Add('AND r.bundle = :bundle');
+            ParamByName('bundle').Value := BUNDLE;
+          end;
+
+          if busca <> '' then
+          begin
+            qry.SQL.Add('AND make LIKE :make');
+            qry.ParamByName('make').Value := '%' + busca + '%';
+          end
+          else
+            sql.Add('AND r.vehicle_test = ''100''');
+            sql.Add('GROUP BY r.roadmap_id,r.make, r.model,  r.functionality, r.year_range, r.system, r.vehicle_test');
+
+          if order_by = '' then
+            sql.Add('ORDER BY r.roadmap_id asc')
+          else
+            sql.Add('ORDER BY' + order_by);
+
+         qry.Active := true;
+
+        end;
+         result := qry;
+         erro:='';
+
+    except on ex:exception do
+    begin
+        erro:= 'Erro ao carregar as Tasks: ' + ex.Message;
+        Result := nil;
+    end;
+
+  end;
+end;
+
+function TTask.ListaTaskQtdTasks(busca,order_by: string; out erro : string): TFDQuery;
+var
+  qry : TFDQuery;
+begin
+  try
+      qry := TFDQuery.Create(nil);
+      qry.Connection := FConn;
+
+      with qry do
+        begin
+          Active := false;
+          sql.Clear;
+          sql.Add('SELECT DISTINCT(vt.roadmap_id), r.model,vehicle_test, r.year_range,R.system,R.make, r.functionality, count(vt.vehicle_id) as QTD_Task');
+          sql.Add('FROM [MF_Control].[mf_control_db].vehicle v');
+          sql.Add('join [MF_Control].[mf_control_db].[task_x_vehicle] vt on vt.vehicle_id = v.vehicle_id');
+          sql.Add('inner join [MF_Control].[mf_control_db].[roadmap] R on R.roadmap_id = vt.roadmap_id');
+          sql.Add('where vt.roadmap_id = vt.roadmap_id');
+
+          if BUNDLE <> '' then
+          begin
+            sql.Add('AND r.bundle = :bundle');
+            ParamByName('bundle').Value := BUNDLE;
+          end;
+
+          if busca <> '' then
+          begin
+            qry.SQL.Add('AND R.make LIKE :make');
+            qry.ParamByName('make').Value := '%' + busca + '%';
+          end
+          else
+            sql.Add('AND r.vehicle_test = ''100''');
+            sql.Add('GROUP BY vt.roadmap_id, r.model,vehicle_test, r.functionality, r.year_range,R.system,R.make');
+
+          if order_by = '' then
+            sql.Add('ORDER BY r.vehicle_test desc')
+          else
+            sql.Add('ORDER BY' + order_by);
+
+         qry.Active := true;
+
+        end;
+         result := qry;
+         erro:='';
+
+    except on ex:exception do
+    begin
+        erro:= 'Erro ao carregar as Tasks: ' + ex.Message;
+        Result := nil;
+    end;
+
+  end;
+end;
+
+
+function TTask.ListaFaltaTeste(busca, order_by: string; out erro : string): TFDQuery;
+var
+  qry : TFDQuery;
+begin
+  try
+      qry := TFDQuery.Create(nil);
+      qry.Connection := FConn;
+
+      with  qry do
+        begin
+          Active := false;
+          sql.Clear;
+          sql.Add('SELECT roadmap_id, make, model, year_range, system, functionality,vehicle_test');
+          sql.Add('FROM [MF_Control].[mf_control_db].[roadmap] r');
+          sql.Add('Where roadmap_id NOT IN(Select roadmap_id from[MF_Control].[mf_control_db].[task_x_test])');
+
+          if BUNDLE <> '' then
+          begin
+            sql.Add('AND r.bundle = :bundle');
+            ParamByName('bundle').Value := BUNDLE;
+          end;
+
+          if busca <> '' then
+            begin
+              qry.SQL.Add('AND make LIKE :make');
+              qry.ParamByName('make').Value := '%' + busca + '%';
+            end;
+
+            sql.Add('AND r.vehicle_test = ''100''');
+
+          if order_by = '' then
+            sql.Add('ORDER BY r.priority desc')
+          else
+            sql.Add('ORDER BY' + order_by);
+
+         qry.Active := true;
+
+        end;
+         result := qry;
+         erro:='';
+
+    except on ex:exception do
+    begin
+        erro:= 'Erro ao carregar as Tasks: ' + ex.Message;
+        Result := nil;
+    end;
+
+  end;
+end;
+
+function TTask.ListTaskTested(task_id,order_by: string; out erro : string): TFDQuery;
+var
+  qry : TFDQuery;
+begin
+  try
+      qry := TFDQuery.Create(nil);
+      qry.Connection := FConn;
+
+      with  qry do
+        begin
+          Active := false;
+          sql.Clear;
+          sql.Add('Select v.make, v.model, v.eng_size,t.test_data,tt.roadmap_id,t.location,u.name,t.status');
+          sql.Add('FROM  [MF_Control].[mf_control_db].vehicle v');
+          sql.Add('inner join [MF_Control].[mf_control_db].[test] t on t.vehicle_id = v.vehicle_id');
+          sql.Add('join [MF_Control].[mf_control_db].task_x_test tt on tt.test_id = t.test_id');
+          sql.Add('join [MF_Control].[mf_control_db].userP as u on u.user_id = t.login_id');
+          sql.Add('where 1=1');
+
+          if task_id <> '' then
+          begin
+            sql.Add('AND tt.roadmap_id LIKE roadmap_id');
+            ParamByName('tt.roadmap_id').Value := task_id;
+          end;
+
+          if order_by = '' then
+            sql.Add('ORDER BY tt.roadmap_id asc')
+          else
+            sql.Add('ORDER BY' + order_by);
+
+         qry.Active := true;
+
+        end;
+         result := qry;
+         erro:='';
+
+    except on ex:exception do
+    begin
+        erro:= 'Erro ao carregar as Tasks: ' + ex.Message;
+        Result := nil;
+    end;
+
+  end;
+end;
+
+
+
+
+end.

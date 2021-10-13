@@ -83,6 +83,7 @@ type
     Label7: TLabel;
     img_open: TImage;
     img_close: TImage;
+    img_vehicle: TImage;
     procedure FormCreate(Sender: TObject);
     procedure lv_TaskDoneUpdateObjects(const Sender: TObject;
       const AItem: TListViewItem);
@@ -130,6 +131,8 @@ type
     procedure OpenSearch;
     procedure HideAutoComplete;
     procedure ShowAutoComplete;
+    procedure carregarVeiculosTestado;
+    procedure ListarVeiculosTestado;
 
     { Private declarations }
   public
@@ -146,7 +149,7 @@ implementation
 {$R *.fmx}
 
 uses untDM, unitPrincipal, unitLogin, unitChat, uFunctions, uLoading,
-  unitFrameVehicles;
+  unitFrameVehicles, unitFrameVehicles_Tested, unitFrameVehiclesTested;
 
 procedure TfrmTestQuality.MudarAba(img: TImage);
 begin
@@ -311,6 +314,7 @@ begin
           TListItemImage(Objects.FindDrawable('imgProgresso')).PlaceOffset.Y := TListItemImage(Objects.FindDrawable('imgFundo')).PlaceOffset.Y;
 
           TListItemImage(Objects.FindDrawable('img_collapse')).Bitmap := img_open.Bitmap;
+          TListItemImage(Objects.FindDrawable('imgVeiculoTestado')).Bitmap := img_vehicle.Bitmap;
 
      end;
 end;
@@ -612,10 +616,9 @@ begin
            lv_task_test.RecalcSize;
           end;
         if ItemObject.Name = 'txtProgress' then
-          begin
+        begin
           try
-              json := lv_task_test.items[ItemIndex].TagString;
-            //  json := item.TagString; // Contem o json com todos os campos salvos...
+              json := lv_task_test.items[ItemIndex].TagString;     // Contem o json com todos os campos salvos...
               jsonObj := TJSONObject.ParseJSONValue(TEncoding.UTF8.GetBytes(json), 0) as TJSONObject;
               progress := jsonObj.GetValue('txtProgress').Value.ToInteger;
               if progress.ToString = '100' then
@@ -628,7 +631,23 @@ begin
           finally
             jsonObj.DisposeOf
           end;
-
+        end;
+        if ItemObject.Name = 'imgVeiculoTestado' then
+         begin
+          try
+              json := lv_task_test.items[ItemIndex].TagString;     // Contem o json com todos os campos salvos...
+              jsonObj := TJSONObject.ParseJSONValue(TEncoding.UTF8.GetBytes(json), 0) as TJSONObject;
+              progress := jsonObj.GetValue('txtProgress').Value.ToInteger;
+              if progress.ToString = '100' then
+                begin
+                   roadmap_id :=  jsonObj.GetValue('roadmap_id').Value.ToInteger;
+                   lv_task_test.AllowSelection := true;
+                   layout_detalhe.Visible := true;
+                   ListarVeiculosTestado;
+                end
+          finally
+            jsonObj.DisposeOf
+          end;
         end;
 end;
 
@@ -691,6 +710,7 @@ begin
     TListItemImage(AItem.Objects.FindDrawable('imgProgresso')).PlaceOffset.Y := TListItemImage(AItem.Objects.FindDrawable('imgFundo')).PlaceOffset.Y;
     TListItemImage(AItem.Objects.FindDrawable('imgProgresso')).Visible :=false;
     TListItemImage(AItem.Objects.FindDrawable('img_collapse')).Opacity := 0.5;
+    TListItemImage(AItem.Objects.FindDrawable('imgVeiculoTestado')).Opacity := 0.5;
 
 
    if AItem.tag = 0 then
@@ -704,6 +724,7 @@ begin
       TListItemText(AItem.Objects.FindDrawable('txtTest')).Visible := false;
       TListItemImage(AItem.Objects.FindDrawable('imgProgresso')).Visible := false;
       TListItemImage(AItem.Objects.FindDrawable('imgValidar')).Visible := false;
+      TListItemImage(AItem.Objects.FindDrawable('imgVeiculoTestado')).Visible := false;
    end
    else
    begin
@@ -715,11 +736,8 @@ begin
       TListItemText(AItem.Objects.FindDrawable('txtTest')).Visible := true;
       TListItemImage(AItem.Objects.FindDrawable('imgProgresso')).Visible := false;
       TListItemImage(AItem.Objects.FindDrawable('imgValidar')).Visible := true;
+      TListItemImage(AItem.Objects.FindDrawable('imgVeiculoTestado')).Visible := true;
    end;
-
-
-    // Calcula altura do item da listview...
- //   Aitem.Height := Trunc(img_validar.PlaceOffset.Y + img_validar.Height + 95);
 end;
 
 procedure TfrmTestQuality.processarListaMake;
@@ -984,11 +1002,85 @@ begin
     end;
 end;
 
+procedure TfrmTestQuality.ListarVeiculosTestado();
+begin
+    TLoading.Show(frmTestQuality, 'Carregando...');
+    try
+      dm.Request_VeiculoTestado.Params.Clear;
+      dm.Request_VeiculoTestado.AddParameter('roadmap_id',roadmap_id.ToString);
+      dm.Request_VeiculoTestado.ExecuteAsync(carregarVeiculosTestado, true, true, ProcessarListaMakeErro);
+
+    except on ex:exception do
+      begin
+          TLoading.Hide;
+          showmessage('Erro ao acessar o servidor: ' + ex.Message);
+          exit;
+      end;
+    end;
+end;
+
+procedure TfrmTestQuality.carregarVeiculosTestado;
+var
+    i : integer;
+    item : TListBoxItem;
+    frame : TframeVehicleTested;
+    jsonArray : TJsonArray;
+    erro,json : string;
+begin
+    lbl_vehicleList.Items.Clear;
+
+    try
+        // Se deu erro...
+        if dm.Request_VeiculoTestado.Response.StatusCode <> 200 then
+        begin
+            showmessage('Erro ao consultar os veiculos testados da task');
+            exit;
+        end;
+
+        TLoading.Hide;
+        json := dm.Request_VeiculoTestado.Response.JSONValue.ToString;
+        jsonArray := TJSONObject.ParseJSONValue(TEncoding.UTF8.GetBytes(json), 0) as TJSONArray;
+
+    except on ex:exception do
+        begin
+            TLoading.Hide;
+            showmessage(ex.Message);
+            exit;
+        end;
+    end;
+
+    for i := 0 to jsonArray.Size - 1 do
+    begin
+        item := TListBoxItem.Create(lbl_vehicleList);
+        item.Text := '';
+        item.Width := 144;
+        item.Height := 40;
+        item.Selectable := false;
+        item.Margins.top := 10;
+        item.tag := roadmap_id;
+        item.tagstring := jsonArray.Get(i).GetValue<string>('roadmap_id', '');
+
+        frame := TframeVehicleTested.Create(item);
+        frame.Parent := item;
+        frame.Align := TAlignLayout.client;
+        frame.Margins.Top := 10;
+
+
+        frame.lblEng.text := jsonArray.Get(i).GetValue<string>('eng_size', '');
+        frame.lblTester.text := jsonArray.Get(i).GetValue<string>('name', '');
+        frame.lblLocation.text := jsonArray.Get(i).GetValue<string>('location', '');
+        frame.lblDate.Text := jsonArray.Get(i).GetValue<string>('test_data', '01/01/2000');
+
+        lbl_vehicleList.AddObject(item);
+    end;
+    jsonArray.DisposeOf;
+end;
+
 procedure TfrmTestQuality.carregarVeiculosdaTask;
 var
     i : integer;
     item : TListBoxItem;
-    frame : TframeVehicle;
+    frame : TframeVehicleAV;
     jsonArray : TJsonArray;
     erro,json : string;
 begin
@@ -1025,7 +1117,7 @@ begin
         item.tag := roadmap_id;
         item.tagstring := jsonArray.Get(i).GetValue<string>('vehicle_id', '');
 
-        frame := TframeVehicle.Create(item);
+        frame := TframeVehicleAV.Create(item);
         frame.Parent := item;
         frame.Align := TAlignLayout.client;
         frame.Margins.Top := 10;
@@ -1034,12 +1126,10 @@ begin
         frame.lblModel.text := jsonArray.Get(i).GetValue<string>('model', '');
         frame.lblEngSize.text := jsonArray.Get(i).GetValue<string>('eng_size', '');
 
-
         lbl_vehicleList.AddObject(item);
     end;
-    jsonArray.DisposeOf;
+        jsonArray.DisposeOf;
 end;
-
 
 procedure TfrmTestQuality.edt_buscarExit(Sender: TObject);
 begin
@@ -1050,8 +1140,6 @@ begin
       end
     else
          ListarTask_;
-
-
 end;
 
 procedure TfrmTestQuality.edt_buscarTyping(Sender: TObject);

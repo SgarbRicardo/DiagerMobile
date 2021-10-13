@@ -38,6 +38,7 @@ type
     requestCCListaStatus: TRESTRequest;
     RequestListaVerAtendida: TRESTRequest;
     RequestVehicleTask: TRESTRequest;
+    Request_VeiculoTestado: TRESTRequest;
     procedure DataModuleCreate(Sender: TObject);
   private
 

@@ -89,6 +89,10 @@ type
       var Params: TDWParams; var Result: string;
       const RequestType: TRequestType; var StatusCode: Integer;
       RequestHeader: TStringList);
+    procedure DWTaskEventsListaVeiculosTestadosReplyEventByType(
+      var Params: TDWParams; var Result: string;
+      const RequestType: TRequestType; var StatusCode: Integer;
+      RequestHeader: TStringList);
   private
     function ValidarLogin(usuario, senha: string; out status: integer): string;
     function CriarUsuario(usuario, senha, email, foto64, departamento, nivel_acesso,nome,logoda_ate: string;
@@ -123,6 +127,8 @@ type
     function IsNumeric(S: String): Boolean;
     function ListaVeiculosTask(roadmap_id: integer;out status_code: integer): string;
     function ListaQtdCategoria(id_usuario: integer;
+      out status_code: integer): string;
+    function ListaVeiculoTestado(roadmap_id: integer;
       out status_code: integer): string;
     { Private declarations }
   public
@@ -390,6 +396,33 @@ begin
 
         json := uDWJSONObject.TJSONValue.Create;
         json.LoadFromDataset('', qry, false, jmPureJSON, 'dd/mm/yyyy hh:nn:ss');
+
+        Result := json.ToJSON;
+        status_code := 200;
+
+    finally
+         if Assigned (qry) then
+            qry.DisposeOf;
+
+         t.DisposeOf;
+         json.DisposeOf;
+     end;
+end;
+
+function Tdm.ListaVeiculoTestado(roadmap_id: integer;out status_code : integer):string;
+var
+    t : TTask;
+    qry : TFDQuery;
+    json : uDWJSONObject.TJSONValue;
+    erro : string;
+begin
+    try
+        t := TTask.Create(dm.conn);
+        t.ID_ROADMAP := roadmap_id;
+        qry := t.ListTaskTested('',erro);
+
+        json := uDWJSONObject.TJSONValue.Create;
+        json.LoadFromDataset('', qry, false, jmPureJSON, 'dd/mm/yyyy');
 
         Result := json.ToJSON;
         status_code := 200;
@@ -1039,6 +1072,21 @@ begin
         StatusCode := 403;
         Result := '{"Retorno":"Verbo HTPP não é valido. Utilize o GET, "cod_usuario: 0, "user": ""}';
       end;
+end;
+
+procedure Tdm.DWTaskEventsListaVeiculosTestadosReplyEventByType(
+  var Params: TDWParams; var Result: string; const RequestType: TRequestType;
+  var StatusCode: Integer; RequestHeader: TStringList);
+begin
+     if RequestType = TRequestType.rtGet then
+        Result := ListaVeiculoTestado(params.itemsString['roadmap_id'].AsInteger,
+                                      StatusCode)
+     else
+      begin
+          StatusCode := 403;
+          Result := '{"Retorno":"Verbo HTPP não é valido. Utilize o GET, "cod_usuario: 0, "user": ""}';
+      end;
+
 end;
 
 procedure Tdm.DWTaskEventsMakeReplyEventByType(var Params: TDWParams;

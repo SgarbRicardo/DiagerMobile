@@ -1,0 +1,84 @@
+object frameVehicleTested: TframeVehicleTested
+  Size.Width = 265.000000000000000000
+  Size.Height = 100.000000000000000000
+  Size.PlatformDefault = False
+  object Rectangle1: TRectangle
+    Align = Center
+    Fill.Color = xFF986D6D
+    Size.Width = 210.000000000000000000
+    Size.Height = 41.000000000000000000
+    Size.PlatformDefault = False
+    Stroke.Kind = None
+    XRadius = 15.000000000000000000
+    YRadius = 15.000000000000000000
+    object Layout1: TLayout
+      Align = Client
+      Size.Width = 210.000000000000000000
+      Size.Height = 21.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 0
+      object lblTester: TLabel
+        Align = Scale
+        StyledSettings = [Family]
+        Size.Width = 70.000000000000000000
+        Size.Height = 21.000000000000000000
+        Size.PlatformDefault = False
+        TextSettings.Font.Size = 10.000000000000000000
+        TextSettings.Font.StyleExt = {00060000000000000004000000}
+        TextSettings.FontColor = xFFFAF9F9
+        TextSettings.HorzAlign = Center
+        Text = 'Tester'
+        TabOrder = 0
+      end
+      object lblDate: TLabel
+        Align = Scale
+        StyledSettings = [Family]
+        Position.X = 64.000000000000000000
+        Size.Width = 70.000000000000000000
+        Size.Height = 21.000000000000000000
+        Size.PlatformDefault = False
+        TextSettings.Font.Size = 10.000000000000000000
+        TextSettings.Font.StyleExt = {00060000000000000004000000}
+        TextSettings.FontColor = xFFFAF9F9
+        TextSettings.HorzAlign = Center
+        Text = '12/10/2021'
+        TabOrder = 2
+      end
+      object lblEng: TLabel
+        Align = Scale
+        StyledSettings = [Family]
+        Position.X = 136.000000000000000000
+        Size.Width = 70.000000000000000000
+        Size.Height = 21.000000000000000000
+        Size.PlatformDefault = False
+        TextSettings.Font.Size = 10.000000000000000000
+        TextSettings.Font.StyleExt = {00060000000000000004000000}
+        TextSettings.FontColor = xFFFAF9F9
+        TextSettings.HorzAlign = Center
+        Text = '1.4L L4 8V Flex'
+        TabOrder = 1
+      end
+    end
+    object Layout2: TLayout
+      Align = Bottom
+      Position.Y = 21.000000000000000000
+      Size.Width = 210.000000000000000000
+      Size.Height = 20.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 1
+      object lblLocation: TLabel
+        Align = Client
+        StyledSettings = [Family]
+        Size.Width = 210.000000000000000000
+        Size.Height = 20.000000000000000000
+        Size.PlatformDefault = False
+        TextSettings.Font.Size = 10.000000000000000000
+        TextSettings.Font.StyleExt = {00060000000000000004000000}
+        TextSettings.FontColor = xFFFAF9F9
+        TextSettings.HorzAlign = Center
+        Text = 'Stefanini - Piracicaba'
+        TabOrder = 0
+      end
+    end
+  end
+end

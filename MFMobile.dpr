@@ -21,8 +21,9 @@ uses
   unitInventario in 'unitInventario.pas' {frmInventario},
   uSuperChart in 'Units\uSuperChart.pas',
   unitDashBoard in 'unitDashBoard.pas' {frmDashBoard},
-  unitFrameVehicles in 'unitFrameVehicles.pas' {frameVehicle: TFrame},
-  u99Permissions in 'u99Permissions.pas';
+  u99Permissions in 'u99Permissions.pas',
+  unitFrameVehiclesTested in 'unitFrameVehiclesTested.pas' {frameVehicleTested: TFrame},
+  unitFrameVehicles in 'unitFrameVehicles.pas' {frameVehicleAv: TFrame};
 
 {$R *.res}
 

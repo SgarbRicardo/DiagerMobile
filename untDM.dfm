@@ -269,4 +269,21 @@ object dm: Tdm
     Left = 128
     Top = 176
   end
+  object Request_VeiculoTestado: TRESTRequest
+    Client = RESTClient
+    Params = <
+      item
+        Name = 'id_roadmap'
+      end
+      item
+        Name = 'bundle'
+      end
+      item
+        Name = 'busca'
+      end>
+    Resource = 'task/ListaVeiculosTestados'
+    SynchronizedEvents = False
+    Left = 240
+    Top = 176
+  end
 end

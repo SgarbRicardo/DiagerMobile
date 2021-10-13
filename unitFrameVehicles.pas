@@ -8,7 +8,7 @@ uses
   FMX.Objects, FMX.Controls.Presentation, FMX.Layouts;
 
 type
-  TframeVehicle = class(TFrame)
+  TframeVehicleAv = class(TFrame)
     Rectangle1: TRectangle;
     lblYear: TLabel;
     lblModel: TLabel;

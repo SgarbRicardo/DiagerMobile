@@ -16,7 +16,6 @@ type
     Layout1: TLayout;
     Layout2: TLayout;
     lblEng: TLabel;
-    lblModel: TLabel;
   private
     { Private declarations }
   public

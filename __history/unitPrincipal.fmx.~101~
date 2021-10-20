@@ -10623,6 +10623,7 @@ object frmMainscreen: TfrmMainscreen
         Size.Height = 577.000000000000000000
         Size.PlatformDefault = False
         Stroke.Kind = None
+        Visible = False
         object Layout2: TLayout
           Align = Client
           Margins.Top = 57.000000000000000000

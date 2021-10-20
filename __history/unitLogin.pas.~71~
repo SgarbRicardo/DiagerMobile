@@ -163,7 +163,7 @@ type
 
   public
     { Public declarations }
-    usuario, cod_usuario, nome, email, departamento, nivel_acesso,foto64 : string;
+    usuario, cod_usuario, nome, email, departamento, nivel_acesso,foto64, login_ate : string;
   end;
 
 var
@@ -300,6 +300,7 @@ begin
 
         frmMainscreen.nivel_acesso := nivel_acesso;
         frmMainscreen.lblcargoPerfil.Text := nivel_acesso;
+        frmMainscreen.lblDataAcesso.Text := login_ate;
       end
       else
       begin
@@ -322,6 +323,7 @@ begin
 
         frmMainscreen.nivel_acesso := nivel_acesso;
         frmMainscreen.lblcargoPerfil.Text := nivel_acesso;
+        frmMainscreen.lblDataAcesso.Text := login_ate;
       end;
 
       frmMainscreen.Show;
@@ -362,6 +364,7 @@ begin
       email := jsonObj.GetValue('email').Value;
       departamento := jsonObj.GetValue('department').Value;
       nivel_acesso := jsonObj.GetValue('access_level').value;
+      login_ate := jsonObj.GetValue('login_until').value;
       foto64 := jsonObj.GetValue('foto').Value
 
     finally
@@ -415,10 +418,10 @@ end;
 Procedure ProcessaLoginErro(Sender: TObject);
 begin
   if Assigned(sender) and (sender is Exception) then
-  BEGIN
+  begin
       frmLogin.ExibirCampos;
       showmessage(Exception(sender).Message);
-  END;
+  end;
 
 end;
 
@@ -461,17 +464,17 @@ end;
 
 procedure TfrmLogin.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
-      permissao.DisposeOf;
-      Action := TCloseAction.caFree;
-      frmLogin := nil;
+    permissao.DisposeOf;
+    Action := TCloseAction.caFree;
+    frmLogin := nil;
 end;
 
 procedure TfrmLogin.FormCreate(Sender: TObject);
 begin
     {$IFDEF DEBUG}
-          // dm.RESTClient.BaseURL := 'http://localhost:8082';
+           dm.RESTClient.BaseURL := 'http://localhost:8082';
 {obeya}  //dm.RESTClient.BaseURL := 'http://192.168.0.193:8082';
-         dm.RESTClient.BaseURL := 'http://192.168.1.16:8082';
+   //      dm.RESTClient.BaseURL := 'http://192.168.1.17:8082';
 {ws074}  //dm.RESTClient.BaseURL := 'http://192.168.0.152:8082';
     {$ELSE}
            dm.RESTClient.BaseURL := 'http://10.32.0.166:8082';

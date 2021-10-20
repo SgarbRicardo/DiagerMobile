@@ -604,6 +604,7 @@ object frmLogin: TfrmLogin
               TabOrder = 0
               KeyboardType = Alphabet
               ReturnKeyType = Next
+              Text = 'tf6119'
               TextSettings.Font.Size = 14.000000000000000000
               TextSettings.Font.StyleExt = {00070000000000000004000000}
               TextSettings.FontColor = xFF6B6666
@@ -733,6 +734,7 @@ object frmLogin: TfrmLogin
               KeyboardType = Alphabet
               ReturnKeyType = Go
               Password = True
+              Text = '282915'
               TextSettings.Font.Size = 14.000000000000000000
               TextSettings.Font.StyleExt = {00070000000000000004000000}
               TextSettings.FontColor = xFF6B6666

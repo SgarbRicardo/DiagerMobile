@@ -477,7 +477,8 @@ begin
    //      dm.RESTClient.BaseURL := 'http://192.168.1.17:8082';
 {ws074}  //dm.RESTClient.BaseURL := 'http://192.168.0.152:8082';
     {$ELSE}
-           dm.RESTClient.BaseURL := 'http://10.32.0.166:8082';
+          // dm.RESTClient.BaseURL := 'http://10.32.0.166:8082';
+           dm.RESTClient.BaseURL := 'http://localhost:8082';
     {$ENDIF}
 
     {$IFDEF WINDOWS}

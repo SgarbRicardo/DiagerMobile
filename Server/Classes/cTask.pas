@@ -378,7 +378,7 @@ begin
         begin
           Active := false;
           sql.Clear;
-          sql.Add('Select tt.roadmap_id,t.test_data,v.eng_size,u.name,t.location');
+          sql.Add('Select tt.roadmap_id,t.test_data,v.eng_size,v.model,u.name,t.location');
           sql.Add('FROM [MF_Control].[mf_control_db].vehicle v');
           sql.Add('inner join [MF_Control].[mf_control_db].[test] t on t.vehicle_id = v.vehicle_id');
           sql.Add('join [MF_Control].[mf_control_db].task_x_test tt on tt.test_id = t.test_id');

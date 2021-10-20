@@ -604,6 +604,7 @@ var
   jsonObj : TJSONObject;
 begin
     if ItemObject <> nil then
+    begin
         if ItemObject.Name = 'img_collapse'  then
           begin
              item := lv_task_test.items[ItemIndex];
@@ -615,6 +616,7 @@ begin
 
            lv_task_test.RecalcSize;
           end;
+
         if ItemObject.Name = 'txtProgress' then
         begin
           try
@@ -649,6 +651,7 @@ begin
             jsonObj.DisposeOf
           end;
         end;
+    end;
 end;
 
 procedure TfrmTestQuality.lv_task_testUpdateObjects(const Sender: TObject;
@@ -1067,6 +1070,7 @@ begin
 
 
         frame.lblEng.text := jsonArray.Get(i).GetValue<string>('eng_size', '');
+        frame.lblmodel.text := jsonArray.Get(i).GetValue<string>('model', '');
         frame.lblTester.text := jsonArray.Get(i).GetValue<string>('name', '');
         frame.lblLocation.text := jsonArray.Get(i).GetValue<string>('location', '');
         frame.lblDate.Text := jsonArray.Get(i).GetValue<string>('test_data', '01/01/2000');

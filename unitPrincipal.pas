@@ -351,7 +351,7 @@ end;
 
 procedure TfrmMainscreen.Layout7Click(Sender: TObject);
 begin
-    SelecionaIcone(TImage(Sender));
+//    SelecionaIcone(TImage(Sender));
     if not Assigned (frmInventario) then
        Application.CreateForm(TfrmInventario, frmInventario);
 
@@ -429,6 +429,7 @@ end;
 procedure TfrmMainscreen.FormShow(Sender: TObject);
 begin
     layout_detalhe.Visible := false;
+    ListBoxItem2.Visible := false;
     ListBoxItem3.Visible := false;
     ListBoxItem4.Visible := false;
     ListBoxItem5.Visible := false;

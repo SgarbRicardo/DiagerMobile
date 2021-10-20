@@ -23,7 +23,6 @@ type
     img_aba3: TImage;
     lytUltimasModificacoes: TLayout;
     lblEquip_user: TLabel;
-    lblVerTodos: TLabel;
     imgEquipment: TImage;
     rectTransição: TRectangle;
     Rectangle2: TRectangle;
@@ -68,6 +67,9 @@ type
     Layout4: TLayout;
     lbMyEquips: TListBox;
     Image6: TImage;
+    Layout5: TLayout;
+    lblMyequip: TLabel;
+    Rectangle6: TRectangle;
     procedure FormShow(Sender: TObject);
     procedure lvInventarioUpdateObjects(const Sender: TObject;
       const AItem: TListViewItem);
@@ -87,6 +89,7 @@ type
     procedure imgBuscaClick(Sender: TObject);
     procedure lbMyEquipsItemClick(const Sender: TCustomListBox;
       const Item: TListBoxItem);
+    procedure lblMyequipClick(Sender: TObject);
   private
     dt_filtro : TDate;
     procedure TransitionForm(sender: TObject);
@@ -319,6 +322,12 @@ begin
     lblTitulo_inventario.Font.Size := 15;
 end;
 
+procedure TfrmInventario.lblMyequipClick(Sender: TObject);
+begin
+    MudarAba(img_aba2);
+    lblTitulo_inventario.Text := 'My Equipments';
+end;
+
 procedure TfrmInventario.lblVerTodosClick(Sender: TObject);
 begin
     MudarAba(img_aba1);
@@ -354,9 +363,9 @@ var
           TListItemText(Item.Objects.FindDrawable('txtSerial')).Text := 'Serial N/A';
        end;
 
-        if TListItemText(Item.Objects.FindDrawable('txtPrevLocation')).text = '' then
+       if TListItemText(Item.Objects.FindDrawable('txtPrevLocation')).text = '' then
        begin
-          TListItemText(Item.Objects.FindDrawable('txtPrevLocation')).Text := 'Location N/A';
+        TListItemText(Item.Objects.FindDrawable('txtPrevLocation')).Text := 'Location N/A';
        end;
 
        img := TListItemImage(Item.Objects.FindDrawable('imgPhoto'));
@@ -394,7 +403,7 @@ end;
 procedure TfrmInventario.FormShow(Sender: TObject);
 begin
       carregarCategorias;
-      lblTitulo_inventario.Text := 'Categories';
+      lblTitulo_inventario.Text := 'All Equipments by Cat.';
 end;
 
 procedure TfrmInventario.carregarCategorias;

@@ -326,6 +326,7 @@ procedure TfrmInventario.lblMyequipClick(Sender: TObject);
 begin
     MudarAba(img_aba2);
     lblTitulo_inventario.Text := 'My Equipments';
+    ListarQTDCateg;
 end;
 
 procedure TfrmInventario.lblVerTodosClick(Sender: TObject);
@@ -499,25 +500,29 @@ procedure TfrmInventario.lvInventarioItemClickEx(const Sender: TObject;
   ItemIndex: Integer; const LocalClickPos: TPointF;
   const ItemObject: TListItemDrawable);
 begin
-    if assigned(ItemObject) then
-      if TListItemText(ItemObject).Text = TListItemText(lvInventario.Items[ItemIndex].Objects.FindDrawable('txtLocation')).Text then
-      begin
-         if NOT Assigned(frmInventarioCad) then
-            Application.CreateForm(TfrmInventarioCad, frmInventarioCad);
+     if ItemObject <> nil then
+     begin
+      if assigned(ItemObject) then
+        //if TListItemText(ItemObject).Text = TListItemText(lvInventario.Items[ItemIndex].Objects.FindDrawable('txtLocation')).Text then
+        if ItemObject.Name = 'txtLocation' then
+        begin
+           if NOT Assigned(frmInventarioCad) then
+              Application.CreateForm(TfrmInventarioCad, frmInventarioCad);
 
-            frmInventarioCad.Id_cat_global := id_cat_global.ToInteger;
-            frmInventarioCad.id_emp_pro := TListView(sender).Items[ItemIndex].Tag;
-            frmInventarioCad.id_emp := TListView(sender).Items[ItemIndex].TagString.ToInteger;
-            frmInventarioCad.edtAsset.Text := TListItemText(lvInventario.Items[ItemIndex].Objects.FindDrawable('txtTag')).Text;
-            frmInventarioCad.lblDescricao.Text := TListItemText(lvInventario.Items[ItemIndex].Objects.FindDrawable('txtEquipment')).Text;
-            frmInventarioCad.lblLocation.Tag := frmMainscreen.cod_usuario_logado;
-            frmInventarioCad.edtLocation.Text := TListItemText(lvInventario.Items[ItemIndex].Objects.FindDrawable('txtLocation')).Text;
-            frmInventarioCad.edtBrand.Text := TListItemText(lvInventario.Items[ItemIndex].Objects.FindDrawable('txtBrand')).Text;
+              frmInventarioCad.Id_cat_global := id_cat_global.ToInteger;
+              frmInventarioCad.id_emp_pro := TListView(sender).Items[ItemIndex].Tag;
+             // frmInventarioCad.id_emp := TListView(sender).Items[ItemIndex].TagString.ToInteger;
+              frmInventarioCad.edtAsset.Text := TListItemText(lvInventario.Items[ItemIndex].Objects.FindDrawable('txtTag')).Text;
+              frmInventarioCad.lblDescricao.Text := TListItemText(lvInventario.Items[ItemIndex].Objects.FindDrawable('txtEquipment')).Text;
+              frmInventarioCad.lblLocation.Tag := frmMainscreen.cod_usuario_logado;
+              frmInventarioCad.edtLocation.Text := TListItemText(lvInventario.Items[ItemIndex].Objects.FindDrawable('txtLocation')).Text;
+              frmInventarioCad.edtBrand.Text := TListItemText(lvInventario.Items[ItemIndex].Objects.FindDrawable('txtBrand')).Text;
 
-            frmInventarioCad.executeOnClose := RefreshListaEquips;
+              frmInventarioCad.executeOnClose := RefreshListaEquips;
 
-            frmInventarioCad.Show;
-      end;
+              frmInventarioCad.Show;
+        end;
+     end;
 
 end;
 
@@ -531,20 +536,24 @@ procedure TfrmInventario.lv_inventarioItemClickEx(const Sender: TObject;
   ItemIndex: Integer; const LocalClickPos: TPointF;
   const ItemObject: TListItemDrawable);
 begin
-      if TListItemText(ItemObject).Text = TListItemText(lv_inventario.Items[ItemIndex].Objects.FindDrawable('txtLocation')).Text then
+    if ItemObject <> nil then
     begin
-       if NOT Assigned(frmInventarioCad) then
-          Application.CreateForm(TfrmInventarioCad, frmInventarioCad);
+        //if TListItemText(ItemObject).Text = TListItemText(lv_inventario.Items[ItemIndex].Objects.FindDrawable('txtLocation')).Text then
+        if ItemObject.Name = 'txtLocation' then
+        begin
+           if NOT Assigned(frmInventarioCad) then
+              Application.CreateForm(TfrmInventarioCad, frmInventarioCad);
 
-          frmInventarioCad.Id_cat_global := id_cat_global.ToInteger;
-          frmInventarioCad.Equip_Id := TListView(sender).Items[ItemIndex].Tag;
-          //frmInventarioCad.id_emp := TListView(sender).Items[ItemIndex].TagString.ToInteger;
-          frmInventarioCad.edtAsset.Text := TListItemText(lv_inventario.Items[ItemIndex].Objects.FindDrawable('txtTag')).Text;
-          frmInventarioCad.lblDescricao.Text := TListItemText(lv_inventario.Items[ItemIndex].Objects.FindDrawable('txtEquipment')).Text;
-          frmInventarioCad.lblLocation.Tag := frmMainscreen.cod_usuario_logado;
-          frmInventarioCad.edtLocation.Text := TListItemText(lv_inventario.Items[ItemIndex].Objects.FindDrawable('txtLocation')).Text;
-          frmInventarioCad.edtBrand.Text := TListItemText(lv_inventario.Items[ItemIndex].Objects.FindDrawable('txtBrand')).Text;
-          frmInventarioCad.Show;
+              frmInventarioCad.Id_cat_global := id_cat_global.ToInteger;
+              frmInventarioCad.Equip_Id := TListView(sender).Items[ItemIndex].Tag;
+              //frmInventarioCad.id_emp := TListView(sender).Items[ItemIndex].TagString.ToInteger;
+              frmInventarioCad.edtAsset.Text := TListItemText(lv_inventario.Items[ItemIndex].Objects.FindDrawable('txtTag')).Text;
+              frmInventarioCad.lblDescricao.Text := TListItemText(lv_inventario.Items[ItemIndex].Objects.FindDrawable('txtEquipment')).Text;
+              frmInventarioCad.lblLocation.Tag := frmMainscreen.cod_usuario_logado;
+              frmInventarioCad.edtLocation.Text := TListItemText(lv_inventario.Items[ItemIndex].Objects.FindDrawable('txtLocation')).Text;
+              frmInventarioCad.edtBrand.Text := TListItemText(lv_inventario.Items[ItemIndex].Objects.FindDrawable('txtBrand')).Text;
+              frmInventarioCad.Show;
+        end;
     end;
 end;
 

@@ -511,13 +511,13 @@ begin
 
               frmInventarioCad.Id_cat_global := id_cat_global.ToInteger;
               frmInventarioCad.id_emp_pro := TListView(sender).Items[ItemIndex].Tag;
-             // frmInventarioCad.id_emp := TListView(sender).Items[ItemIndex].TagString.ToInteger;
+              frmInventarioCad.id_emp := TListView(sender).Items[ItemIndex].TagString.ToInteger;
               frmInventarioCad.edtAsset.Text := TListItemText(lvInventario.Items[ItemIndex].Objects.FindDrawable('txtTag')).Text;
               frmInventarioCad.lblDescricao.Text := TListItemText(lvInventario.Items[ItemIndex].Objects.FindDrawable('txtEquipment')).Text;
               frmInventarioCad.lblLocation.Tag := frmMainscreen.cod_usuario_logado;
               frmInventarioCad.edtLocation.Text := TListItemText(lvInventario.Items[ItemIndex].Objects.FindDrawable('txtLocation')).Text;
               frmInventarioCad.edtBrand.Text := TListItemText(lvInventario.Items[ItemIndex].Objects.FindDrawable('txtBrand')).Text;
-
+              frmInventarioCad.lblDateEntrada.Text := TListItemText(lvInventario.Items[ItemIndex].Objects.FindDrawable('txtData')).Text;
               frmInventarioCad.executeOnClose := RefreshListaEquips;
 
               frmInventarioCad.Show;
@@ -659,13 +659,13 @@ begin
     for i := 0 to jsonArray.Size -1 do
       begin
       AddEquipamentos(jsonArray.Get(i).GetValue<string>('Empre_Equip_Id', ''),
-                      jsonArray.Get(i).GetValue<string>('Equip_Id', ''),
+                      jsonArray.Get(i).GetValue<string>('Empre_Id', ''),
                       jsonArray.Get(i).GetValue<string>('DESCRIPTION', ''),
                       jsonArray.Get(i).GetValue<string>('SUPPLIER', ''),
                       jsonArray.Get(i).GetValue<string>('name', ''),
                       jsonArray.Get(i).GetValue<string>('SERIAL_NUMBER', ''),
                       jsonArray.Get(i).GetValue<string>('SNAP_TAG', ''),
-                      jsonArray.Get(i).GetValue<string>('Empre_DT_Leasing', '01/01/2000 00:00:00')
+                      jsonArray.Get(i).GetValue<string>('Empre_DT_Leasing', '01/01/2000')
                       );
       end;
        img_no_equip.Visible := jsonarray.size = 0;

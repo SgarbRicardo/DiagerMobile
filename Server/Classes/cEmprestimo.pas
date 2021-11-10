@@ -27,7 +27,8 @@ type
         FCAT_ID: integer;
         FEMPRE_IND_FOTO : STRING;
         function IsNumeric(S: String): Boolean;
-    function Excluir(out erro: string): Boolean;
+        function Excluir(out erro: string): Boolean;
+
 
 
     public
@@ -68,7 +69,6 @@ constructor TEmprestimo.Create(Conn: TFDConnection);
 begin
       Fconn := Conn;
 end;
-
 
 function TEmprestimo.Inserir(out erro: string): Boolean;
 var
@@ -131,6 +131,7 @@ end;
 function TEmprestimo.Alterar(out erro: string): Boolean;
 var
  qry : TFDQuery;
+
 begin
        if (Empre_Equip_Id.ToString = '') then
       begin
@@ -162,17 +163,17 @@ begin
             try
                 with qry do
                 begin
+
                    Fconn.StartTransaction;
                    Active:= false;
                    sql.Clear;
                    sql.Add('UPDATE mf_control_db.Leasing SET ');
                    sql.Add('EMPRE_EQUIP_ID = :EMPRE_EQUIP_ID, EMPRE_USER_ID= :EMPRE_USER_ID, Empre_DT_Leasing=:Empre_DT_Leasing');
-                   SQL.Add('WHERE EMPRE_ID = :EMPRE_ID and EMPRE_USER_ID = '+QuotedStr(EMPRE_LOCATARIO));
+                   SQL.Add('WHERE EMPRE_ID  = '+(EMPRE_ID.ToString));
 
-                   ParamByName('EMPRE_ID').Value := EMPRE_ID;
                    ParamByName('EMPRE_EQUIP_ID').Value := Empre_Equip_Id;
                    ParamByName('EMPRE_USER_ID').Value := EMPRE_LOCATARIO;
-                   ParamByName('Empre_DT_Leasing').Value := FormatDateTime('yyyy-mm-dd hh:nn:ss', EMPRE_DT_LOCACAO);
+                   ParamByName('Empre_DT_Leasing').Value := FormatDateTime('yyyy-mm-dd hh:nn:ss', now);
                    ExecSQL;
 
                    FConn.Commit;
@@ -203,7 +204,7 @@ begin
 
                    ParamByName('EMPRE_EQUIP_ID').Value := Equip_Id;
                    ParamByName('EMPRE_USER_ID').Value := EMPRE_LOCATARIO;
-                   ParamByName('Empre_DT_Leasing').Value := FormatDateTime('dd-mm-yyyy hh:nn:ss', EMPRE_DT_LOCACAO);
+                   ParamByName('Empre_DT_Leasing').Value := FormatDateTime('yyyy-mm-dd hh:nn:ss', now);
                    ExecSQL;
 
                    Fconn.Commit;

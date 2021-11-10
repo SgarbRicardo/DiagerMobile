@@ -1,0 +1,459 @@
+unit cEmprestimo;
+
+interface
+
+uses FireDAC.Comp.Client, FireDAC.DApt, System.SysUtils, FMX.GRAPHICS;
+
+type
+    TEmprestimo = class
+    private
+        Fconn : TFDConnection;
+        FEMPRE_LOGIN_ID: INTEGER;
+        FEMPRE_DT_DEVOLUCAO_PREV: TdateTime;
+        FEMPRE_LOCATARIO: STRING;
+        FEmpre_Equip_Id: INTEGER;
+        FEquip_Id : integer;
+        FEMPRE_SNAPON_TAG: String;
+        FEMPRE_QTD: STRING;
+        FEMPRE_DT_ULTIMA_SINC: TDATETIME;
+        FEMPRE_IND_SINC: CHAR;
+        FEMPRE_DT_LOCACAO: TDatetime;
+        FEMPRE_ID: Integer;
+        FEMPRE_DT_DEVOLUCAO: TdateTime;
+        FCOD_USUARIO : iNTEGER;
+        FDATA_ATE: STRING;
+        FDATA_DE: STRING;
+        FPROD_DESCRICAO: string;
+        FCAT_ID: integer;
+        FEMPRE_IND_FOTO : STRING;
+        function IsNumeric(S: String): Boolean;
+    function Excluir(out erro: string): Boolean;
+
+
+    public
+
+        constructor Create (Conn: TFDConnection);
+        property PROD_DESCRICAO : string read FPROD_DESCRICAO WRITE FPROD_DESCRICAO;
+        property EMPRE_ID : Integer read FEMPRE_ID WRITE FEMPRE_ID;
+        property EMPRE_LOCATARIO : STRING read FEMPRE_LOCATARIO WRITE FEMPRE_LOCATARIO;
+        property EMPRE_QTD : STRING read FEMPRE_QTD WRITE FEMPRE_QTD;
+        property EMPRE_DT_LOCACAO : TDATETIME read FEMPRE_DT_LOCACAO WRITE FEMPRE_DT_LOCACAO;
+        property EMPRE_DT_DEVOLUCAO : TdateTime read FEMPRE_DT_DEVOLUCAO WRITE FEMPRE_DT_DEVOLUCAO;
+        property EMPRE_DT_DEVOLUCAO_PREV : TdateTime read FEMPRE_DT_DEVOLUCAO_PREV WRITE FEMPRE_DT_DEVOLUCAO_PREV;
+        property EMPRE_LOGIN_ID : INTEGER read FEMPRE_LOGIN_ID WRITE FEMPRE_LOGIN_ID;
+        property EMPRE_DT_ULTIMA_SINC : TDATETIME read FEMPRE_DT_ULTIMA_SINC WRITE FEMPRE_DT_ULTIMA_SINC;
+        property Empre_Equip_Id : INTEGER READ FEmpre_Equip_Id WRITE FEmpre_Equip_Id;
+        property Equip_Id : INTEGER READ FEquip_Id WRITE FEquip_Id;
+        property EMPRE_SNAPON_TAG : string READ FEMPRE_SNAPON_TAG WRITE FEMPRE_SNAPON_TAG;
+        property EMPRE_IND_SINC  : CHAR read FEMPRE_IND_SINC WRITE FEMPRE_IND_SINC;
+        property COD_USUARIO : integer read FCOD_USUARIO write FCOD_USUARIO;
+        property DATA_DE : STRING READ  FDATA_DE WRITE FDATA_DE;
+        property DATA_ATE : STRING READ  FDATA_ATE WRITE FDATA_ATE;
+        PROPERTY CAT_ID : integer READ FCAT_ID WRITE FCAT_ID;
+        property EMPRE_IND_FOTO : STRING READ FEMPRE_IND_FOTO WRITE FEMPRE_IND_FOTO;
+
+        function ListarEmprestimo(busca: string;out erro: string): TFDQuery;
+        function ListarTodosEmprestimo(busca, order_by: string; out erro: string): TFDQuery;
+        function Inserir(out erro: string): Boolean;
+        function Alterar(out erro: string): Boolean;
+        //function Excluir(out erro: string): Boolean;
+end;
+
+implementation
+
+{ TEmprestimo }
+
+
+constructor TEmprestimo.Create(Conn: TFDConnection);
+begin
+      Fconn := Conn;
+end;
+
+
+function TEmprestimo.Inserir(out erro: string): Boolean;
+var
+  qry : TFDQuery;
+begin
+     //validações
+//    if DESCRICAO = '' then
+//      begin
+//        erro:= 'Informe a descrição da Categoria: ';
+//        result := false;
+//        exit;
+//      end;
+
+      if (Empre_Equip_Id <= 0) then
+      begin
+        erro:= 'Ferramenta não cadastrada ';
+        result := false;
+        exit;
+      end;
+
+      if (EMPRE_LOGIN_ID.ToString = '') then
+      begin
+        erro:= 'Erro ao não encontrar usuário informado ';
+        result := false;
+        exit;
+      end;
+
+      try
+          try
+              qry := TFDQuery.Create(nil);
+              qry.Connection := FConn;
+
+              with qry do
+              begin
+                 Active:= false;
+                 sql.Clear;
+                 sql.Add('INSERT INTO mf_control_db.Leasing (EMPRE_ID, EMPRE_EQUIP_ID,EMPRE_DT_LEASING,EMPRE_DT_RETURN,EMPRE_USER_ID)');
+                 SQL.Add('VALUES(:EMPRE_ID,:EMPRE_EQUIP_ID, :EMPRE_DT_LEASING, :EMPRE_DT_DEVOLUCAO, :EMPRE_DT_RETURN, :EMPRE_USER_ID)');
+                 ParamByName('EMPRE_ID').Value := EMPRE_ID;
+                 ParamByName('EMPRE_EQUIP_ID').Value := Empre_Equip_Id;
+                 ParamByName('EMPRE_DT_LEASING').Value := EMPRE_DT_LOCACAO;
+                 ParamByName('EMPRE_DT_RETURN').Value := EMPRE_DT_DEVOLUCAO;
+                 ParamByName('EMPRE_USER_ID').Value := EMPRE_LOGIN_ID;
+                 ExecSQL;
+              end;
+              result := true;
+              erro := '';
+
+           except on ex:exception do
+           begin
+              Result := false;
+              erro := 'Erro ao Inserir a Emprestimo de ferramentas ' + ex.Message;
+           end;
+           end;
+      finally
+        qry.DisposeOf;
+      end;
+end;
+
+function TEmprestimo.Alterar(out erro: string): Boolean;
+var
+ qry : TFDQuery;
+begin
+       if (Empre_Equip_Id.ToString = '') then
+      begin
+        erro:= 'não á emprestismo com esse numero de registro ';
+        result := false;
+        exit;
+      end;
+
+       if (Equip_Id.ToString = '') then
+      begin
+        erro:= 'Equipamento nao encontrado ';
+        result := false;
+        exit;
+      end;
+
+       if (EMPRE_LOCATARIO = '') then
+      begin
+        erro:= 'Erro ao encontrar usuário informado ';
+        result := false;
+        exit;
+      end;
+
+      try
+        qry := TFDQuery.Create(nil);
+        qry.Connection := FConn;
+
+        if EMPRE_ID > 0 then
+        begin
+            try
+                with qry do
+                begin
+                   Fconn.StartTransaction;
+                   Active:= false;
+                   sql.Clear;
+                   sql.Add('UPDATE mf_control_db.Leasing SET ');
+                   sql.Add('EMPRE_EQUIP_ID = :EMPRE_EQUIP_ID, EMPRE_USER_ID= :EMPRE_USER_ID, Empre_DT_Leasing=:Empre_DT_Leasing');
+                   SQL.Add('WHERE EMPRE_ID  = '+(EMPRE_ID.ToString));
+
+                 //  ParamByName('EMPRE_ID').Value := EMPRE_ID;
+                   ParamByName('EMPRE_EQUIP_ID').Value := Empre_Equip_Id;
+                   ParamByName('EMPRE_USER_ID').Value := EMPRE_LOCATARIO;
+                   ParamByName('Empre_DT_Leasing').Value := FormatDateTime('dd/mm/yyyy hh:nn:ss', now);
+                   ExecSQL;
+
+                   FConn.Commit;
+                end;
+                result := true;
+                erro := '';
+
+             except on ex:exception do
+               begin
+                  fconn.Rollback;
+                  Result := false;
+                  erro := 'Erro ao alterar o Emprestimo de ferramentas; ' + ex.Message;
+               end;
+             end;
+        end
+        else
+        begin
+            try
+                with qry do
+                begin
+                if not Fconn.InTransaction then
+                   Fconn.StartTransaction;
+
+                   Active:= false;
+                   sql.Clear;
+                   sql.Add('Insert into mf_control_db.Leasing (EMPRE_EQUIP_ID,EMPRE_USER_ID, Empre_DT_Leasing)');
+                   sql.Add('VALUES (:EMPRE_EQUIP_ID, :EMPRE_USER_ID,:Empre_DT_Leasing)');
+
+                   ParamByName('EMPRE_EQUIP_ID').Value := Equip_Id;
+                   ParamByName('EMPRE_USER_ID').Value := EMPRE_LOCATARIO;
+                   ParamByName('Empre_DT_Leasing').Value := FormatDateTime('yyyy-mm-dd hh:nn:ss', now);
+                   ExecSQL;
+
+                   Fconn.Commit;
+                end;
+
+                result := true;
+                erro := '';
+
+             except on ex:exception do
+               begin
+                   Fconn.Rollback;
+                  Result := false;
+                  erro := 'Erro ao Inserir o Novo Equipamento para seu usuário ' + ex.Message;
+               end;
+             end;
+        end
+      finally
+          qry.DisposeOf
+      end;
+
+end;
+
+function TEmprestimo.Excluir(out erro: string): Boolean;
+var
+  qry : TFDQuery;
+begin
+{
+     //validações
+    if DESCRICAO = '' then
+      begin
+        erro:= 'Informe a descrição da Categoria: ';
+        result := false;
+        exit;
+      end;
+       if ID_CATEGORIA = 0 then
+      begin
+        erro:= 'Informe o ID da Categoria: ';
+        result := false;
+        exit;
+      end;
+      try
+          try
+              qry := TFDQuery.Create(nil);
+              qry.Connection := FConn;
+
+              //VALIDAR SE CATEGORIA POSSUI LANCAMENTOS
+
+              with qry do
+              begin
+                 Active:= false;
+                 sql.Clear;
+                 sql.Add('DELETE FROM TAB_CATEGORIA');
+                 SQL.Add('WHERE ID_CATEGORIA = :ID_CATEGORIA');
+                 ParamByName('ID_CATEGORIA').Value := ID_CATEGORIA;
+                 ExecSQL;
+              end;
+              result := true;
+              erro := '';
+
+           except on ex:exception do
+           begin
+              Result := false;
+              erro := 'Erro ao excluir a categoria; ' + ex.Message;
+           end;
+           end;
+      finally
+        qry.DisposeOf;
+      end;         }
+end;
+
+function TEmprestimo.ListarEmprestimo(busca: string;out erro: string): TFDQuery;
+var
+  qry : TFDQuery;
+begin
+        try
+           qry := TFDQuery.Create(nil);
+           qry.Connection := FConn;
+
+          if COD_USUARIO > 0 then
+          begin
+             with qry do
+             begin
+               Active:= false;
+               sql.Clear;
+               SQL.Add('SELECT E.DESCRIPTION, L.Empre_Equip_Id, L.Empre_Id, E.SUPPLIER,E.SNAP_TAG, C.CAT_DESCRIPTION, E.SERIAL_NUMBER, U.name, L.Empre_DT_Leasing,L.Empre_DT_Return, E.PHOTO');
+               SQL.Add('FROM [MF_Control].[mf_control_db].[Leasing] L');
+               SQL.Add(' JOIN [MF_Control].[mf_control_db].Equipment E ON (L.Empre_Equip_Id = E.Equip_Id)');
+               SQL.Add(' JOIN [MF_Control].[mf_control_db].Category C  ON (E.Cat_Id = C.Cat_Id)');
+               SQL.Add(' JOIN [MF_Control].[mf_control_db].userP U ON (L.Empre_User_Id = U.user_id)');
+               SQL.Add(' WHERE 1 = 1');
+
+              begin
+                  sql.Add('AND L.Empre_User_Id = :id_usuario');
+                  ParamByName('id_usuario').Value := COD_USUARIO;
+              end;
+
+              if cat_id > 0 then
+              begin
+                  sql.Add('AND E.Cat_Id = :cat_id');
+                  ParamByName('cat_id').Value := cat_id;
+
+                try
+                  ParamByName('cat_id').value := cat_id;
+                except
+                  ParamByName('cat_id').Value := 0;
+                end;
+              end;
+                  sql.Add('order by E.SNAP_TAG');
+                  Active := true;
+             end
+          end
+          else
+             with qry do
+              begin
+                 SQL.Clear;
+                 Active := false;
+                 SQL.Add('SELECT E.Equip_Id ,E.DESCRIPTION, E.SUPPLIER,E.SNAP_TAG, C.CAT_DESCRIPTION, E.SERIAL_NUMBER,c.Cat_Id, E.PHOTO');
+                 SQL.Add('FROM [MF_Control].[mf_control_db].[Equipment] E');
+                 SQL.Add('INNER JOIN [MF_Control].[mf_control_db].Category C  ON (E.Cat_Id = C.Cat_Id)');
+
+                 if cat_id > 0 then
+                  begin
+                      sql.Add('AND E.Cat_Id = :cat_id');
+                      ParamByName('cat_id').Value := cat_id;
+
+                    try
+                      ParamByName('cat_id').value := cat_id;
+                    except
+                      ParamByName('cat_id').Value := 0;
+                    end;
+                  end;
+                  if StrToIntDef(busca,0)<> 0 then
+                  begin
+                    qry.SQL.Add('AND E.SNAP_TAG LIKE :SNAP_TAG');
+                    qry.ParamByName('SNAP_TAG').Value := '%' + busca + '%';
+                  end
+                  else
+                  if busca <> '' then
+                  begin
+                    qry.SQL.Add('AND E.DESCRIPTION LIKE :DESCRIPTION');
+                    qry.ParamByName('DESCRIPTION').Value := '%' + busca + '%';
+                  end;
+
+                {  if order_by = '' then
+                  sql.Add('ORDER BY E.SNAP_TAG desc')
+                else
+                  sql.Add('ORDER BY' + order_by);
+                        }
+                  active := true;
+              end;
+
+             Result := qry;
+             erro := '';
+
+           except on ex:exception do
+             begin
+                Result := nil;
+                erro := 'Erro ao Consultar o Equipamento ' + ex.Message;
+             end;
+         end;
+end;
+
+function TEmprestimo.IsNumeric(S : String) : Boolean;
+begin
+    Result := True;
+    Try
+       StrToInt(S);
+    Except
+       Result := False;
+    end;
+end;
+
+function TEmprestimo.ListarTodosEmprestimo(busca,order_by: string; out erro : string): TFDQuery;
+var
+  qry : TFDQuery;
+  nr : integer;
+begin
+
+        try
+           qry := TFDQuery.Create(nil);
+           qry.Connection := FConn;
+
+           with qry do
+           begin
+             Active:= false;
+             sql.Clear;
+             SQL.Add('SELECT E.Equip_Id ,E.DESCRIPTION, E.SUPPLIER,E.SNAP_TAG, C.CAT_DESCRIPTION, E.SERIAL_NUMBER,c.Cat_Id, E.PHOTO');
+             SQL.Add('FROM [MF_Control].[mf_control_db].[Equipment] E');
+             SQL.Add('INNER JOIN [MF_Control].[mf_control_db].Category C  ON (E.Cat_Id = C.Cat_Id)');
+             {
+             SQL.Add('SELECT E.DESCRIPTION, L.Empre_Equip_Id, L.Empre_Id, E.SUPPLIER,E.SNAP_TAG, C.CAT_DESCRIPTION, E.SERIAL_NUMBER, U.name, L.Empre_DT_Leasing,L.Empre_DT_Return, E.PHOTO');
+             SQL.Add('FROM [MF_Control].[mf_control_db].[Equipment] E');
+             SQL.Add(' JOIN [MF_Control].[mf_control_db].Equipment E ON (L.Empre_Equip_Id = E.Equip_Id)');
+             SQL.Add(' JOIN [MF_Control].[mf_control_db].Category C  ON (E.Cat_Id = C.Cat_Id)');
+             SQL.Add(' JOIN [MF_Control].[mf_control_db].userP U ON (L.Empre_User_Id = U.user_id)');
+             SQL.Add(' WHERE 1 = 1');   }
+
+            if cat_id > 0 then
+            begin
+                sql.Add('AND E.Cat_Id = :cat_id');
+                ParamByName('cat_id').Value := cat_id;
+
+              try
+                ParamByName('cat_id').value := cat_id;
+              except
+                ParamByName('cat_id').Value := 0;
+              end;
+            end;
+
+
+            if StrToIntDef(busca,0)<> 0 then
+            begin
+              qry.SQL.Add('AND E.SNAP_TAG LIKE :SNAP_TAG');
+              qry.ParamByName('SNAP_TAG').Value := '%' + busca + '%';
+            end
+            else
+            if busca <> '' then
+            begin
+              qry.SQL.Add('AND E.DESCRIPTION LIKE :DESCRIPTION');
+              qry.ParamByName('DESCRIPTION').Value := '%' + busca + '%';
+            end;
+
+         {   if order_by = '' then
+              sql.Add('ORDER BY E.SNAP_TAG desc')
+            else
+              sql.Add('ORDER BY' + order_by);
+
+            if EMPRE_IND_FOTO  = 'S' then
+            BEGIN
+              sql.Add('AND E.Equip_Photo = :Equip_Photo');
+              ParamByName('Equip_Photo').Value := EMPRE_IND_FOTO;
+             try
+              ParamByName('Equip_Photo').value := EMPRE_IND_FOTO;
+             except
+              ParamByName(', NULL AS Equip_Photo');
+              end;
+            end;       }
+           Active := true;
+           end;
+
+           Result := qry;
+           erro := '';
+
+         except on ex:exception do
+           begin
+              Result := nil;
+              erro := 'Erro ao Consultar EMPRESTIMOS; ' + ex.Message;
+           end;
+        end;
+
+end;
+
+end.

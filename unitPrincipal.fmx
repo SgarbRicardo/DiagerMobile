@@ -9597,8 +9597,8 @@ object frmMainscreen: TfrmMainscreen
           object ListBox1: TListBox
             Align = Scale
             Margins.Bottom = 250.000000000000000000
-            Position.X = 14.027956008911130000
-            Size.Width = 405.000396728515600000
+            Position.X = 14.027956962585450000
+            Size.Width = 405.000427246093800000
             Size.Height = 789.473754882812500000
             Size.PlatformDefault = False
             StyleLookup = 'transparentlistboxstyle'
@@ -10623,6 +10623,7 @@ object frmMainscreen: TfrmMainscreen
         Size.Height = 577.000000000000000000
         Size.PlatformDefault = False
         Stroke.Kind = None
+        Visible = False
         object Layout2: TLayout
           Align = Client
           Margins.Top = 57.000000000000000000

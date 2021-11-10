@@ -428,12 +428,25 @@ end;
 
 procedure TfrmMainscreen.FormShow(Sender: TObject);
 begin
-    layout_detalhe.Visible := false;
-    ListBoxItem2.Visible := false;
-    ListBoxItem3.Visible := false;
-    ListBoxItem4.Visible := false;
-    ListBoxItem5.Visible := false;
-    ListBoxItem8.Visible := false;
+    if frmLogin.nivel_acesso <> 'Tester' then
+    begin
+      layout_detalhe.Visible := false;
+      ListBoxItem2.Visible := false;
+      ListBoxItem3.Visible := false;
+      ListBoxItem4.Visible := false;
+      ListBoxItem5.Visible := false;
+      ListBoxItem8.Visible := false;
+    end
+    else
+    if frmLogin.nivel_acesso = 'Admin' then
+    begin
+      layout_detalhe.Visible := false;
+      ListBoxItem2.Visible := false;
+      ListBoxItem3.Visible := false;
+      ListBoxItem4.Visible := false;
+      ListBoxItem5.Visible := false;
+      ListBoxItem8.Visible := false;
+    end;
 end;
 
 procedure TfrmMainscreen.img_NotificationClick(Sender: TObject);

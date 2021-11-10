@@ -295,6 +295,7 @@ begin
           Active := false;
           SQL.Add('SELECT user_id, email, [user], Department, access_level, name, login_until');
           SQL.Add('From [MF_Control].[mf_control_db].[userP]');
+          SQL.Add('where access_level <>''xxx''');
 
         if order_by = '' then
             SQL.Add('ORDER BY user_id')

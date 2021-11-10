@@ -160,13 +160,13 @@ begin
         edtBrand.Text := '';
         edtCategory.Text :='';
         edtVersion.Text :='';
-        lblDateEntrada.Text := FormatDateTime('dd/mm/yyyy hh:nn:ss', now);
+   //     lblDateEntrada.Text := FormatDateTime('dd/mm/yyyy hh:nn:ss',now );
         lblTituloCad.Text := ' New Asset';
         rectLixeira.Visible := false;
      end
      else
         lblTituloCad.Text := ' Edit Asset';
-        lblDateEntrada.Text := FormatDateTime('dd/mm/yyyy hh:nn:ss', now);
+        //lblDateEntrada.Text := '';
         rectLixeira.Visible := false;
 end;
 
@@ -203,13 +203,13 @@ begin
         dm.Request_Inventario.AddParameter('Empre_Equip_Id', id_emp_pro.ToString);
         dm.Request_Inventario.AddParameter('Empre_Leasing', idusuario.ToString);
         dm.Request_Inventario.AddParameter('Empre_User_Id', idusuario.ToString);
-        dm.request_inventario.addParameter('Empre_DT_Leasing',lblDateEntrada.Text + ':00');
+      //  dm.request_inventario.addParameter('Empre_DT_Leasing',lblDateEntrada.Text);
         dm.Request_Inventario.Execute;
       end;
 
     except on ex:exception do
       begin
-          showmessage('Erro ao acessar o servidor: ' + ex.Message);
+          showmessage('Erro ao acessar gravar: ' + ex.Message);
           exit;
       end;
     end;

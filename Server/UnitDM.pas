@@ -106,7 +106,7 @@ type
                        out status: integer): string;
     function listaUsuario(out status_code: integer): string;
     function EditarEmprestimo(Empre_id,Empre_equip_id,Empre_Leasing,
-                              Empre_user_id,id_equip,Empre_DT_Leasing: string; out status: integer): string;
+                              Empre_user_id,id_equip{,Empre_DT_Leasing}: string; out status: integer): string;
     function ListaTask(make, busca: string;
                        out status_code: integer): string;
     function EditarUsuario(id_usuario, campo, valor: string;
@@ -806,7 +806,7 @@ begin
                                     params.ItemsString['Empre_Leasing'].AsString,
                                     params.itemsString['Empre_User_Id'].asString,
                                     params.itemsString['id_equip'].asString,
-                                    params.ItemsString['Empre_DT_Leasing'].asString,
+                                   // params.ItemsString['Empre_DT_Leasing'].asstring,
                                     StatusCode)
      else
       // patch..........
@@ -1341,7 +1341,7 @@ begin
         u.DisposeOf;
       end;
 end;
-function Tdm.EditarEmprestimo(Empre_id,Empre_equip_id,Empre_Leasing, Empre_user_id,id_equip, Empre_DT_Leasing : string; out status: integer): string;
+function Tdm.EditarEmprestimo(Empre_id,Empre_equip_id,Empre_Leasing, Empre_user_id,id_equip{ Empre_DT_Leasing} : string; out status: integer): string;
 var
   e : TEmprestimo;
   json : TJsonObject;
@@ -1350,7 +1350,7 @@ begin
       try
           e := TEmprestimo.Create(dm.conn);
           json := TJsonObject.Create;
-          if (Empre_id = '') or(Empre_equip_id = '')  or (Empre_user_id = '') or (id_equip = '') or (Empre_DT_Leasing = '')then
+          if (Empre_id = '') or(Empre_equip_id = '')  or (Empre_user_id = '') or (id_equip = '') {or (Empre_DT_Leasing = '')}then
           begin
             json.AddPair('retorno', 'Informe todos os parametros');
             json.AddPair('Empre_id', '0');
@@ -1392,7 +1392,8 @@ begin
           e.Empre_Equip_Id := Empre_equip_id.ToInteger;
           e.EMPRE_LOCATARIO := Empre_user_id;
           e.Equip_Id := id_equip.ToInteger;
-          e.EMPRE_DT_LOCACAO := TFunctions.StrToData(Empre_DT_Leasing, 'dd/mm/yyyy hh:nn');
+        //  e.EMPRE_DT_LOCACAO := StrToDate(Empre_DT_Leasing,FormatSettings);
+       //   e.EMPRE_DT_LOCACAO := TFunctions.StrToData(Empre_DT_Leasing, 'dd/mm/yyyy');
 
           if NOT e.Alterar (ERRO) then
           begin
